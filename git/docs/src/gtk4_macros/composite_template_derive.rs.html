@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/composite_template_derive.rs`."><title>composite_template_derive.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (0ecbd0605 2024-02-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-c37d3936c59ababd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/composite_template_derive.rs`."><title>composite_template_derive.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (516b6162a 2024-03-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -340,32 +340,32 @@
         <a href="attribute_parser.rs.html#16">TemplateSource::File</a>(file) =&gt; {
             <span class="kw">let </span>template = <span class="kw">if </span>file.ends_with(<span class="string">".blp"</span>) {
                 <span class="kw">if </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(feature = <span class="string">"blueprint"</span>) {
-                    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+                    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                         #<span class="macro">crate_ident::gtk4_macros::include_blueprint!</span>(#file).as_bytes()
                     }
                 } <span class="kw">else </span>{
                     <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"blueprint feature is disabled"</span>)
                 }
             } <span class="kw">else </span>{
-                <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+                <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                     <span class="macro">include_bytes!</span>(#file)
                 }
             };
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                 #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                         klass,
                         #template,
                 );
             }
         }
-        <a href="attribute_parser.rs.html#17">TemplateSource::Resource</a>(resource) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+        <a href="attribute_parser.rs.html#17">TemplateSource::Resource</a>(resource) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
             #crate_ident::subclass::widget::WidgetClassExt::set_template_from_resource(
                 klass,
                 <span class="kw-2">&amp;</span>#resource,
             );
         },
-        <a href="attribute_parser.rs.html#18">TemplateSource::Xml</a>(template) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+        <a href="attribute_parser.rs.html#18">TemplateSource::Xml</a>(template) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
             #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                 klass,
                 #template.as_bytes(),
@@ -376,7 +376,7 @@
             <span class="kw">let </span>template =
                 <a href="blueprint.rs.html#10-31">compile_blueprint</a>(<a href="#55">blueprint</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html#method.as_bytes">as_bytes</a>()).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"can't compile blueprint"</span>);
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                 #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                     klass,
                     #template.as_bytes(),
@@ -460,7 +460,7 @@
                 }
             });
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                 klass.bind_template_child_with_offset(
                     <span class="kw-2">&amp;</span>#value_id,
                     #value_internal,
@@ -470,7 +470,7 @@
         }
     });
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
         #(#recurse)*
     }
 }
@@ -483,7 +483,7 @@
             <span class="kw">let </span>ty = <span class="kw-2">&amp;</span><a href="#161">field</a>.ty;
             <span class="kw">let </span>ident = <span class="kw-2">&amp;</span><a href="#161">field</a>.ident;
             <span class="kw">let </span>type_err = <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"Template child with id `{}` has incompatible type. XML has {{:?}}, struct has {{:?}}"</span>, field.id());
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
                 <span class="kw">let </span>ty = &lt;&lt;#ty <span class="kw">as </span>::std::ops::Deref&gt;::Target <span class="kw">as </span>#crate_ident::glib::prelude::StaticType&gt;::static_type();
                 <span class="kw">let </span>child_ty = #crate_ident::glib::prelude::ObjectExt::type_(::std::ops::Deref::deref(<span class="kw-2">&amp;</span>imp.#ident));
                 <span class="kw">if </span>!child_ty.is_a(ty) {
@@ -493,7 +493,7 @@
         }
     });
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
         #(#recurse)*
     }
 }
@@ -547,7 +547,7 @@
     <span class="kw">let </span>template_children = <a href="#126-156">gen_template_child_bindings</a>(<span class="kw-2">&amp;</span><a href="#212">attributed_fields</a>);
     <span class="kw">let </span>checks = <a href="#158-179">gen_template_child_type_checks</a>(<span class="kw-2">&amp;</span><a href="#212">attributed_fields</a>);
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
         <span class="kw">impl </span>#crate_ident::subclass::widget::CompositeTemplate <span class="kw">for </span>#name {
             <span class="kw">fn </span>bind_template(klass: <span class="kw-2">&amp;mut </span><span class="self">Self</span>::Class) {
                 #set_template

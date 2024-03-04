@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/template_callbacks_attribute.rs`."><title>template_callbacks_attribute.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (0ecbd0605 2024-02-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-c37d3936c59ababd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/template_callbacks_attribute.rs`."><title>template_callbacks_attribute.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (516b6162a 2024-03-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -530,7 +530,7 @@
                     <span class="kw">let </span>index_err_msg = <span class="macro">format!</span>(
                         <span class="string">"Failed to get argument `{ident}` at index {index}: Closure invoked with only {{}} arguments"</span>,
                     );
-                    <span class="macro">quote! </span>{
+                    <span class="macro">quote!</span> {
                         <span class="kw">let </span>#name = &lt;[#crate_ident::glib::Value]&gt;::get(<span class="kw-2">&amp;</span>values, #index)
                             .unwrap_or_else(|| <span class="macro">panic!</span>(#index_err_msg, values.len()));
                         <span class="kw">let </span>#name = #crate_ident::glib::Value::get::&lt;#ty&gt;(#name)
@@ -543,17 +543,17 @@
                             <span class="string">"Wrong type for `self` in template callback `{ident}`: {{:?}}"</span>,
                         );
                         <span class="kw">if </span>receiver.reference.is_none() {
-                            <span class="prelude-val">Some</span>(unwrap_value(<span class="macro">quote! </span>{ #self_ty }, err_msg))
+                            <span class="prelude-val">Some</span>(unwrap_value(<span class="macro">quote!</span> { #self_ty }, err_msg))
                         } <span class="kw">else </span>{
                             <span class="kw">if </span>receiver.mutability.is_some() {
                                 <span class="macro">emit_error!</span>(receiver, <span class="string">"Receiver cannot be a mutable reference"</span>);
                                 <span class="kw">return </span><span class="prelude-val">None</span>;
                             }
-                            <span class="kw">let </span>self_value_ty = <span class="macro">quote! </span>{
+                            <span class="kw">let </span>self_value_ty = <span class="macro">quote!</span> {
                                 <span class="kw-2">&amp;</span>&lt;#self_ty <span class="kw">as </span>#crate_ident::glib::subclass::types::FromObject&gt;::FromObjectType
                             };
                             <span class="kw">let </span><span class="kw-2">mut </span>unwrap = unwrap_value(self_value_ty, err_msg);
-                            unwrap.append_all(<span class="macro">quote! </span>{
+                            unwrap.append_all(<span class="macro">quote!</span> {
                                 <span class="kw">let </span>#name = &lt;#self_ty <span class="kw">as </span>#crate_ident::glib::subclass::types::FromObject&gt;::from_object(#name);
                             });
                             <span class="prelude-val">Some</span>(unwrap)
@@ -578,11 +578,11 @@
                         <span class="kw">if </span>cur_is_rest {
                             has_rest = <span class="bool-val">true</span>;
                             <span class="kw">let </span>end = <span class="kw">if </span>callback_args.is_function(<span class="kw-2">&amp;</span>args) {
-                                <span class="macro">quote! </span>{ (values.len() - #start) }
+                                <span class="macro">quote!</span> { (values.len() - #start) }
                             } <span class="kw">else </span>{
-                                <span class="macro">quote! </span>{ values.len() }
+                                <span class="macro">quote!</span> { values.len() }
                             };
-                            <span class="prelude-val">Some</span>(<span class="macro">quote! </span>{
+                            <span class="prelude-val">Some</span>(<span class="macro">quote!</span> {
                                 <span class="kw">let </span>#name = <span class="kw-2">&amp;</span>values[#index..#end];
                             })
                         } <span class="kw">else </span>{
@@ -598,20 +598,20 @@
 
             <span class="kw">let </span>body = value_unpacks
                 .map(|value_unpacks| {
-                    <span class="kw">let </span>call = <span class="macro">quote! </span>{ #self_ty::#ident(#(#arg_names),<span class="kw-2">*</span>) };
+                    <span class="kw">let </span>call = <span class="macro">quote!</span> { #self_ty::#ident(#(#arg_names),<span class="kw-2">*</span>) };
                     <span class="kw">match </span>(<span class="kw-2">&amp;</span>method.sig.asyncness, <span class="kw-2">&amp;</span>method.sig.output) {
-                        (<span class="prelude-val">None</span>, syn::ReturnType::Default) =&gt; <span class="macro">quote! </span>{
+                        (<span class="prelude-val">None</span>, syn::ReturnType::Default) =&gt; <span class="macro">quote!</span> {
                             #(#value_unpacks)*
                             #call;
                             ::std::option::Option::None
                         },
-                        (<span class="prelude-val">None</span>, syn::ReturnType::Type(<span class="kw">_</span>, <span class="kw">_</span>)) =&gt; <span class="macro">quote! </span>{
+                        (<span class="prelude-val">None</span>, syn::ReturnType::Type(<span class="kw">_</span>, <span class="kw">_</span>)) =&gt; <span class="macro">quote!</span> {
                             #(#value_unpacks)*
                             <span class="kw">let </span>ret = #call;
                             <span class="kw">let </span>ret: #crate_ident::glib::Value = ::std::convert::From::from(ret);
                             ::std::option::Option::Some(ret)
                         },
-                        (<span class="prelude-val">Some</span>(<span class="kw">_</span>), syn::ReturnType::Default) =&gt; <span class="macro">quote! </span>{
+                        (<span class="prelude-val">Some</span>(<span class="kw">_</span>), syn::ReturnType::Default) =&gt; <span class="macro">quote!</span> {
                             <span class="kw">let </span>values = values.to_vec();
                             #crate_ident::glib::MainContext::default().spawn_local(<span class="kw">async move </span>{
                                 #(#value_unpacks)*
@@ -624,13 +624,13 @@
                                 async_,
                                 <span class="string">"`async` only allowed on template callbacks without a return value"
                             </span>);
-                            <span class="macro">quote! </span>{ ::std::option::Option::None }
+                            <span class="macro">quote!</span> { ::std::option::Option::None }
                         }
                     }
                 })
-                .unwrap_or_else(|| <span class="macro">quote! </span>{ ::std::option::Option::None });
+                .unwrap_or_else(|| <span class="macro">quote!</span> { ::std::option::Option::None });
 
-            callbacks.push(<span class="macro">quote! </span>{
+            callbacks.push(<span class="macro">quote!</span> {
                 (#name, |values| {
                     #body
                 })
@@ -638,7 +638,7 @@
         }
     }
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a> {
         #(#attrs)*
         <span class="kw">impl </span>#generics #self_ty {
             #(#items)*
