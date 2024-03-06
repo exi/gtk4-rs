@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/scrolled_window.rs`."><title>scrolled_window.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (516b6162a 2024-03-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/scrolled_window.rs`."><title>scrolled_window.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (b6d2d841b 2024-03-05)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -2344,8 +2344,8 @@
 // DO NOT EDIT
 
 </span><span class="kw">use crate</span>::{
-    <a href="accessible.rs.html#16-66">Accessible</a>, <a href="enums.rs.html#803-1098">AccessibleRole</a>, <a href="adjustment.rs.html#12-97">Adjustment</a>, <a href="../enums.rs.html#77-107">Align</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="enums.rs.html#3556-3575">CornerType</a>,
-    <a href="enums.rs.html#4094-4115">DirectionType</a>, <a href="layout_manager.rs.html#8-71">LayoutManager</a>, <a href="enums.rs.html#7388-7399">Overflow</a>, <a href="enums.rs.html#8017-8037">PolicyType</a>, <a href="enums.rs.html#8134-8149">PositionType</a>, <a href="enums.rs.html#9696-9747">ScrollType</a>, <a href="widget.rs.html#18-853">Widget</a>,
+    <a href="accessible.rs.html#19-69">Accessible</a>, <a href="enums.rs.html#922-1222">AccessibleRole</a>, <a href="adjustment.rs.html#12-97">Adjustment</a>, <a href="../enums.rs.html#77-107">Align</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="enums.rs.html#3684-3703">CornerType</a>,
+    <a href="enums.rs.html#4222-4243">DirectionType</a>, <a href="layout_manager.rs.html#8-71">LayoutManager</a>, <a href="enums.rs.html#7516-7527">Overflow</a>, <a href="enums.rs.html#8145-8165">PolicyType</a>, <a href="enums.rs.html#8262-8277">PositionType</a>, <a href="enums.rs.html#9824-9875">ScrollType</a>, <a href="widget.rs.html#18-853">Widget</a>,
 };
 <span class="kw">use </span>glib::{
     <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
@@ -3014,7 +3014,7 @@
     ///
     /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
     </span><span class="attr">#[doc(alias = <span class="string">"GtkScrolledWindow"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.ScrolledWindow.html">ScrolledWindow</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>&gt;) @extends <a href="widget.rs.html#18-853">Widget</a>, @implements <a href="accessible.rs.html#16-66">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>;
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.ScrolledWindow.html">ScrolledWindow</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>&gt;) @extends <a href="widget.rs.html#18-853">Widget</a>, @implements <a href="accessible.rs.html#19-69">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_scrolled_window_get_type(),
@@ -3185,7 +3185,7 @@
     /// the current placement value.
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_scrolled_window_get_placement"</span>)]
     #[doc(alias = <span class="string">"get_placement"</span>)]
-    </span><span class="kw">pub fn </span>placement(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3556-3575">CornerType</a> {
+    </span><span class="kw">pub fn </span>placement(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3684-3703">CornerType</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_scrolled_window_get_placement.html">ffi::gtk_scrolled_window_get_placement</a>(
                 <a class="self" href="#847">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
@@ -3210,7 +3210,7 @@
     ///   for the vertical scrollbar
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_scrolled_window_get_policy"</span>)]
     #[doc(alias = <span class="string">"get_policy"</span>)]
-    </span><span class="kw">pub fn </span>policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<a href="enums.rs.html#8017-8037">PolicyType</a>, <a href="enums.rs.html#8017-8037">PolicyType</a>) {
+    </span><span class="kw">pub fn </span>policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<a href="enums.rs.html#8145-8165">PolicyType</a>, <a href="enums.rs.html#8145-8165">PolicyType</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>hscrollbar_policy = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
             <span class="kw">let </span><span class="kw-2">mut </span>vscrollbar_policy = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
@@ -3437,7 +3437,7 @@
     /// ## `window_placement`
     /// position of the child window
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_scrolled_window_set_placement"</span>)]
-    </span><span class="kw">pub fn </span>set_placement(<span class="kw-2">&amp;</span><span class="self">self</span>, window_placement: <a href="enums.rs.html#3556-3575">CornerType</a>) {
+    </span><span class="kw">pub fn </span>set_placement(<span class="kw-2">&amp;</span><span class="self">self</span>, window_placement: <a href="enums.rs.html#3684-3703">CornerType</a>) {
         <span class="kw">unsafe </span>{
             <a href="../../../gtk4_sys/fn.gtk_scrolled_window_set_placement.html">ffi::gtk_scrolled_window_set_placement</a>(
                 <a class="self" href="#1099">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
@@ -3459,7 +3459,7 @@
     /// ## `vscrollbar_policy`
     /// policy for vertical bar
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_scrolled_window_set_policy"</span>)]
-    </span><span class="kw">pub fn </span>set_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>, vscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>) {
+    </span><span class="kw">pub fn </span>set_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>, vscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>) {
         <span class="kw">unsafe </span>{
             <a href="../../../gtk4_sys/fn.gtk_scrolled_window_set_policy.html">ffi::gtk_scrolled_window_set_policy</a>(
                 <a class="self" href="#1121">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
@@ -3526,7 +3526,7 @@
     /// Use [`set_policy()`][Self::set_policy()] to set
     /// this property.
     </span><span class="attr">#[doc(alias = <span class="string">"hscrollbar-policy"</span>)]
-    </span><span class="kw">pub fn </span>hscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#8017-8037">PolicyType</a> {
+    </span><span class="kw">pub fn </span>hscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#8145-8165">PolicyType</a> {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#1188">self</a>, <span class="string">"hscrollbar-policy"</span>)
     }
 
@@ -3535,7 +3535,7 @@
     /// Use [`set_policy()`][Self::set_policy()] to set
     /// this property.
     </span><span class="attr">#[doc(alias = <span class="string">"hscrollbar-policy"</span>)]
-    </span><span class="kw">pub fn </span>set_hscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>) {
+    </span><span class="kw">pub fn </span>set_hscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>) {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#1197">self</a>, <span class="string">"hscrollbar-policy"</span>, <a href="#1197">hscrollbar_policy</a>)
     }
 
@@ -3544,7 +3544,7 @@
     /// Use [`set_policy()`][Self::set_policy()] to set
     /// this property.
     </span><span class="attr">#[doc(alias = <span class="string">"vscrollbar-policy"</span>)]
-    </span><span class="kw">pub fn </span>vscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#8017-8037">PolicyType</a> {
+    </span><span class="kw">pub fn </span>vscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#8145-8165">PolicyType</a> {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#1206">self</a>, <span class="string">"vscrollbar-policy"</span>)
     }
 
@@ -3553,19 +3553,19 @@
     /// Use [`set_policy()`][Self::set_policy()] to set
     /// this property.
     </span><span class="attr">#[doc(alias = <span class="string">"vscrollbar-policy"</span>)]
-    </span><span class="kw">pub fn </span>set_vscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, vscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>) {
+    </span><span class="kw">pub fn </span>set_vscrollbar_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, vscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>) {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#1215">self</a>, <span class="string">"vscrollbar-policy"</span>, <a href="#1215">vscrollbar_policy</a>)
     }
 
     <span class="doccomment">/// Where the contents are located with respect to the scrollbars.
     </span><span class="attr">#[doc(alias = <span class="string">"window-placement"</span>)]
-    </span><span class="kw">pub fn </span>window_placement(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3556-3575">CornerType</a> {
+    </span><span class="kw">pub fn </span>window_placement(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3684-3703">CornerType</a> {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#1221">self</a>, <span class="string">"window-placement"</span>)
     }
 
     <span class="doccomment">/// Where the contents are located with respect to the scrollbars.
     </span><span class="attr">#[doc(alias = <span class="string">"window-placement"</span>)]
-    </span><span class="kw">pub fn </span>set_window_placement(<span class="kw-2">&amp;</span><span class="self">self</span>, window_placement: <a href="enums.rs.html#3556-3575">CornerType</a>) {
+    </span><span class="kw">pub fn </span>set_window_placement(<span class="kw-2">&amp;</span><span class="self">self</span>, window_placement: <a href="enums.rs.html#3684-3703">CornerType</a>) {
         <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#1227">self</a>, <span class="string">"window-placement"</span>, <a href="#1227">window_placement</a>)
     }
 
@@ -3581,12 +3581,12 @@
     /// ## `pos`
     /// edge side that was hit
     </span><span class="attr">#[doc(alias = <span class="string">"edge-overshot"</span>)]
-    </span><span class="kw">pub fn </span>connect_edge_overshot&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#8134-8149">PositionType</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_edge_overshot&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#8262-8277">PositionType</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>edge_overshot_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#8134-8149">PositionType</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#8262-8277">PositionType</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>,
             pos: <a href="../../../gtk4_sys/type.GtkPositionType.html">ffi::GtkPositionType</a>,
@@ -3620,12 +3620,12 @@
     /// ## `pos`
     /// edge side that was reached
     </span><span class="attr">#[doc(alias = <span class="string">"edge-reached"</span>)]
-    </span><span class="kw">pub fn </span>connect_edge_reached&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#8134-8149">PositionType</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_edge_reached&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#8262-8277">PositionType</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>edge_reached_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#8134-8149">PositionType</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#8262-8277">PositionType</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>,
             pos: <a href="../../../gtk4_sys/type.GtkPositionType.html">ffi::GtkPositionType</a>,
@@ -3659,12 +3659,12 @@
     /// either [`DirectionType::TabForward`][crate::DirectionType::TabForward] or
     ///   [`DirectionType::TabBackward`][crate::DirectionType::TabBackward]
     </span><span class="attr">#[doc(alias = <span class="string">"move-focus-out"</span>)]
-    </span><span class="kw">pub fn </span>connect_move_focus_out&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#4094-4115">DirectionType</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_move_focus_out&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#4222-4243">DirectionType</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>move_focus_out_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#4094-4115">DirectionType</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#4222-4243">DirectionType</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>,
             direction_type: <a href="../../../gtk4_sys/type.GtkDirectionType.html">ffi::GtkDirectionType</a>,
@@ -3686,7 +3686,7 @@
         }
     }
 
-    <span class="kw">pub fn </span>emit_move_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>, direction_type: <a href="enums.rs.html#4094-4115">DirectionType</a>) {
+    <span class="kw">pub fn </span>emit_move_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>, direction_type: <a href="enums.rs.html#4222-4243">DirectionType</a>) {
         <a class="self" href="#1348">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>::&lt;()&gt;(<span class="string">"move-focus-out"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#1348">direction_type</a>]);
     }
 
@@ -3702,12 +3702,12 @@
     /// whether the keybinding scrolls the child
     ///   horizontally or not
     </span><span class="attr">#[doc(alias = <span class="string">"scroll-child"</span>)]
-    </span><span class="kw">pub fn </span>connect_scroll_child&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#9696-9747">ScrollType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_scroll_child&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#9824-9875">ScrollType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>scroll_child_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#9696-9747">ScrollType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span><a href="#16-681">ScrolledWindow</a>, <a href="enums.rs.html#9824-9875">ScrollType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkScrolledWindow.html">ffi::GtkScrolledWindow</a>,
             scroll: <a href="../../../gtk4_sys/type.GtkScrollType.html">ffi::GtkScrollType</a>,
@@ -3735,7 +3735,7 @@
         }
     }
 
-    <span class="kw">pub fn </span>emit_scroll_child(<span class="kw-2">&amp;</span><span class="self">self</span>, scroll: <a href="enums.rs.html#9696-9747">ScrollType</a>, horizontal: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+    <span class="kw">pub fn </span>emit_scroll_child(<span class="kw-2">&amp;</span><span class="self">self</span>, scroll: <a href="enums.rs.html#9824-9875">ScrollType</a>, horizontal: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <a class="self" href="#1397">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>(<span class="string">"scroll-child"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#1397">scroll</a>, <span class="kw-2">&amp;</span><a href="#1397">horizontal</a>])
     }
 
@@ -4189,7 +4189,7 @@
     ///
     /// Use [`ScrolledWindow::set_policy()`][crate::ScrolledWindow::set_policy()] to set
     /// this property.
-    </span><span class="kw">pub fn </span>hscrollbar_policy(<span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>hscrollbar_policy(<span class="self">self</span>, hscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#1851">self</a>
                 </span>.builder
@@ -4298,7 +4298,7 @@
     ///
     /// Use [`ScrolledWindow::set_policy()`][crate::ScrolledWindow::set_policy()] to set
     /// this property.
-    </span><span class="kw">pub fn </span>vscrollbar_policy(<span class="self">self</span>, vscrollbar_policy: <a href="enums.rs.html#8017-8037">PolicyType</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>vscrollbar_policy(<span class="self">self</span>, vscrollbar_policy: <a href="enums.rs.html#8145-8165">PolicyType</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#1960">self</a>
                 </span>.builder
@@ -4307,7 +4307,7 @@
     }
 
     <span class="doccomment">/// Where the contents are located with respect to the scrollbars.
-    </span><span class="kw">pub fn </span>window_placement(<span class="self">self</span>, window_placement: <a href="enums.rs.html#3556-3575">CornerType</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>window_placement(<span class="self">self</span>, window_placement: <a href="enums.rs.html#3684-3703">CornerType</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <a class="self" href="#1969">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"window-placement"</span>, <a href="#1969">window_placement</a>),
         }
@@ -4493,7 +4493,7 @@
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: <a href="enums.rs.html#7388-7399">Overflow</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: <a href="enums.rs.html#7516-7527">Overflow</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <a class="self" href="#2155">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"overflow"</span>, <a href="#2155">overflow</a>),
         }
@@ -4592,7 +4592,7 @@
     <span class="doccomment">/// The accessible role of the given [`Accessible`][crate::Accessible] implementation.
     ///
     /// The accessible role cannot be changed once set.
-    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: <a href="enums.rs.html#803-1098">AccessibleRole</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: <a href="enums.rs.html#922-1222">AccessibleRole</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <a class="self" href="#2254">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"accessible-role"</span>, <a href="#2254">accessible_role</a>),
         }

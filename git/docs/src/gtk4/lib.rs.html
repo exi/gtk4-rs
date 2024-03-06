@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (516b6162a 2024-03-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (b6d2d841b 2024-03-05)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -326,6 +326,7 @@
 <a href="#251" id="251">251</a>
 <a href="#252" id="252">252</a>
 <a href="#253" id="253">253</a>
+<a href="#254" id="254">254</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#![cfg_attr(docsrs, feature(doc_cfg))]
@@ -455,7 +456,7 @@
 <span class="attr">#[allow(clippy::derived_hash_with_manual_eq)]
 #[allow(clippy::too_many_arguments)]
 #[allow(clippy::type_complexity)]
-</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-1660">auto</a>;
+</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-1766">auto</a>;
 
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="subclass/mod.rs.html#4-174">subclass</a>;
@@ -478,6 +479,7 @@
 <span class="kw">mod </span><a href="builder.rs.html#3-116">builder</a>;
 <span class="kw">mod </span><a href="builder_cscope.rs.html#3-12">builder_cscope</a>;
 <span class="kw">mod </span><a href="builder_rust_scope.rs.html#3-353">builder_rust_scope</a>;
+<span class="kw">mod </span><a href="calendar.rs.html#3-43">calendar</a>;
 <span class="kw">mod </span><a href="callback_action.rs.html#3-53">callback_action</a>;
 <span class="kw">mod </span><a href="cell_area.rs.html#3-124">cell_area</a>;
 <span class="kw">mod </span><a href="cell_layout.rs.html#3-53">cell_layout</a>;
@@ -569,7 +571,7 @@
 <span class="kw">pub use </span><a href="css_location.rs.html#7-10">css_location::CssLocation</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#77-107">enums::Align</a>;
 <span class="kw">pub use </span><a href="expression_watch.rs.html#5-18">expression_watch::ExpressionWatch</a>;
-<span class="kw">pub use </span><a href="#184">functions</a>::<span class="kw-2">*</span>;
+<span class="kw">pub use </span><a href="#185">functions</a>::<span class="kw-2">*</span>;
 <span class="kw">pub use </span><a href="keyval_trigger.rs.html#10-35">keyval_trigger::KeyvalTrigger</a>;
 <span class="kw">pub use </span><a href="mnemonic_trigger.rs.html#10-32">mnemonic_trigger::MnemonicTrigger</a>;
 <span class="kw">pub use </span><a href="pad_action_entry.rs.html#9-19">pad_action_entry::PadActionEntry</a>;
