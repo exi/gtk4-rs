@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/param_spec_expression.rs`."><title>param_spec_expression.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (b11fbfbf3 2024-02-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/param_spec_expression.rs`."><title>param_spec_expression.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (7d3702e47 2024-03-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -374,16 +374,16 @@
 <a href="#299" id="299">299</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>std::marker::PhantomData;
+</span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomData.html">std::marker::PhantomData</a>;
 
 <span class="kw">use </span>glib::{gobject_ffi, <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/shared/struct.Shared.html">shared::Shared</a>, <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/struct.ParamSpec.html">ParamSpec</a>, <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/value/struct.Value.html">Value</a>};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/expression.rs.html#9-157">Expression</a>, <a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/expression.rs.html#9-174">Expression</a>, <a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a>};
 
-<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/trait.HasParamSpec.html">HasParamSpec</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/trait.HasParamSpec.html">HasParamSpec</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="kw">type </span>ParamSpec = <a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a>;
 
-    <span class="kw">type </span>SetValue = <a href="auto/expression.rs.html#9-157">Expression</a>;
+    <span class="kw">type </span>SetValue = <a href="auto/expression.rs.html#9-174">Expression</a>;
 
     <span class="kw">type </span>BuilderFn = <span class="kw">for</span>&lt;<span class="lifetime">'a</span>&gt; <span class="kw">fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; ParamSpecExpressionBuilder&lt;<span class="lifetime">'a</span>&gt;;
 
@@ -394,7 +394,7 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">std::fmt::Debug</a> <span class="kw">for </span><a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">std::fmt::Result</a> {
-        <a href="#22">f</a>.write_str(<span class="string">"ParamSpecExpression"</span>)
+        <a href="#22">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.write_str">write_str</a>(<span class="string">"ParamSpecExpression"</span>)
     }
 }
 
@@ -416,7 +416,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>gobject_ffi::GParamSpec, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>stash = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gtk4_sys/struct.GtkParamSpecExpression.html">ffi::GtkParamSpecExpression</a>&gt;::to_glib_none(<a class="self" href="#43">self</a>);
-        Stash(<a href="#44">stash</a>.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>, <a href="#44">stash</a>.<span class="number">1</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/struct.Stash.html">Stash</a>(<a href="#44">stash</a>.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>, <a href="#44">stash</a>.<span class="number">1</span>)
     }
 
     <span class="attr">#[inline]
@@ -432,7 +432,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>gobject_ffi::GParamSpec, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>stash = ToGlibPtr::&lt;<span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkParamSpecExpression.html">ffi::GtkParamSpecExpression</a>&gt;::to_glib_none(<a class="self" href="#59">self</a>);
-        Stash(<a href="#60">stash</a>.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#60">stash</a>.<span class="number">1</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/struct.Stash.html">Stash</a>(<a href="#60">stash</a>.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#60">stash</a>.<span class="number">1</span>)
     }
 
     <span class="attr">#[inline]
@@ -445,8 +445,8 @@
 </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*mut </span>gobject_ffi::GParamSpec&gt; <span class="kw">for </span><a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>gobject_ffi::GParamSpec {
-        <span class="kw">let </span>s = std::mem::ManuallyDrop::new(<a class="self" href="#73">self</a>);
-        <a href="#74">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0
+        <span class="kw">let </span>s = <a href="https://doc.rust-lang.org/nightly/core/mem/manually_drop/struct.ManuallyDrop.html#method.new">std::mem::ManuallyDrop::new</a>(<a class="self" href="#73">self</a>);
+        <a href="#74">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0
     </span>}
 }
 
@@ -454,8 +454,8 @@
 </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpec&gt; <span class="kw">for </span><a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*const </span>gobject_ffi::GParamSpec {
-        <span class="kw">let </span>s = std::mem::ManuallyDrop::new(<a class="self" href="#82">self</a>);
-        <a href="#83">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0
+        <span class="kw">let </span>s = <a href="https://doc.rust-lang.org/nightly/core/mem/manually_drop/struct.ManuallyDrop.html#method.new">std::mem::ManuallyDrop::new</a>(<a class="self" href="#82">self</a>);
+        <a href="#83">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0
     </span>}
 }
 
@@ -463,7 +463,7 @@
 </span><span class="kw">impl </span>FromGlibPtrFull&lt;<span class="kw-2">*mut </span>gobject_ffi::GParamSpec&gt; <span class="kw">for </span><a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span>gobject_ffi::GParamSpec) -&gt; <span class="self">Self </span>{
-        from_glib_full(<a href="#91">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkParamSpecExpression.html">ffi::GtkParamSpecExpression</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="#91">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkParamSpecExpression.html">ffi::GtkParamSpecExpression</a>)
     }
 }
 
@@ -479,14 +479,14 @@
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/struct.ParamSpec.html">ParamSpec</a> {
         <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
-            <a href="#101">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| {
-                <a href="#102">nick</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html">run_with_gstr</a>(|nick| {
-                    <a href="#103">blurb</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html">run_with_gstr</a>(|blurb| {
-                        from_glib_none(ffi::gtk_param_spec_expression(
-                            <a href="#108">name</a>.as_ptr(),
-                            <a href="#109">nick</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                            <a href="#110">blurb</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                            <a href="#104">flags</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+            <a href="#101">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoGStr.html#tymethod.run_with_gstr">run_with_gstr</a>(|name| {
+                <a href="#102">nick</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html#tymethod.run_with_gstr">run_with_gstr</a>(|nick| {
+                    <a href="#103">blurb</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html#tymethod.run_with_gstr">run_with_gstr</a>(|blurb| {
+                        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../gtk4_sys/fn.gtk_param_spec_expression.html">ffi::gtk_param_spec_expression</a>(
+                            <a href="#108">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/struct.GStr.html#method.as_ptr">as_ptr</a>(),
+                            <a href="#109">nick</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                            <a href="#110">blurb</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                            <a href="#104">flags</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
                         ))
                     })
                 })
@@ -507,7 +507,7 @@
     }
 
     <span class="kw">pub fn </span>upcast(<span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/struct.ParamSpec.html">ParamSpec</a> {
-        <span class="kw">unsafe </span>{ from_glib_full(IntoGlibPtr::&lt;<span class="kw-2">*mut </span><span class="kw">_</span>&gt;::into_glib_ptr(<a class="self" href="#135">self</a>)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(IntoGlibPtr::&lt;<span class="kw-2">*mut </span><span class="kw">_</span>&gt;::into_glib_ptr(<a class="self" href="#135">self</a>)) }
     }
 
     <span class="kw">pub fn </span>upcast_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/param_spec/struct.ParamSpec.html">ParamSpec</a> {
@@ -559,7 +559,7 @@
         <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="self">Self </span>{
             <a href="#184">name</a>,
-            ..<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default::default</a>()
+            ..<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Default::default</a>()
         }
     }
 
@@ -585,9 +585,9 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/value/struct.Value.html">Value</a>) -&gt; <span class="self">Self </span>{
-        <span class="kw">let </span>ptr = gobject_ffi::g_value_dup_param(<a href="#213">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <span class="kw">let </span>ptr = gobject_ffi::g_value_dup_param(<a href="#213">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!ptr.is_null());
-        from_glib_full(<a href="#214">ptr</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="#214">ptr</a>)
     }
 }
 
@@ -598,7 +598,7 @@
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>value = Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
             gobject_ffi::g_value_take_param(
-                <a href="#225">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="#225">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
                 ToGlibPtr::&lt;<span class="kw-2">*mut </span><span class="kw">_</span>&gt;::to_glib_full(<a class="self" href="#223">self</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
             <a href="#225">value</a>
@@ -607,7 +607,7 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>value_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/types/struct.Type.html">glib::Type</a> {
-        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/types/trait.StaticType.html"><span class="self">Self</span>::static_type</a>()
+        <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/types/trait.StaticType.html#tymethod.static_type"><span class="self">Self</span>::static_type</a>()
     }
 }
 
@@ -619,7 +619,7 @@
         <span class="kw">let </span><span class="kw-2">mut </span>value = Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
             gobject_ffi::g_value_take_param(
-                <a href="#245">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="#245">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
                 ToGlibPtr::&lt;<span class="kw-2">*mut </span><span class="kw">_</span>&gt;::to_glib_full(<span class="kw-2">&amp;</span><a href="#243">s</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
@@ -633,8 +633,8 @@
     <span class="kw">fn </span>from(s: <a href="auto/param_spec_expression.rs.html#7-16">ParamSpecExpression</a>) -&gt; <span class="self">Self </span>{
         <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>value = Value::from_type(<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/types/trait.StaticType.html">ParamSpecExpression::static_type</a>());
-            gobject_ffi::g_value_take_param(<a href="#262">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#259">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>());
+            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/value/struct.Value.html#method.from_type">Value::from_type</a>(<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/types/trait.StaticType.html#tymethod.static_type">ParamSpecExpression::static_type</a>());
+            gobject_ffi::g_value_take_param(<a href="#262">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#259">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlibPtr.html#tymethod.into_glib_ptr">into_glib_ptr</a>());
             <a href="#262">value</a>
         }
     }

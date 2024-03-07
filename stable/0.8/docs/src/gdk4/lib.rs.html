@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (b11fbfbf3 2024-02-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (7d3702e47 2024-03-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -226,7 +226,7 @@
 <span class="doccomment">/// This is the priority that the idle handler processing surface updates
 /// is given in the main loop.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_PRIORITY_REDRAW"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.PRIORITY_REDRAW.html">PRIORITY_REDRAW</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_PRIORITY_REDRAW <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.PRIORITY_REDRAW.html">PRIORITY_REDRAW</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_PRIORITY_REDRAW.html">ffi::GDK_PRIORITY_REDRAW</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// A mask covering all entries in [`ModifierType`][crate::ModifierType].
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_MODIFIER_MASK"</span>)]
@@ -237,43 +237,43 @@
 /// This can be used in [`Drop::status()`][crate::Drop::status()] messages when any drop
 /// can be accepted or a more specific drop method is not yet known.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_ACTION_ALL"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.ACTION_ALL.html">ACTION_ALL</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_ACTION_ALL <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.ACTION_ALL.html">ACTION_ALL</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_ACTION_ALL.html">ffi::GDK_ACTION_ALL</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// Represents the current time, and can be used anywhere a time is expected.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_CURRENT_TIME"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.CURRENT_TIME.html">CURRENT_TIME</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_CURRENT_TIME <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.CURRENT_TIME.html">CURRENT_TIME</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_CURRENT_TIME.html">ffi::GDK_CURRENT_TIME</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// The primary button. This is typically the left mouse button, or the
 /// right button in a left-handed setup.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_BUTTON_PRIMARY"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_PRIMARY.html">BUTTON_PRIMARY</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_BUTTON_PRIMARY <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_PRIMARY.html">BUTTON_PRIMARY</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_BUTTON_PRIMARY.html">ffi::GDK_BUTTON_PRIMARY</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// The middle button.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_BUTTON_MIDDLE"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_MIDDLE.html">BUTTON_MIDDLE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_BUTTON_MIDDLE <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_MIDDLE.html">BUTTON_MIDDLE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_BUTTON_MIDDLE.html">ffi::GDK_BUTTON_MIDDLE</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// The secondary button. This is typically the right mouse button, or the
 /// left button in a left-handed setup.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_BUTTON_SECONDARY"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_SECONDARY.html">BUTTON_SECONDARY</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_BUTTON_SECONDARY <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.BUTTON_SECONDARY.html">BUTTON_SECONDARY</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_BUTTON_SECONDARY.html">ffi::GDK_BUTTON_SECONDARY</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// Use this macro as the return value for stopping the propagation of
 /// an event handler.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_EVENT_STOP"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.EVENT_STOP.html">EVENT_STOP</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_EVENT_STOP <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.EVENT_STOP.html">EVENT_STOP</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_EVENT_STOP.html">ffi::GDK_EVENT_STOP</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="doccomment">/// Use this macro as the return value for continuing the propagation of
 /// an event handler.
 </span><span class="attr">#[doc(alias = <span class="string">"GDK_EVENT_PROPAGATE"</span>)]
-</span><span class="kw">pub const </span><a href="../../gdk4/constant.EVENT_PROPAGATE.html">EVENT_PROPAGATE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = ffi::GDK_EVENT_PROPAGATE <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+</span><span class="kw">pub const </span><a href="../../gdk4/constant.EVENT_PROPAGATE.html">EVENT_PROPAGATE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gdk4_sys/constant.GDK_EVENT_PROPAGATE.html">ffi::GDK_EVENT_PROPAGATE</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
 <span class="comment">// GDK 4 has no runtime to initialize
-</span><span class="macro">macro_rules! </span>assert_initialized_main_thread {
+</span><span class="macro">macro_rules!</span> assert_initialized_main_thread {
     () =&gt; {};
 }
 
 <span class="comment">// No-op
-</span><span class="macro">macro_rules! </span>skip_assert_initialized {
+</span><span class="macro">macro_rules!</span> skip_assert_initialized {
     () =&gt; {};
 }
 

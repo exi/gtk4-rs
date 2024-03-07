@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/dialog.rs`."><title>dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (b11fbfbf3 2024-02-03)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/dialog.rs`."><title>dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (7d3702e47 2024-03-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -389,14 +389,14 @@
     ) -&gt; <span class="self">Self </span>{
         <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">let </span>ret: <span class="self">Self </span>= <span class="kw">unsafe </span>{
-            <a href="#72">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html">run_with_gstr</a>(|title| {
-                <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.FromGlibPtrNone.html">Widget::from_glib_none</a>(ffi::gtk_dialog_new_with_buttons(
-                    <a href="#79">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#73">parent</a>.map(|p| <a href="#82">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#74">flags</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                    ptr::null_mut(),
+            <a href="#72">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/gstring/trait.IntoOptionalGStr.html#tymethod.run_with_gstr">run_with_gstr</a>(|title| {
+                <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.FromGlibPtrNone.html#tymethod.from_glib_none">Widget::from_glib_none</a>(<a href="../../gtk4_sys/fn.gtk_dialog_new_with_buttons.html">ffi::gtk_dialog_new_with_buttons</a>(
+                    <a href="#79">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#73">parent</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|p| <a href="#82">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#74">flags</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
+                    <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">ptr::null_mut</a>(),
                 ))
-                .<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.Cast.html">unsafe_cast</a>()
+                .<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast">unsafe_cast</a>()
             })
         };
 
@@ -451,9 +451,9 @@
     #[doc(alias = <span class="string">"get_response_for_widget"</span>)]
     </span><span class="kw">fn </span>response_for_widget&lt;P: IsA&lt;<a href="auto/widget.rs.html#18-853">Widget</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span>P) -&gt; <a href="response_type.rs.html#18-56">ResponseType</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_dialog_get_response_for_widget(
-                AsRef::&lt;<a href="auto/dialog.rs.html#17-850">Dialog</a>&gt;::as_ref(<a class="self" href="#139">self</a>).<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#139">widget</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gtk4_sys/fn.gtk_dialog_get_response_for_widget.html">ffi::gtk_dialog_get_response_for_widget</a>(
+                AsRef::&lt;<a href="auto/dialog.rs.html#17-850">Dialog</a>&gt;::as_ref(<a class="self" href="#139">self</a>).<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#139">widget</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -477,21 +477,21 @@
     /// # }
     /// ```
     </span><span class="kw">fn </span>run_future&lt;<span class="lifetime">'a</span>&gt;(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <a href="response_type.rs.html#18-56">ResponseType</a>&gt; + <span class="lifetime">'a</span>&gt;&gt; {
-        Box::pin(<span class="kw">async move </span>{
+        <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.pin">Box::pin</a>(<span class="kw">async move </span>{
             <span class="kw">let </span>(sender, receiver) = futures_channel::oneshot::channel();
 
-            <span class="kw">let </span>sender = Cell::new(<span class="prelude-val">Some</span>(<a href="#168">sender</a>));
+            <span class="kw">let </span>sender = <a href="https://doc.rust-lang.org/nightly/core/cell/struct.Cell.html#method.new">Cell::new</a>(<span class="prelude-val">Some</span>(<a href="#168">sender</a>));
 
             <span class="kw">let </span>response_handler = <a class="self" href="#166">self</a>.<a href="auto/dialog.rs.html#1723-1749">connect_response</a>(<span class="kw">move </span>|<span class="kw">_</span>, response_type| {
-                <span class="kw">if let </span><span class="prelude-val">Some</span>(m) = <a href="#170">sender</a>.replace(<span class="prelude-val">None</span>) {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(m) = <a href="#170">sender</a>.<a href="https://doc.rust-lang.org/nightly/core/cell/struct.Cell.html#method.replace">replace</a>(<span class="prelude-val">None</span>) {
                     <span class="kw">let </span>_result = <a href="#173">m</a>.send(<a href="#172">response_type</a>);
                 }
             });
 
-            <a class="self" href="#166">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
+            <a class="self" href="#166">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
 
             <span class="kw">if let </span><span class="prelude-val">Ok</span>(response) = <a href="#168">receiver</a>.<span class="kw">await </span>{
-                <a class="self" href="#166">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.ObjectExt.html">disconnect</a>(<a href="#172">response_handler</a>);
+                <a class="self" href="#166">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.ObjectExt.html#tymethod.disconnect">disconnect</a>(<a href="#172">response_handler</a>);
                 <a href="#180">response</a>
             } <span class="kw">else </span>{
                 <a href="response_type.rs.html#22">ResponseType::None</a>
@@ -519,16 +519,16 @@
     /// });
     /// ```
     </span><span class="kw">fn </span>run_async&lt;F: FnOnce(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="response_type.rs.html#18-56">ResponseType</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        <span class="kw">let </span>response_handler = Rc::new(RefCell::new(<span class="prelude-val">None</span>));
-        <span class="kw">let </span>response_handler_clone = <a href="#209">response_handler</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
-        <span class="kw">let </span>f = RefCell::new(<span class="prelude-val">Some</span>(<a href="#208">f</a>));
-        <span class="kw-2">*</span><a href="#209">response_handler</a>.borrow_mut() = <span class="prelude-val">Some</span>(<a class="self" href="#208">self</a>.<a href="auto/dialog.rs.html#1723-1749">connect_response</a>(<span class="kw">move </span>|s, response_type| {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(handler) = <a href="#210">response_handler_clone</a>.borrow_mut().take() {
-                <a href="#212">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.ObjectExt.html">disconnect</a>(<a href="#213">handler</a>);
+        <span class="kw">let </span>response_handler = <a href="https://doc.rust-lang.org/nightly/alloc/rc/struct.Rc.html#method.new">Rc::new</a>(<a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html#method.new">RefCell::new</a>(<span class="prelude-val">None</span>));
+        <span class="kw">let </span>response_handler_clone = <a href="#209">response_handler</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>();
+        <span class="kw">let </span>f = <a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html#method.new">RefCell::new</a>(<span class="prelude-val">Some</span>(<a href="#208">f</a>));
+        <span class="kw-2">*</span><a href="#209">response_handler</a>.<a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html#method.borrow_mut">borrow_mut</a>() = <span class="prelude-val">Some</span>(<a class="self" href="#208">self</a>.<a href="auto/dialog.rs.html#1723-1749">connect_response</a>(<span class="kw">move </span>|s, response_type| {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(handler) = <a href="#210">response_handler_clone</a>.<a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html#method.borrow_mut">borrow_mut</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.take">take</a>() {
+                <a href="#212">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/stable/0.19/docs/glib/object/trait.ObjectExt.html#tymethod.disconnect">disconnect</a>(<a href="#213">handler</a>);
             }
-            (<span class="kw-2">*</span><a href="#211">f</a>.borrow_mut()).take().expect(<span class="string">"cannot get callback"</span>)(<a href="#212">s</a>, <a href="#212">response_type</a>);
+            (<span class="kw-2">*</span><a href="#211">f</a>.<a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html#method.borrow_mut">borrow_mut</a>()).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.take">take</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.expect">expect</a>(<span class="string">"cannot get callback"</span>)(<a href="#212">s</a>, <a href="#212">response_type</a>);
         }));
-        <a class="self" href="#208">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
+        <a class="self" href="#208">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
     }
 }
 
