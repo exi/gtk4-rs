@@ -186,7 +186,7 @@ Note that we also import the prelude to bring the necessary traits into scope.</
 <pre><code class="language-rust">use gtk::prelude::*;
 use gtk::{glib, Application};
 
-const APP_ID: &amp;str = &quot;org.gtk_rs.HelloWorld1&quot;;
+const APP_ID: &amp;str = "org.gtk_rs.HelloWorld1";
 
 fn main() -&gt; glib::ExitCode {
     // Create a new application
@@ -205,13 +205,13 @@ So let's create a <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/st
 <pre><code class="language-rust">use gtk::prelude::*;
 use gtk::{glib, Application, ApplicationWindow};
 
-const APP_ID: &amp;str = &quot;org.gtk_rs.HelloWorld2&quot;;
+const APP_ID: &amp;str = "org.gtk_rs.HelloWorld2";
 
 fn main() -&gt; glib::ExitCode {
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
 
-    // Connect to &quot;activate&quot; signal of `app`
+    // Connect to "activate" signal of `app`
     app.connect_activate(build_ui);
 
     // Run the application
@@ -222,7 +222,7 @@ fn build_ui(app: &amp;Application) {
     // Create a window and set the title
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .build();
 
     // Present window
@@ -231,17 +231,17 @@ fn build_ui(app: &amp;Application) {
 <p>That is better!</p>
 <div style="text-align:center"><img src="img/hello_world_empty.png" alt="An empty window with a header bar with label 'My GTK App'"/></div>
 <p>Normally we expect to be able to interact with the user interface.
-Also, the name of the chapter suggests that the phrase &quot;Hello World!&quot; will be involved.</p>
+Also, the name of the chapter suggests that the phrase "Hello World!" will be involved.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/hello_world/3/main.rs">listings/hello_world/3/main.rs</a></p>
 <pre><code class="language-rust"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.HelloWorld3&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.HelloWorld3";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -251,23 +251,23 @@ Also, the name of the chapter suggests that the phrase &quot;Hello World!&quot; 
 </span>fn build_ui(app: &amp;Application) {
     // Create a button with label and margins
     let button = Button::builder()
-        .label(&quot;Press me!&quot;)
+        .label("Press me!")
         .margin_top(12)
         .margin_bottom(12)
         .margin_start(12)
         .margin_end(12)
         .build();
 
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(|button| {
-        // Set the label to &quot;Hello World!&quot; after the button has been clicked on
-        button.set_label(&quot;Hello World!&quot;);
+        // Set the label to "Hello World!" after the button has been clicked on
+        button.set_label("Hello World!");
     });
 
     // Create a window
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button)
         .build();
 
@@ -281,7 +281,7 @@ We will use this throughout the book to hide details which are not important to 
 Pay attention to this if you want to write apps by following the book step-by-step.
 Here, we've hidden that we brought <code>gtk::Button</code> into scope.</p>
 </blockquote>
-<p>There is now a button and if we click on it, its label becomes &quot;Hello World!&quot;.</p>
+<p>There is now a button and if we click on it, its label becomes "Hello World!".</p>
 <div style="text-align:center">
  <video autoplay muted loop>
   <source src="vid/hello_world_button.webm" type="video/webm">

@@ -180,7 +180,7 @@
                         <h1 id="subclassing"><a class="header" href="#subclassing">Subclassing</a></h1>
 <p>GObjects rely heavily on inheritance.
 Therefore, it makes sense that if we want to create a custom GObject, this is done via subclassing.
-Let's see how this works by replacing the button in our &quot;Hello World!&quot; app with a custom one.
+Let's see how this works by replacing the button in our "Hello World!" app with a custom one.
 First, we need to create an implementation struct that holds the state and overrides the virtual methods.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/g_object_subclassing/1/custom_button/imp.rs">listings/g_object_subclassing/1/custom_button/imp.rs</a></p>
 <pre><code class="language-rust">use gtk::glib;
@@ -193,7 +193,7 @@ pub struct CustomButton;
 // The central trait for subclassing a GObject
 #[glib::object_subclass]
 impl ObjectSubclass for CustomButton {
-    const NAME: &amp;'static str = &quot;MyGtkAppCustomButton&quot;;
+    const NAME: &amp;'static str = "MyGtkAppCustomButton";
     type Type = super::CustomButton;
     type ParentType = gtk::Button;
 }
@@ -234,7 +234,7 @@ impl CustomButton {
     }
 
     pub fn with_label(label: &amp;str) -&gt; Self {
-        Object::builder().property(&quot;label&quot;, label).build()
+        Object::builder().property("label", label).build()
     }
 }
 <span class="boring">
@@ -256,13 +256,13 @@ use custom_button::CustomButton;
 use gtk::prelude::*;
 use gtk::{glib, Application, ApplicationWindow};
 
-const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectSubclassing1&quot;;
+const APP_ID: &amp;str = "org.gtk_rs.GObjectSubclassing1";
 
 fn main() -&gt; glib::ExitCode {
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
 
-    // Connect to &quot;activate&quot; signal of `app`
+    // Connect to "activate" signal of `app`
     app.connect_activate(build_ui);
 
     // Run the application
@@ -271,22 +271,22 @@ fn main() -&gt; glib::ExitCode {
 
 fn build_ui(app: &amp;Application) {
     // Create a button
-    let button = CustomButton::with_label(&quot;Press me!&quot;);
+    let button = CustomButton::with_label("Press me!");
     button.set_margin_top(12);
     button.set_margin_bottom(12);
     button.set_margin_start(12);
     button.set_margin_end(12);
 
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |button| {
-        // Set the label to &quot;Hello World!&quot; after the button has been clicked on
-        button.set_label(&quot;Hello World!&quot;);
+        // Set the label to "Hello World!" after the button has been clicked on
+        button.set_label("Hello World!");
     });
 
     // Create a window
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button)
         .build();
 
@@ -296,7 +296,7 @@ fn build_ui(app: &amp;Application) {
 <blockquote>
 <p>Describing objects with two structs is a peculiarity coming from how GObjects are defined in C.
 <code>imp::CustomButton</code> handles the state of the GObject and the overridden virtual methods.
-<code>CustomButton</code> determines the exposed methods from the implemented traits and added methods. </p>
+<code>CustomButton</code> determines the exposed methods from the implemented traits and added methods.</p>
 </blockquote>
 <h2 id="adding-functionality"><a class="header" href="#adding-functionality">Adding Functionality</a></h2>
 <p>We are able to use <code>CustomButton</code> as a drop-in replacement for <code>gtk::Button</code>.
@@ -320,7 +320,7 @@ pub struct CustomButton {
 // The central trait for subclassing a GObject
 #[glib::object_subclass]
 impl ObjectSubclass for CustomButton {
-    const NAME: &amp;'static str = &quot;MyGtkAppCustomButton&quot;;
+    const NAME: &amp;'static str = "MyGtkAppCustomButton";
     type Type = super::CustomButton;
     type ParentType = gtk::Button;
 }
@@ -352,13 +352,13 @@ We also override <code>clicked</code> in <code>ButtonImpl</code> so that every c
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectSubclassing2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectSubclassing2";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -376,7 +376,7 @@ We also override <code>clicked</code> in <code>ButtonImpl</code> so that every c
     // Create a window
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button)
         .build();
 
@@ -384,7 +384,7 @@ We also override <code>clicked</code> in <code>ButtonImpl</code> so that every c
     window.present();
 }</code></pre>
 <p>In <code>build_ui</code> we stop calling <code>connect_clicked</code>, and that was it.
-After a rebuild, the app now features our <code>CustomButton</code> with the label &quot;0&quot;.
+After a rebuild, the app now features our <code>CustomButton</code> with the label "0".
 Every time we click on the button, the number displayed by the label increases by 1.</p>
 <div style="text-align:center">
  <video autoplay muted loop>

@@ -179,20 +179,20 @@
                     <main>
                         <h1 id="signals"><a class="header" href="#signals">Signals</a></h1>
 <p>GObject signals are a system for registering callbacks for specific events.
-For example, if we press on a button, the &quot;clicked&quot; signal will be emitted.
+For example, if we press on a button, the "clicked" signal will be emitted.
 The signal then takes care that all the registered callbacks will be executed.</p>
 <p><code>gtk-rs</code> provides convenience methods for registering callbacks.
-In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/prelude/trait.ButtonExt.html#tymethod.connect_clicked">connected</a> the &quot;clicked&quot; signal to a closure which sets the label of the button to &quot;Hello World&quot; as soon as it gets called.</p>
+In our "Hello World" example we <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/prelude/trait.ButtonExt.html#tymethod.connect_clicked">connected</a> the "clicked" signal to a closure which sets the label of the button to "Hello World" as soon as it gets called.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/hello_world/3/main.rs">listings/hello_world/3/main.rs</a></p>
 <pre><code class="language-rust"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.HelloWorld3&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.HelloWorld3";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -202,23 +202,23 @@ In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/st
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button with label and margins
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_clicked(|button| {
-        // Set the label to &quot;Hello World!&quot; after the button has been clicked on
-        button.set_label(&quot;Hello World!&quot;);
+        // Set the label to "Hello World!" after the button has been clicked on
+        button.set_label("Hello World!");
     });
 <span class="boring">
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -231,13 +231,13 @@ In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/st
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectSignals1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectSignals1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -247,20 +247,20 @@ In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/st
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_closure(
-        &quot;clicked&quot;,
+        "clicked",
         false,
         closure_local!(move |button: Button| {
-            // Set the label to &quot;Hello World!&quot; after the button has been clicked on
-            button.set_label(&quot;Hello World!&quot;);
+            // Set the label to "Hello World!" after the button has been clicked on
+            button.set_label("Hello World!");
         }),
     );
 
@@ -268,7 +268,7 @@ In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/st
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -278,7 +278,7 @@ In our &quot;Hello World&quot; example we <a href="https://gtk-rs.org/gtk4-rs/st
 <p>The advantage of <code>connect_closure</code> is that it also works with custom signals.</p>
 <blockquote>
 <p>If you need to clone reference counted objects into your closure you don't have to wrap it within another <code>clone!</code> macro.
-<code>closure_local!</code> accepts the same syntax for creating strong/weak references, plus a <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/macro.closure.html#object-watching">watch</a> feature that automatically disconnects the closure once the watched object is dropped. </p>
+<code>closure_local!</code> accepts the same syntax for creating strong/weak references, plus a <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/macro.closure.html#object-watching">watch</a> feature that automatically disconnects the closure once the watched object is dropped.</p>
 </blockquote>
 <h2 id="adding-signals-to-custom-gobjects"><a class="header" href="#adding-signals-to-custom-gobjects">Adding Signals to Custom GObjects</a></h2>
 <p>Let's see how we can create our own signals.
@@ -307,7 +307,7 @@ In order to do that, we need to lazily initialize a static item <code>SIGNALS</c
 </span><span class="boring">// The central trait for subclassing a GObject
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for CustomButton {
-</span><span class="boring">    const NAME: &amp;'static str = &quot;MyGtkAppCustomButton&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "MyGtkAppCustomButton";
 </span><span class="boring">    type Type = super::CustomButton;
 </span><span class="boring">    type ParentType = gtk::Button;
 </span><span class="boring">}
@@ -318,7 +318,7 @@ impl ObjectImpl for CustomButton {
     fn signals() -&gt; &amp;'static [Signal] {
         static SIGNALS: OnceLock&lt;Vec&lt;Signal&gt;&gt; = OnceLock::new();
         SIGNALS.get_or_init(|| {
-            vec![Signal::builder(&quot;max-number-reached&quot;)
+            vec![Signal::builder("max-number-reached")
                 .param_types([i32::static_type()])
                 .build()]
         })
@@ -330,7 +330,7 @@ impl ObjectImpl for CustomButton {
 </span><span class="boring">        // Bind label to number
 </span><span class="boring">        // `SYNC_CREATE` ensures that the label will be immediately set
 </span><span class="boring">        let obj = self.obj();
-</span><span class="boring">        obj.bind_property(&quot;number&quot;, obj.as_ref(), &quot;label&quot;)
+</span><span class="boring">        obj.bind_property("number", obj.as_ref(), "label")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
 </span><span class="boring">    }
@@ -347,9 +347,9 @@ impl ObjectImpl for CustomButton {
 </span><span class="boring">        let incremented_number = self.obj().number() + 1;
 </span><span class="boring">        let obj = self.obj();
 </span><span class="boring">        // If `number` reached `MAX_NUMBER`,
-</span><span class="boring">        // emit &quot;max-number-reached&quot; signal and set `number` back to 0
+</span><span class="boring">        // emit "max-number-reached" signal and set `number` back to 0
 </span><span class="boring">        if incremented_number == MAX_NUMBER {
-</span><span class="boring">            obj.emit_by_name::&lt;()&gt;(&quot;max-number-reached&quot;, &amp;[&amp;incremented_number]);
+</span><span class="boring">            obj.emit_by_name::&lt;()&gt;("max-number-reached", &amp;[&amp;incremented_number]);
 </span><span class="boring">            obj.set_number(0);
 </span><span class="boring">        } else {
 </span><span class="boring">            obj.set_number(incremented_number);
@@ -357,7 +357,7 @@ impl ObjectImpl for CustomButton {
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <p>The <code>signals</code> method is responsible for defining a set of signals.
-In our case, we only create a single signal named &quot;max-number-reached&quot;.
+In our case, we only create a single signal named "max-number-reached".
 When naming our signal, we make sure to do that in <a href="https://en.wikipedia.org/wiki/Letter_case#Kebab_case">kebab-case</a>.
 When emitted, it sends a single <code>i32</code> value.</p>
 <p>We want the signal to be emitted, whenever <code>number</code> reaches <code>MAX_NUMBER</code>.
@@ -384,7 +384,7 @@ After we did that, we set <code>number</code> back to 0.</p>
 </span><span class="boring">// The central trait for subclassing a GObject
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for CustomButton {
-</span><span class="boring">    const NAME: &amp;'static str = &quot;MyGtkAppCustomButton&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "MyGtkAppCustomButton";
 </span><span class="boring">    type Type = super::CustomButton;
 </span><span class="boring">    type ParentType = gtk::Button;
 </span><span class="boring">}
@@ -395,7 +395,7 @@ After we did that, we set <code>number</code> back to 0.</p>
 </span><span class="boring">    fn signals() -&gt; &amp;'static [Signal] {
 </span><span class="boring">        static SIGNALS: OnceLock&lt;Vec&lt;Signal&gt;&gt; = OnceLock::new();
 </span><span class="boring">        SIGNALS.get_or_init(|| {
-</span><span class="boring">            vec![Signal::builder(&quot;max-number-reached&quot;)
+</span><span class="boring">            vec![Signal::builder("max-number-reached")
 </span><span class="boring">                .param_types([i32::static_type()])
 </span><span class="boring">                .build()]
 </span><span class="boring">        })
@@ -407,7 +407,7 @@ After we did that, we set <code>number</code> back to 0.</p>
 </span><span class="boring">        // Bind label to number
 </span><span class="boring">        // `SYNC_CREATE` ensures that the label will be immediately set
 </span><span class="boring">        let obj = self.obj();
-</span><span class="boring">        obj.bind_property(&quot;number&quot;, obj.as_ref(), &quot;label&quot;)
+</span><span class="boring">        obj.bind_property("number", obj.as_ref(), "label")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
 </span><span class="boring">    }
@@ -424,9 +424,9 @@ impl ButtonImpl for CustomButton {
         let incremented_number = self.obj().number() + 1;
         let obj = self.obj();
         // If `number` reached `MAX_NUMBER`,
-        // emit &quot;max-number-reached&quot; signal and set `number` back to 0
+        // emit "max-number-reached" signal and set `number` back to 0
         if incremented_number == MAX_NUMBER {
-            obj.emit_by_name::&lt;()&gt;(&quot;max-number-reached&quot;, &amp;[&amp;incremented_number]);
+            obj.emit_by_name::&lt;()&gt;("max-number-reached", &amp;[&amp;incremented_number]);
             obj.set_number(0);
         } else {
             obj.set_number(incremented_number);
@@ -434,8 +434,8 @@ impl ButtonImpl for CustomButton {
     }
 }</code></pre>
 <p>If we now press on the button, the number of its label increases until it reaches <code>MAX_NUMBER</code>.
-Then it emits the &quot;max-number-reached&quot; signal which we can nicely connect to.
-Whenever we now receive the &quot;max-number-reached&quot; signal, the accompanying number is printed to <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)">standard output</a>.</p>
+Then it emits the "max-number-reached" signal which we can nicely connect to.
+Whenever we now receive the "max-number-reached" signal, the accompanying number is printed to <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)">standard output</a>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/g_object_signals/2/main.rs">listings/g_object_signals/2/main.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod custom_button;
 </span><span class="boring">
@@ -444,13 +444,13 @@ Whenever we now receive the &quot;max-number-reached&quot; signal, the accompany
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectSignals2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectSignals2";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -465,17 +465,17 @@ Whenever we now receive the &quot;max-number-reached&quot; signal, the accompany
 </span><span class="boring">    button.set_margin_end(12);
 </span><span class="boring">
 </span>    button.connect_closure(
-        &quot;max-number-reached&quot;,
+        "max-number-reached",
         false,
         closure_local!(move |_button: CustomButton, number: i32| {
-            println!(&quot;The maximum number {} has been reached&quot;, number);
+            println!("The maximum number {} has been reached", number);
         }),
     );
 <span class="boring">
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">

@@ -190,62 +190,62 @@ This is how we want this to work in the end:</p>
   <p>A video which shows a more featureful To-Do app/p>
  </video>
 </div>
-<p>Note that the screencast also shows a button with label &quot;Clear&quot; which will remove all done tasks.
+<p>Note that the screencast also shows a button with label "Clear" which will remove all done tasks.
 This will come in handy when we later make the app preserve the tasks between sessions.</p>
 <p>Let's start by adding a menu and a header bar to <code>window.ui</code>.
 After reading the <a href="actions.html">actions</a> chapter the added code should feel familiar.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/resources/window.ui">listings/todo/2/resources/window.ui</a></p>
-<pre><code class="language-diff"> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-diff"> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
  &lt;interface&gt;
-+  &lt;menu id=&quot;main-menu&quot;&gt;
++  &lt;menu id="main-menu"&gt;
 +    &lt;submenu&gt;
-+      &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Filter&lt;/attribute&gt;
++      &lt;attribute name="label" translatable="yes"&gt;_Filter&lt;/attribute&gt;
 +      &lt;item&gt;
-+        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_All&lt;/attribute&gt;
-+        &lt;attribute name=&quot;action&quot;&gt;win.filter&lt;/attribute&gt;
-+        &lt;attribute name=&quot;target&quot;&gt;All&lt;/attribute&gt;
++        &lt;attribute name="label" translatable="yes"&gt;_All&lt;/attribute&gt;
++        &lt;attribute name="action"&gt;win.filter&lt;/attribute&gt;
++        &lt;attribute name="target"&gt;All&lt;/attribute&gt;
 +      &lt;/item&gt;
 +      &lt;item&gt;
-+        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Open&lt;/attribute&gt;
-+        &lt;attribute name=&quot;action&quot;&gt;win.filter&lt;/attribute&gt;
-+        &lt;attribute name=&quot;target&quot;&gt;Open&lt;/attribute&gt;
++        &lt;attribute name="label" translatable="yes"&gt;_Open&lt;/attribute&gt;
++        &lt;attribute name="action"&gt;win.filter&lt;/attribute&gt;
++        &lt;attribute name="target"&gt;Open&lt;/attribute&gt;
 +      &lt;/item&gt;
 +      &lt;item&gt;
-+        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Done&lt;/attribute&gt;
-+        &lt;attribute name=&quot;action&quot;&gt;win.filter&lt;/attribute&gt;
-+        &lt;attribute name=&quot;target&quot;&gt;Done&lt;/attribute&gt;
++        &lt;attribute name="label" translatable="yes"&gt;_Done&lt;/attribute&gt;
++        &lt;attribute name="action"&gt;win.filter&lt;/attribute&gt;
++        &lt;attribute name="target"&gt;Done&lt;/attribute&gt;
 +      &lt;/item&gt;
 +    &lt;/submenu&gt;
 +    &lt;item&gt;
-+      &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Remove Done Tasks&lt;/attribute&gt;
-+      &lt;attribute name=&quot;action&quot;&gt;win.remove-done-tasks&lt;/attribute&gt;
++      &lt;attribute name="label" translatable="yes"&gt;_Remove Done Tasks&lt;/attribute&gt;
++      &lt;attribute name="action"&gt;win.remove-done-tasks&lt;/attribute&gt;
 +    &lt;/item&gt;
 +    &lt;item&gt;
-+      &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Keyboard Shortcuts&lt;/attribute&gt;
-+      &lt;attribute name=&quot;action&quot;&gt;win.show-help-overlay&lt;/attribute&gt;
++      &lt;attribute name="label" translatable="yes"&gt;_Keyboard Shortcuts&lt;/attribute&gt;
++      &lt;attribute name="action"&gt;win.show-help-overlay&lt;/attribute&gt;
 +    &lt;/item&gt;
 +  &lt;/menu&gt;
-   &lt;template class=&quot;TodoWindow&quot; parent=&quot;GtkApplicationWindow&quot;&gt;
-     &lt;property name=&quot;width-request&quot;&gt;360&lt;/property&gt;
-     &lt;property name=&quot;title&quot; translatable=&quot;yes&quot;&gt;To-Do&lt;/property&gt;
-+    &lt;child type=&quot;titlebar&quot;&gt;
-+      &lt;object class=&quot;GtkHeaderBar&quot;&gt;
-+        &lt;child type=&quot;end&quot;&gt;
-+          &lt;object class=&quot;GtkMenuButton&quot; id=&quot;menu_button&quot;&gt;
-+            &lt;property name=&quot;icon-name&quot;&gt;open-menu-symbolic&lt;/property&gt;
-+            &lt;property name=&quot;menu-model&quot;&gt;main-menu&lt;/property&gt;
+   &lt;template class="TodoWindow" parent="GtkApplicationWindow"&gt;
+     &lt;property name="width-request"&gt;360&lt;/property&gt;
+     &lt;property name="title" translatable="yes"&gt;To-Do&lt;/property&gt;
++    &lt;child type="titlebar"&gt;
++      &lt;object class="GtkHeaderBar"&gt;
++        &lt;child type="end"&gt;
++          &lt;object class="GtkMenuButton" id="menu_button"&gt;
++            &lt;property name="icon-name"&gt;open-menu-symbolic&lt;/property&gt;
++            &lt;property name="menu-model"&gt;main-menu&lt;/property&gt;
 +          &lt;/object&gt;
 +        &lt;/child&gt;
 +      &lt;/object&gt;
 +    &lt;/child&gt;
 </code></pre>
 <p>Then, we create a settings schema.
-Again, the &quot;filter&quot; setting correspond to the stateful actions called by the menu.</p>
+Again, the "filter" setting correspond to the stateful actions called by the menu.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/org.gtk_rs.Todo2.gschema.xml">listings/todo/2/org.gtk_rs.Todo2.gschema.xml</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;schemalist&gt;
-  &lt;schema id=&quot;org.gtk_rs.Todo2&quot; path=&quot;/org/gtk_rs/Todo2/&quot;&gt;
-    &lt;key name=&quot;filter&quot; type=&quot;s&quot;&gt;
+  &lt;schema id="org.gtk_rs.Todo2" path="/org/gtk_rs/Todo2/"&gt;
+    &lt;key name="filter" type="s"&gt;
       &lt;choices&gt;
         &lt;choice value='All'/&gt;
         &lt;choice value='Open'/&gt;
@@ -275,7 +275,7 @@ Then we add a reference to <code>settings</code> to <code>imp::Window</code>.</p
 </span><span class="boring">
 </span>// Object holding the state
 #[derive(CompositeTemplate, Default)]
-#[template(resource = &quot;/org/gtk_rs/Todo2/window.ui&quot;)]
+#[template(resource = "/org/gtk_rs/Todo2/window.ui")]
 pub struct Window {
     #[template_child]
     pub entry: TemplateChild&lt;Entry&gt;,
@@ -289,15 +289,15 @@ pub struct Window {
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for Window {
 </span><span class="boring">    // `NAME` needs to match `class` attribute of template
-</span><span class="boring">    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "TodoWindow";
 </span><span class="boring">    type Type = super::Window;
 </span><span class="boring">    type ParentType = gtk::ApplicationWindow;
 </span><span class="boring">
 </span><span class="boring">    fn class_init(klass: &amp;mut Self::Class) {
 </span><span class="boring">        klass.bind_template();
 </span><span class="boring">
-</span><span class="boring">        // Create action to remove done tasks and add to action group &quot;win&quot;
-</span><span class="boring">        klass.install_action(&quot;win.remove-done-tasks&quot;, None, |window, _, _| {
+</span><span class="boring">        // Create action to remove done tasks and add to action group "win"
+</span><span class="boring">        klass.install_action("win.remove-done-tasks", None, |window, _, _| {
 </span><span class="boring">            window.remove_done_tasks();
 </span><span class="boring">        });
 </span><span class="boring">    }
@@ -310,7 +310,7 @@ pub struct Window {
 </span><span class="boring">// Trait shared by all GObjects
 </span><span class="boring">impl ObjectImpl for Window {
 </span><span class="boring">    fn constructed(&amp;self) {
-</span><span class="boring">        // Call &quot;constructed&quot; on parent
+</span><span class="boring">        // Call "constructed" on parent
 </span><span class="boring">        self.parent_constructed();
 </span><span class="boring">
 </span><span class="boring">        // Setup
@@ -340,9 +340,9 @@ pub struct Window {
 </span><span class="boring">            .collect();
 </span><span class="boring">
 </span><span class="boring">        // Save state to file
-</span><span class="boring">        let file = File::create(data_path()).expect(&quot;Could not create json file.&quot;);
+</span><span class="boring">        let file = File::create(data_path()).expect("Could not create json file.");
 </span><span class="boring">        serde_json::to_writer(file, &amp;backup_data)
-</span><span class="boring">            .expect(&quot;Could not write data to json file&quot;);
+</span><span class="boring">            .expect("Could not write data to json file");
 </span><span class="boring">
 </span><span class="boring">        // Pass close request on to the parent
 </span><span class="boring">        self.parent_close_request()
@@ -381,7 +381,7 @@ pub struct Window {
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn setup_settings(&amp;self) {
@@ -389,14 +389,14 @@ pub struct Window {
         self.imp()
             .settings
             .set(settings)
-            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+            .expect("`settings` should not be set before calling `setup_settings`.");
     }
 
     fn settings(&amp;self) -&gt; &amp;Settings {
         self.imp()
             .settings
             .get()
-            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+            .expect("`settings` should be set in `setup_settings`.")
     }
 <span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -405,19 +405,19 @@ pub struct Window {
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
 </span><span class="boring">        // Get filter_state from settings
-</span><span class="boring">        let filter_state: String = self.settings().get(&quot;filter&quot;);
+</span><span class="boring">        let filter_state: String = self.settings().get("filter");
 </span><span class="boring">
 </span><span class="boring">        // Create custom filters
 </span><span class="boring">        let filter_open = CustomFilter::new(|obj| {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow completed tasks
 </span><span class="boring">            !task_object.is_completed()
@@ -426,7 +426,7 @@ pub struct Window {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow done tasks
 </span><span class="boring">            task_object.is_completed()
@@ -434,9 +434,9 @@ pub struct Window {
 </span><span class="boring">
 </span><span class="boring">        // Return the correct filter
 </span><span class="boring">        match filter_state.as_str() {
-</span><span class="boring">            &quot;All&quot; =&gt; None,
-</span><span class="boring">            &quot;Open&quot; =&gt; Some(filter_open),
-</span><span class="boring">            &quot;Done&quot; =&gt; Some(filter_done),
+</span><span class="boring">            "All" =&gt; None,
+</span><span class="boring">            "Open" =&gt; Some(filter_open),
+</span><span class="boring">            "Done" =&gt; Some(filter_done),
 </span><span class="boring">            _ =&gt; unreachable!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
@@ -453,9 +453,9 @@ pub struct Window {
 </span><span class="boring">        let selection_model = NoSelection::new(Some(filter_model.clone()));
 </span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
-</span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
+</span><span class="boring">        // Filter model whenever the value of the key "filter" changes
 </span><span class="boring">        self.settings().connect_changed(
-</span><span class="boring">            Some(&quot;filter&quot;),
+</span><span class="boring">            Some("filter"),
 </span><span class="boring">            clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
 </span><span class="boring">                filter_model.set_filter(window.filter().as_ref());
 </span><span class="boring">            }),
@@ -466,7 +466,7 @@ pub struct Window {
 </span><span class="boring">        if let Ok(file) = File::open(data_path()) {
 </span><span class="boring">            // Deserialize data from file to vector
 </span><span class="boring">            let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-</span><span class="boring">                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+</span><span class="boring">                "It should be possible to read `backup_data` from the json file.",
 </span><span class="boring">            );
 </span><span class="boring">
 </span><span class="boring">            // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -503,7 +503,7 @@ pub struct Window {
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -520,7 +520,7 @@ pub struct Window {
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -529,18 +529,18 @@ pub struct Window {
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -550,10 +550,10 @@ pub struct Window {
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -563,8 +563,8 @@ pub struct Window {
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
-</span><span class="boring">        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-</span><span class="boring">        let action_filter = self.settings().create_action(&quot;filter&quot;);
+</span><span class="boring">        // Create action from key "filter" and add to action group "win"
+</span><span class="boring">        let action_filter = self.settings().create_action("filter");
 </span><span class="boring">        self.add_action(&amp;action_filter);
 </span><span class="boring">    }
 </span><span class="boring">
@@ -575,7 +575,7 @@ pub struct Window {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            if task_object.is_completed() {
 </span><span class="boring">                tasks.remove(position);
@@ -602,8 +602,8 @@ We will make use of them in the following snippets.</p>
 </span>impl TaskObject {
     pub fn new(completed: bool, content: String) -&gt; Self {
         Object::builder()
-            .property(&quot;completed&quot;, completed)
-            .property(&quot;content&quot;, content)
+            .property("completed", completed)
+            .property("content", content)
             .build()
     }
 
@@ -626,7 +626,7 @@ We will make use of them in the following snippets.</p>
 </span><span class="boring">    pub content: String,
 </span><span class="boring">}</span></code></pre>
 <p>Similar to the previous chapter, we let <code>settings</code> create the action.
-Then we add the newly created action &quot;filter&quot; to our window.</p>
+Then we add the newly created action "filter" to our window.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/window/mod.rs">listings/todo/2/window/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
@@ -656,7 +656,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_settings(&amp;self) {
@@ -664,14 +664,14 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .set(settings)
-</span><span class="boring">            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+</span><span class="boring">            .expect("`settings` should not be set before calling `setup_settings`.");
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn settings(&amp;self) -&gt; &amp;Settings {
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .get()
-</span><span class="boring">            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+</span><span class="boring">            .expect("`settings` should be set in `setup_settings`.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -680,19 +680,19 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
 </span><span class="boring">        // Get filter_state from settings
-</span><span class="boring">        let filter_state: String = self.settings().get(&quot;filter&quot;);
+</span><span class="boring">        let filter_state: String = self.settings().get("filter");
 </span><span class="boring">
 </span><span class="boring">        // Create custom filters
 </span><span class="boring">        let filter_open = CustomFilter::new(|obj| {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow completed tasks
 </span><span class="boring">            !task_object.is_completed()
@@ -701,7 +701,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow done tasks
 </span><span class="boring">            task_object.is_completed()
@@ -709,9 +709,9 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">
 </span><span class="boring">        // Return the correct filter
 </span><span class="boring">        match filter_state.as_str() {
-</span><span class="boring">            &quot;All&quot; =&gt; None,
-</span><span class="boring">            &quot;Open&quot; =&gt; Some(filter_open),
-</span><span class="boring">            &quot;Done&quot; =&gt; Some(filter_done),
+</span><span class="boring">            "All" =&gt; None,
+</span><span class="boring">            "Open" =&gt; Some(filter_open),
+</span><span class="boring">            "Done" =&gt; Some(filter_done),
 </span><span class="boring">            _ =&gt; unreachable!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
@@ -728,9 +728,9 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">        let selection_model = NoSelection::new(Some(filter_model.clone()));
 </span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
-</span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
+</span><span class="boring">        // Filter model whenever the value of the key "filter" changes
 </span><span class="boring">        self.settings().connect_changed(
-</span><span class="boring">            Some(&quot;filter&quot;),
+</span><span class="boring">            Some("filter"),
 </span><span class="boring">            clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
 </span><span class="boring">                filter_model.set_filter(window.filter().as_ref());
 </span><span class="boring">            }),
@@ -741,7 +741,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">        if let Ok(file) = File::open(data_path()) {
 </span><span class="boring">            // Deserialize data from file to vector
 </span><span class="boring">            let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-</span><span class="boring">                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+</span><span class="boring">                "It should be possible to read `backup_data` from the json file.",
 </span><span class="boring">            );
 </span><span class="boring">
 </span><span class="boring">            // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -778,7 +778,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -795,7 +795,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -804,18 +804,18 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -825,10 +825,10 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -838,8 +838,8 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn setup_actions(&amp;self) {
-        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-        let action_filter = self.settings().create_action(&quot;filter&quot;);
+        // Create action from key "filter" and add to action group "win"
+        let action_filter = self.settings().create_action("filter");
         self.add_action(&amp;action_filter);
     }
 <span class="boring">
@@ -850,7 +850,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            if task_object.is_completed() {
 </span><span class="boring">                tasks.remove(position);
@@ -860,7 +860,7 @@ Then we add the newly created action &quot;filter&quot; to our window.</p>
 </span><span class="boring">        }
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p>We also add an action which allows us to remove done tasks. 
+<p>We also add an action which allows us to remove done tasks.
 This time we use another method called <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/subclass/widget/trait.WidgetClassExt.html#method.install_action"><code>install_action</code></a>.
 This method has a couple of limitation.
 It can only be used when subclassing widgets, and it doesn't support stateful actions.
@@ -881,7 +881,7 @@ On the flipside, its usage is concise and it has a corresponding sister-method <
 </span><span class="boring">
 </span><span class="boring">// Object holding the state
 </span><span class="boring">#[derive(CompositeTemplate, Default)]
-</span><span class="boring">#[template(resource = &quot;/org/gtk_rs/Todo2/window.ui&quot;)]
+</span><span class="boring">#[template(resource = "/org/gtk_rs/Todo2/window.ui")]
 </span><span class="boring">pub struct Window {
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub entry: TemplateChild&lt;Entry&gt;,
@@ -895,15 +895,15 @@ On the flipside, its usage is concise and it has a corresponding sister-method <
 #[glib::object_subclass]
 impl ObjectSubclass for Window {
     // `NAME` needs to match `class` attribute of template
-    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+    const NAME: &amp;'static str = "TodoWindow";
     type Type = super::Window;
     type ParentType = gtk::ApplicationWindow;
 
     fn class_init(klass: &amp;mut Self::Class) {
         klass.bind_template();
 
-        // Create action to remove done tasks and add to action group &quot;win&quot;
-        klass.install_action(&quot;win.remove-done-tasks&quot;, None, |window, _, _| {
+        // Create action to remove done tasks and add to action group "win"
+        klass.install_action("win.remove-done-tasks", None, |window, _, _| {
             window.remove_done_tasks();
         });
     }
@@ -916,7 +916,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all GObjects
 </span><span class="boring">impl ObjectImpl for Window {
 </span><span class="boring">    fn constructed(&amp;self) {
-</span><span class="boring">        // Call &quot;constructed&quot; on parent
+</span><span class="boring">        // Call "constructed" on parent
 </span><span class="boring">        self.parent_constructed();
 </span><span class="boring">
 </span><span class="boring">        // Setup
@@ -946,9 +946,9 @@ impl ObjectSubclass for Window {
 </span><span class="boring">            .collect();
 </span><span class="boring">
 </span><span class="boring">        // Save state to file
-</span><span class="boring">        let file = File::create(data_path()).expect(&quot;Could not create json file.&quot;);
+</span><span class="boring">        let file = File::create(data_path()).expect("Could not create json file.");
 </span><span class="boring">        serde_json::to_writer(file, &amp;backup_data)
-</span><span class="boring">            .expect(&quot;Could not write data to json file&quot;);
+</span><span class="boring">            .expect("Could not write data to json file");
 </span><span class="boring">
 </span><span class="boring">        // Pass close request on to the parent
 </span><span class="boring">        self.parent_close_request()
@@ -988,7 +988,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_settings(&amp;self) {
@@ -996,14 +996,14 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .set(settings)
-</span><span class="boring">            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+</span><span class="boring">            .expect("`settings` should not be set before calling `setup_settings`.");
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn settings(&amp;self) -&gt; &amp;Settings {
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .get()
-</span><span class="boring">            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+</span><span class="boring">            .expect("`settings` should be set in `setup_settings`.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -1012,19 +1012,19 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
 </span><span class="boring">        // Get filter_state from settings
-</span><span class="boring">        let filter_state: String = self.settings().get(&quot;filter&quot;);
+</span><span class="boring">        let filter_state: String = self.settings().get("filter");
 </span><span class="boring">
 </span><span class="boring">        // Create custom filters
 </span><span class="boring">        let filter_open = CustomFilter::new(|obj| {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow completed tasks
 </span><span class="boring">            !task_object.is_completed()
@@ -1033,7 +1033,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow done tasks
 </span><span class="boring">            task_object.is_completed()
@@ -1041,9 +1041,9 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">
 </span><span class="boring">        // Return the correct filter
 </span><span class="boring">        match filter_state.as_str() {
-</span><span class="boring">            &quot;All&quot; =&gt; None,
-</span><span class="boring">            &quot;Open&quot; =&gt; Some(filter_open),
-</span><span class="boring">            &quot;Done&quot; =&gt; Some(filter_done),
+</span><span class="boring">            "All" =&gt; None,
+</span><span class="boring">            "Open" =&gt; Some(filter_open),
+</span><span class="boring">            "Done" =&gt; Some(filter_done),
 </span><span class="boring">            _ =&gt; unreachable!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
@@ -1060,9 +1060,9 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">        let selection_model = NoSelection::new(Some(filter_model.clone()));
 </span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
-</span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
+</span><span class="boring">        // Filter model whenever the value of the key "filter" changes
 </span><span class="boring">        self.settings().connect_changed(
-</span><span class="boring">            Some(&quot;filter&quot;),
+</span><span class="boring">            Some("filter"),
 </span><span class="boring">            clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
 </span><span class="boring">                filter_model.set_filter(window.filter().as_ref());
 </span><span class="boring">            }),
@@ -1073,7 +1073,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">        if let Ok(file) = File::open(data_path()) {
 </span><span class="boring">            // Deserialize data from file to vector
 </span><span class="boring">            let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-</span><span class="boring">                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+</span><span class="boring">                "It should be possible to read `backup_data` from the json file.",
 </span><span class="boring">            );
 </span><span class="boring">
 </span><span class="boring">            // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -1110,7 +1110,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -1127,7 +1127,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -1136,18 +1136,18 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -1157,10 +1157,10 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -1170,8 +1170,8 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
-</span><span class="boring">        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-</span><span class="boring">        let action_filter = self.settings().create_action(&quot;filter&quot;);
+</span><span class="boring">        // Create action from key "filter" and add to action group "win"
+</span><span class="boring">        let action_filter = self.settings().create_action("filter");
 </span><span class="boring">        self.add_action(&amp;action_filter);
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1182,7 +1182,7 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
             // Get `TaskObject` from `glib::Object`
             let task_object = item
                 .downcast_ref::&lt;TaskObject&gt;()
-                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+                .expect("The object needs to be of type `TaskObject`.");
 
             if task_object.is_completed() {
                 tasks.remove(position);
@@ -1192,11 +1192,11 @@ We iterate through the <code>gio::ListStore</code> and remove all completed task
         }
     }
 <span class="boring">}</span></code></pre>
-<p>After activating the action &quot;win.filter&quot;, the corresponding setting will be changed.
+<p>After activating the action "win.filter", the corresponding setting will be changed.
 So we need a method which translates this setting into a filter that the <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/struct.FilterListModel.html"><code>gtk::FilterListModel</code></a> understands.
-The possible states are &quot;All&quot;, &quot;Open&quot; and &quot;Done&quot;. 
-We return <code>Some(filter)</code> for &quot;Open&quot; and &quot;Done&quot;.
-If the state is &quot;All&quot; nothing has to be filtered out, so we return <code>None</code>.</p>
+The possible states are "All", "Open" and "Done".
+We return <code>Some(filter)</code> for "Open" and "Done".
+If the state is "All" nothing has to be filtered out, so we return <code>None</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/window/mod.rs">listings/todo/2/window/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
@@ -1226,7 +1226,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_settings(&amp;self) {
@@ -1234,14 +1234,14 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .set(settings)
-</span><span class="boring">            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+</span><span class="boring">            .expect("`settings` should not be set before calling `setup_settings`.");
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn settings(&amp;self) -&gt; &amp;Settings {
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .get()
-</span><span class="boring">            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+</span><span class="boring">            .expect("`settings` should be set in `setup_settings`.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -1250,19 +1250,19 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
         // Get filter_state from settings
-        let filter_state: String = self.settings().get(&quot;filter&quot;);
+        let filter_state: String = self.settings().get("filter");
 
         // Create custom filters
         let filter_open = CustomFilter::new(|obj| {
             // Get `TaskObject` from `glib::Object`
             let task_object = obj
                 .downcast_ref::&lt;TaskObject&gt;()
-                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+                .expect("The object needs to be of type `TaskObject`.");
 
             // Only allow completed tasks
             !task_object.is_completed()
@@ -1271,7 +1271,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
             // Get `TaskObject` from `glib::Object`
             let task_object = obj
                 .downcast_ref::&lt;TaskObject&gt;()
-                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+                .expect("The object needs to be of type `TaskObject`.");
 
             // Only allow done tasks
             task_object.is_completed()
@@ -1279,9 +1279,9 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 
         // Return the correct filter
         match filter_state.as_str() {
-            &quot;All&quot; =&gt; None,
-            &quot;Open&quot; =&gt; Some(filter_open),
-            &quot;Done&quot; =&gt; Some(filter_done),
+            "All" =&gt; None,
+            "Open" =&gt; Some(filter_open),
+            "Done" =&gt; Some(filter_done),
             _ =&gt; unreachable!(),
         }
     }
@@ -1298,9 +1298,9 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        let selection_model = NoSelection::new(Some(filter_model.clone()));
 </span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
-</span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
+</span><span class="boring">        // Filter model whenever the value of the key "filter" changes
 </span><span class="boring">        self.settings().connect_changed(
-</span><span class="boring">            Some(&quot;filter&quot;),
+</span><span class="boring">            Some("filter"),
 </span><span class="boring">            clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
 </span><span class="boring">                filter_model.set_filter(window.filter().as_ref());
 </span><span class="boring">            }),
@@ -1311,7 +1311,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        if let Ok(file) = File::open(data_path()) {
 </span><span class="boring">            // Deserialize data from file to vector
 </span><span class="boring">            let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-</span><span class="boring">                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+</span><span class="boring">                "It should be possible to read `backup_data` from the json file.",
 </span><span class="boring">            );
 </span><span class="boring">
 </span><span class="boring">            // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -1348,7 +1348,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -1365,7 +1365,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -1374,18 +1374,18 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -1395,10 +1395,10 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -1408,8 +1408,8 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
-</span><span class="boring">        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-</span><span class="boring">        let action_filter = self.settings().create_action(&quot;filter&quot;);
+</span><span class="boring">        // Create action from key "filter" and add to action group "win"
+</span><span class="boring">        let action_filter = self.settings().create_action("filter");
 </span><span class="boring">        self.add_action(&amp;action_filter);
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1420,7 +1420,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            if task_object.is_completed() {
 </span><span class="boring">                tasks.remove(position);
@@ -1432,7 +1432,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">}</span></code></pre>
 <p>Now, we can set up the model.
 We initialize <code>filter_model</code> with the state from the settings by calling the method <code>filter</code>.
-Whenever the state of the key &quot;filter&quot; changes, we call the method <code>filter</code> again to get the updated <code>filter_model</code>.</p>
+Whenever the state of the key "filter" changes, we call the method <code>filter</code> again to get the updated <code>filter_model</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/window/mod.rs">listings/todo/2/window/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
@@ -1462,7 +1462,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_settings(&amp;self) {
@@ -1470,14 +1470,14 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .set(settings)
-</span><span class="boring">            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+</span><span class="boring">            .expect("`settings` should not be set before calling `setup_settings`.");
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn settings(&amp;self) -&gt; &amp;Settings {
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .get()
-</span><span class="boring">            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+</span><span class="boring">            .expect("`settings` should be set in `setup_settings`.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -1486,19 +1486,19 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
 </span><span class="boring">        // Get filter_state from settings
-</span><span class="boring">        let filter_state: String = self.settings().get(&quot;filter&quot;);
+</span><span class="boring">        let filter_state: String = self.settings().get("filter");
 </span><span class="boring">
 </span><span class="boring">        // Create custom filters
 </span><span class="boring">        let filter_open = CustomFilter::new(|obj| {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow completed tasks
 </span><span class="boring">            !task_object.is_completed()
@@ -1507,7 +1507,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow done tasks
 </span><span class="boring">            task_object.is_completed()
@@ -1515,9 +1515,9 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">
 </span><span class="boring">        // Return the correct filter
 </span><span class="boring">        match filter_state.as_str() {
-</span><span class="boring">            &quot;All&quot; =&gt; None,
-</span><span class="boring">            &quot;Open&quot; =&gt; Some(filter_open),
-</span><span class="boring">            &quot;Done&quot; =&gt; Some(filter_done),
+</span><span class="boring">            "All" =&gt; None,
+</span><span class="boring">            "Open" =&gt; Some(filter_open),
+</span><span class="boring">            "Done" =&gt; Some(filter_done),
 </span><span class="boring">            _ =&gt; unreachable!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
@@ -1534,9 +1534,9 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
         let selection_model = NoSelection::new(Some(filter_model.clone()));
         self.imp().tasks_list.set_model(Some(&amp;selection_model));
 
-        // Filter model whenever the value of the key &quot;filter&quot; changes
+        // Filter model whenever the value of the key "filter" changes
         self.settings().connect_changed(
-            Some(&quot;filter&quot;),
+            Some("filter"),
             clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
                 filter_model.set_filter(window.filter().as_ref());
             }),
@@ -1547,7 +1547,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">        if let Ok(file) = File::open(data_path()) {
 </span><span class="boring">            // Deserialize data from file to vector
 </span><span class="boring">            let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-</span><span class="boring">                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+</span><span class="boring">                "It should be possible to read `backup_data` from the json file.",
 </span><span class="boring">            );
 </span><span class="boring">
 </span><span class="boring">            // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -1584,7 +1584,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -1601,7 +1601,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -1610,18 +1610,18 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -1631,10 +1631,10 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -1644,8 +1644,8 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
-</span><span class="boring">        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-</span><span class="boring">        let action_filter = self.settings().create_action(&quot;filter&quot;);
+</span><span class="boring">        // Create action from key "filter" and add to action group "win"
+</span><span class="boring">        let action_filter = self.settings().create_action("filter");
 </span><span class="boring">        self.add_action(&amp;action_filter);
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1656,7 +1656,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            if task_object.is_completed() {
 </span><span class="boring">                tasks.remove(position);
@@ -1679,12 +1679,12 @@ Since this has to be done at the application level, <code>setup_shortcuts</code>
 </span><span class="boring">use gtk::{gio, glib, Application};
 </span><span class="boring">use window::Window;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Todo2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Todo2";
 </span><span class="boring">
 </span>fn main() -&gt; glib::ExitCode {
     // Register and include resources
-    gio::resources_register_include!(&quot;todo_2.gresource&quot;)
-        .expect(&quot;Failed to register resources.&quot;);
+    gio::resources_register_include!("todo_2.gresource")
+        .expect("Failed to register resources.");
 
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
@@ -1698,9 +1698,9 @@ Since this has to be done at the application level, <code>setup_shortcuts</code>
 }
 
 fn setup_shortcuts(app: &amp;Application) {
-    app.set_accels_for_action(&quot;win.filter('All')&quot;, &amp;[&quot;&lt;Ctrl&gt;a&quot;]);
-    app.set_accels_for_action(&quot;win.filter('Open')&quot;, &amp;[&quot;&lt;Ctrl&gt;o&quot;]);
-    app.set_accels_for_action(&quot;win.filter('Done')&quot;, &amp;[&quot;&lt;Ctrl&gt;d&quot;]);
+    app.set_accels_for_action("win.filter('All')", &amp;["&lt;Ctrl&gt;a"]);
+    app.set_accels_for_action("win.filter('Open')", &amp;["&lt;Ctrl&gt;o"]);
+    app.set_accels_for_action("win.filter('Done')", &amp;["&lt;Ctrl&gt;d"]);
 }
 <span class="boring">
 </span><span class="boring">fn build_ui(app: &amp;Application) {
@@ -1711,41 +1711,41 @@ fn setup_shortcuts(app: &amp;Application) {
 <p>Now that we created all these nice shortcuts we will want our users to find them.
 We do that by creating a shortcut window.
 Again we use an <code>ui</code> file to describe it, but here we don't want to use it as template for our custom widget.
-Instead we instantiate a widget of the existing class <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/struct.ShortcutsWindow.html"><code>gtk::ShortcutsWindow</code></a> with it. </p>
+Instead we instantiate a widget of the existing class <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/struct.ShortcutsWindow.html"><code>gtk::ShortcutsWindow</code></a> with it.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/resources/shortcuts.ui">listings/todo/2/resources/shortcuts.ui</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;interface&gt;
-  &lt;object class=&quot;GtkShortcutsWindow&quot; id=&quot;help_overlay&quot;&gt;
-    &lt;property name=&quot;modal&quot;&gt;True&lt;/property&gt;
+  &lt;object class="GtkShortcutsWindow" id="help_overlay"&gt;
+    &lt;property name="modal"&gt;True&lt;/property&gt;
     &lt;child&gt;
-      &lt;object class=&quot;GtkShortcutsSection&quot;&gt;
-        &lt;property name=&quot;section-name&quot;&gt;shortcuts&lt;/property&gt;
-        &lt;property name=&quot;max-height&quot;&gt;10&lt;/property&gt;
+      &lt;object class="GtkShortcutsSection"&gt;
+        &lt;property name="section-name"&gt;shortcuts&lt;/property&gt;
+        &lt;property name="max-height"&gt;10&lt;/property&gt;
         &lt;child&gt;
-          &lt;object class=&quot;GtkShortcutsGroup&quot;&gt;
-            &lt;property name=&quot;title&quot; translatable=&quot;yes&quot; context=&quot;shortcut window&quot;&gt;General&lt;/property&gt;
+          &lt;object class="GtkShortcutsGroup"&gt;
+            &lt;property name="title" translatable="yes" context="shortcut window"&gt;General&lt;/property&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkShortcutsShortcut&quot;&gt;
-                &lt;property name=&quot;title&quot; translatable=&quot;yes&quot; context=&quot;shortcut window&quot;&gt;Show shortcuts&lt;/property&gt;
-                &lt;property name=&quot;action-name&quot;&gt;win.show-help-overlay&lt;/property&gt;
+              &lt;object class="GtkShortcutsShortcut"&gt;
+                &lt;property name="title" translatable="yes" context="shortcut window"&gt;Show shortcuts&lt;/property&gt;
+                &lt;property name="action-name"&gt;win.show-help-overlay&lt;/property&gt;
               &lt;/object&gt;
             &lt;/child&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkShortcutsShortcut&quot;&gt;
-                &lt;property name=&quot;title&quot; translatable=&quot;yes&quot; context=&quot;shortcut window&quot;&gt;Filter to show all tasks&lt;/property&gt;
-                &lt;property name=&quot;action-name&quot;&gt;win.filter('All')&lt;/property&gt;
+              &lt;object class="GtkShortcutsShortcut"&gt;
+                &lt;property name="title" translatable="yes" context="shortcut window"&gt;Filter to show all tasks&lt;/property&gt;
+                &lt;property name="action-name"&gt;win.filter('All')&lt;/property&gt;
               &lt;/object&gt;
             &lt;/child&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkShortcutsShortcut&quot;&gt;
-                &lt;property name=&quot;title&quot; translatable=&quot;yes&quot; context=&quot;shortcut window&quot;&gt;Filter to show only open tasks&lt;/property&gt;
-                &lt;property name=&quot;action-name&quot;&gt;win.filter('Open')&lt;/property&gt;
+              &lt;object class="GtkShortcutsShortcut"&gt;
+                &lt;property name="title" translatable="yes" context="shortcut window"&gt;Filter to show only open tasks&lt;/property&gt;
+                &lt;property name="action-name"&gt;win.filter('Open')&lt;/property&gt;
               &lt;/object&gt;
             &lt;/child&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkShortcutsShortcut&quot;&gt;
-                &lt;property name=&quot;title&quot; translatable=&quot;yes&quot; context=&quot;shortcut window&quot;&gt;Filter to show only completed tasks&lt;/property&gt;
-                &lt;property name=&quot;action-name&quot;&gt;win.filter('Done')&lt;/property&gt;
+              &lt;object class="GtkShortcutsShortcut"&gt;
+                &lt;property name="title" translatable="yes" context="shortcut window"&gt;Filter to show only completed tasks&lt;/property&gt;
+                &lt;property name="action-name"&gt;win.filter('Done')&lt;/property&gt;
               &lt;/object&gt;
             &lt;/child&gt;
           &lt;/object&gt;
@@ -1771,12 +1771,12 @@ We do that to take advantage of a convenience functionality documented <a href="
 It will look for a resource at <code>gtk/help-overlay.ui</code> which defines a <code>ShortcutsWindow</code> with id <code>help_overlay</code>.
 If it can find one it will create a action <code>win.show-help-overlay</code> which will show the window and associate the shortcut <kbd>Ctrl</kbd> + <kbd>?</kbd> with this action.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/2/resources/resources.gresource.xml">listings/todo/2/resources/resources.gresource.xml</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;gresources&gt;
-  &lt;gresource prefix=&quot;/org/gtk_rs/Todo2/&quot;&gt;
-    &lt;file compressed=&quot;true&quot; preprocess=&quot;xml-stripblanks&quot; alias=&quot;gtk/help-overlay.ui&quot;&gt;shortcuts.ui&lt;/file&gt;
-    &lt;file compressed=&quot;true&quot; preprocess=&quot;xml-stripblanks&quot;&gt;task_row.ui&lt;/file&gt;
-    &lt;file compressed=&quot;true&quot; preprocess=&quot;xml-stripblanks&quot;&gt;window.ui&lt;/file&gt;
+  &lt;gresource prefix="/org/gtk_rs/Todo2/"&gt;
+    &lt;file compressed="true" preprocess="xml-stripblanks" alias="gtk/help-overlay.ui"&gt;shortcuts.ui&lt;/file&gt;
+    &lt;file compressed="true" preprocess="xml-stripblanks"&gt;task_row.ui&lt;/file&gt;
+    &lt;file compressed="true" preprocess="xml-stripblanks"&gt;window.ui&lt;/file&gt;
   &lt;/gresource&gt;
 &lt;/gresources&gt;
 </code></pre>
@@ -1794,8 +1794,8 @@ cargo add serde_json
 </code></pre>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/Cargo.toml">listings/Cargo.toml</a></p>
 <pre><code class="language-toml">[dependencies]
-serde = { version = &quot;1.0&quot;, features = [&quot;derive&quot;] }
-serde_json = &quot;1.0&quot;
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 </code></pre>
 <p>Serde is a framework for serializing and deserializing Rust data structures.
 The <code>derive</code> feature allows us to make our structures (de-)serializable with a single line of code.
@@ -1817,8 +1817,8 @@ Doing so allows us to derive <code>Serialize</code> and <code>Deserialize</code>
 </span><span class="boring">impl TaskObject {
 </span><span class="boring">    pub fn new(completed: bool, content: String) -&gt; Self {
 </span><span class="boring">        Object::builder()
-</span><span class="boring">            .property(&quot;completed&quot;, completed)
-</span><span class="boring">            .property(&quot;content&quot;, content)
+</span><span class="boring">            .property("completed", completed)
+</span><span class="boring">            .property("content", content)
 </span><span class="boring">            .build()
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1853,8 +1853,8 @@ Then we return the file path.</p>
 </span>pub fn data_path() -&gt; PathBuf {
     let mut path = glib::user_data_dir();
     path.push(APP_ID);
-    std::fs::create_dir_all(&amp;path).expect(&quot;Could not create directory.&quot;);
-    path.push(&quot;data.json&quot;);
+    std::fs::create_dir_all(&amp;path).expect("Could not create directory.");
+    path.push("data.json");
     path
 }</code></pre>
 <p>We override the <code>close_request</code> virtual function to save the tasks when the window is closed.
@@ -1876,7 +1876,7 @@ Then we serialize the <code>Vec</code> and store the data as a json file.</p>
 </span><span class="boring">
 </span><span class="boring">// Object holding the state
 </span><span class="boring">#[derive(CompositeTemplate, Default)]
-</span><span class="boring">#[template(resource = &quot;/org/gtk_rs/Todo2/window.ui&quot;)]
+</span><span class="boring">#[template(resource = "/org/gtk_rs/Todo2/window.ui")]
 </span><span class="boring">pub struct Window {
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub entry: TemplateChild&lt;Entry&gt;,
@@ -1890,15 +1890,15 @@ Then we serialize the <code>Vec</code> and store the data as a json file.</p>
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for Window {
 </span><span class="boring">    // `NAME` needs to match `class` attribute of template
-</span><span class="boring">    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "TodoWindow";
 </span><span class="boring">    type Type = super::Window;
 </span><span class="boring">    type ParentType = gtk::ApplicationWindow;
 </span><span class="boring">
 </span><span class="boring">    fn class_init(klass: &amp;mut Self::Class) {
 </span><span class="boring">        klass.bind_template();
 </span><span class="boring">
-</span><span class="boring">        // Create action to remove done tasks and add to action group &quot;win&quot;
-</span><span class="boring">        klass.install_action(&quot;win.remove-done-tasks&quot;, None, |window, _, _| {
+</span><span class="boring">        // Create action to remove done tasks and add to action group "win"
+</span><span class="boring">        klass.install_action("win.remove-done-tasks", None, |window, _, _| {
 </span><span class="boring">            window.remove_done_tasks();
 </span><span class="boring">        });
 </span><span class="boring">    }
@@ -1911,7 +1911,7 @@ Then we serialize the <code>Vec</code> and store the data as a json file.</p>
 </span><span class="boring">// Trait shared by all GObjects
 </span><span class="boring">impl ObjectImpl for Window {
 </span><span class="boring">    fn constructed(&amp;self) {
-</span><span class="boring">        // Call &quot;constructed&quot; on parent
+</span><span class="boring">        // Call "constructed" on parent
 </span><span class="boring">        self.parent_constructed();
 </span><span class="boring">
 </span><span class="boring">        // Setup
@@ -1941,9 +1941,9 @@ impl WindowImpl for Window {
             .collect();
 
         // Save state to file
-        let file = File::create(data_path()).expect(&quot;Could not create json file.&quot;);
+        let file = File::create(data_path()).expect("Could not create json file.");
         serde_json::to_writer(file, &amp;backup_data)
-            .expect(&quot;Could not write data to json file&quot;);
+            .expect("Could not write data to json file");
 
         // Pass close request on to the parent
         self.parent_close_request()
@@ -1958,24 +1958,24 @@ To create the equivalent but nicely formatted json below you can just replace <c
 <p>Filename: data.json</p>
 <pre><code class="language-json">[
   {
-    &quot;completed&quot;: true,
-    &quot;content&quot;: &quot;Task Number Two&quot;
+    "completed": true,
+    "content": "Task Number Two"
   },
   {
-    &quot;completed&quot;: false,
-    &quot;content&quot;: &quot;Task Number Five&quot;
+    "completed": false,
+    "content": "Task Number Five"
   },
   {
-    &quot;completed&quot;: true,
-    &quot;content&quot;: &quot;Task Number Six&quot;
+    "completed": true,
+    "content": "Task Number Six"
   },
   {
-    &quot;completed&quot;: false,
-    &quot;content&quot;: &quot;Task Number Seven&quot;
+    "completed": false,
+    "content": "Task Number Seven"
   },
   {
-    &quot;completed&quot;: false,
-    &quot;content&quot;: &quot;Task Number Eight&quot;
+    "completed": false,
+    "content": "Task Number Eight"
   }
 ]
 </code></pre>
@@ -2012,7 +2012,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_settings(&amp;self) {
@@ -2020,14 +2020,14 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .set(settings)
-</span><span class="boring">            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+</span><span class="boring">            .expect("`settings` should not be set before calling `setup_settings`.");
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn settings(&amp;self) -&gt; &amp;Settings {
 </span><span class="boring">        self.imp()
 </span><span class="boring">            .settings
 </span><span class="boring">            .get()
-</span><span class="boring">            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+</span><span class="boring">            .expect("`settings` should be set in `setup_settings`.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -2036,19 +2036,19 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn filter(&amp;self) -&gt; Option&lt;CustomFilter&gt; {
 </span><span class="boring">        // Get filter_state from settings
-</span><span class="boring">        let filter_state: String = self.settings().get(&quot;filter&quot;);
+</span><span class="boring">        let filter_state: String = self.settings().get("filter");
 </span><span class="boring">
 </span><span class="boring">        // Create custom filters
 </span><span class="boring">        let filter_open = CustomFilter::new(|obj| {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow completed tasks
 </span><span class="boring">            !task_object.is_completed()
@@ -2057,7 +2057,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = obj
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Only allow done tasks
 </span><span class="boring">            task_object.is_completed()
@@ -2065,9 +2065,9 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">
 </span><span class="boring">        // Return the correct filter
 </span><span class="boring">        match filter_state.as_str() {
-</span><span class="boring">            &quot;All&quot; =&gt; None,
-</span><span class="boring">            &quot;Open&quot; =&gt; Some(filter_open),
-</span><span class="boring">            &quot;Done&quot; =&gt; Some(filter_done),
+</span><span class="boring">            "All" =&gt; None,
+</span><span class="boring">            "Open" =&gt; Some(filter_open),
+</span><span class="boring">            "Done" =&gt; Some(filter_done),
 </span><span class="boring">            _ =&gt; unreachable!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
@@ -2084,9 +2084,9 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        let selection_model = NoSelection::new(Some(filter_model.clone()));
 </span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
-</span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
+</span><span class="boring">        // Filter model whenever the value of the key "filter" changes
 </span><span class="boring">        self.settings().connect_changed(
-</span><span class="boring">            Some(&quot;filter&quot;),
+</span><span class="boring">            Some("filter"),
 </span><span class="boring">            clone!(@weak self as window, @weak filter_model =&gt; move |_, _| {
 </span><span class="boring">                filter_model.set_filter(window.filter().as_ref());
 </span><span class="boring">            }),
@@ -2097,7 +2097,7 @@ It might be the first time that we started the app and therefore there is no for
         if let Ok(file) = File::open(data_path()) {
             // Deserialize data from file to vector
             let backup_data: Vec&lt;TaskData&gt; = serde_json::from_reader(file).expect(
-                &quot;It should be possible to read `backup_data` from the json file.&quot;,
+                "It should be possible to read `backup_data` from the json file.",
             );
 
             // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
@@ -2134,7 +2134,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -2151,7 +2151,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -2160,18 +2160,18 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -2181,10 +2181,10 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -2194,8 +2194,8 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
-</span><span class="boring">        // Create action from key &quot;filter&quot; and add to action group &quot;win&quot;
-</span><span class="boring">        let action_filter = self.settings().create_action(&quot;filter&quot;);
+</span><span class="boring">        // Create action from key "filter" and add to action group "win"
+</span><span class="boring">        let action_filter = self.settings().create_action("filter");
 </span><span class="boring">        self.add_action(&amp;action_filter);
 </span><span class="boring">    }
 </span><span class="boring">
@@ -2206,7 +2206,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
 </span><span class="boring">            let task_object = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The object needs to be of type `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            if task_object.is_completed() {
 </span><span class="boring">                tasks.remove(position);
@@ -2233,7 +2233,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">
 </span><span class="boring">// Object holding the state
 </span><span class="boring">#[derive(CompositeTemplate, Default)]
-</span><span class="boring">#[template(resource = &quot;/org/gtk_rs/Todo2/window.ui&quot;)]
+</span><span class="boring">#[template(resource = "/org/gtk_rs/Todo2/window.ui")]
 </span><span class="boring">pub struct Window {
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub entry: TemplateChild&lt;Entry&gt;,
@@ -2247,15 +2247,15 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for Window {
 </span><span class="boring">    // `NAME` needs to match `class` attribute of template
-</span><span class="boring">    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "TodoWindow";
 </span><span class="boring">    type Type = super::Window;
 </span><span class="boring">    type ParentType = gtk::ApplicationWindow;
 </span><span class="boring">
 </span><span class="boring">    fn class_init(klass: &amp;mut Self::Class) {
 </span><span class="boring">        klass.bind_template();
 </span><span class="boring">
-</span><span class="boring">        // Create action to remove done tasks and add to action group &quot;win&quot;
-</span><span class="boring">        klass.install_action(&quot;win.remove-done-tasks&quot;, None, |window, _, _| {
+</span><span class="boring">        // Create action to remove done tasks and add to action group "win"
+</span><span class="boring">        klass.install_action("win.remove-done-tasks", None, |window, _, _| {
 </span><span class="boring">            window.remove_done_tasks();
 </span><span class="boring">        });
 </span><span class="boring">    }
@@ -2268,7 +2268,7 @@ It might be the first time that we started the app and therefore there is no for
 </span>// Trait shared by all GObjects
 impl ObjectImpl for Window {
     fn constructed(&amp;self) {
-        // Call &quot;constructed&quot; on parent
+        // Call "constructed" on parent
         self.parent_constructed();
 
         // Setup
@@ -2298,9 +2298,9 @@ impl ObjectImpl for Window {
 </span><span class="boring">            .collect();
 </span><span class="boring">
 </span><span class="boring">        // Save state to file
-</span><span class="boring">        let file = File::create(data_path()).expect(&quot;Could not create json file.&quot;);
+</span><span class="boring">        let file = File::create(data_path()).expect("Could not create json file.");
 </span><span class="boring">        serde_json::to_writer(file, &amp;backup_data)
-</span><span class="boring">            .expect(&quot;Could not write data to json file&quot;);
+</span><span class="boring">            .expect("Could not write data to json file");
 </span><span class="boring">
 </span><span class="boring">        // Pass close request on to the parent
 </span><span class="boring">        self.parent_close_request()

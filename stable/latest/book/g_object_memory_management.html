@@ -185,14 +185,14 @@ Every button click should increment an integer <code>number</code> by one.</p>
 <pre><code class="language-rust  no_run compile_fail"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement0&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement0";
 </span><span class="boring">
 </span>// DOES NOT COMPILE!
 fn main() -&gt; glib::ExitCode {
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
 
-    // Connect to &quot;activate&quot; signal of `app`
+    // Connect to "activate" signal of `app`
     app.connect_activate(build_ui);
 
     // Run the application
@@ -202,7 +202,7 @@ fn main() -&gt; glib::ExitCode {
 fn build_ui(application: &amp;Application) {
     // Create two buttons
     let button_increase = Button::builder()
-        .label(&quot;Increase&quot;)
+        .label("Increase")
         .margin_top(12)
         .margin_bottom(12)
         .margin_start(12)
@@ -219,7 +219,7 @@ fn build_ui(application: &amp;Application) {
     // Create a window
     let window = ApplicationWindow::builder()
         .application(application)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button_increase)
         .build();
 
@@ -252,13 +252,13 @@ By adding the <code>move</code> keyword in front of the closure, <code>number</c
 <pre><code class="language-rust  no_run compile_fail"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement0&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement0";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">   // Create a new application
 </span><span class="boring">   let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">   // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">   // Connect to "activate" signal of `app`
 </span><span class="boring">   app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">   // Run the application
@@ -268,7 +268,7 @@ By adding the <code>move</code> keyword in front of the closure, <code>number</c
 </span><span class="boring">fn build_ui(application: &amp;Application) {
 </span><span class="boring">   // Create two buttons
 </span><span class="boring">   let button_increase = Button::builder()
-</span><span class="boring">       .label(&quot;Increase&quot;)
+</span><span class="boring">       .label("Increase")
 </span><span class="boring">       .margin_top(12)
 </span><span class="boring">       .margin_bottom(12)
 </span><span class="boring">       .margin_start(12)
@@ -286,7 +286,7 @@ By adding the <code>move</code> keyword in front of the closure, <code>number</c
 </span><span class="boring">   // Create a window
 </span><span class="boring">   let window = ApplicationWindow::builder()
 </span><span class="boring">       .application(application)
-</span><span class="boring">       .title(&quot;My GTK App&quot;)
+</span><span class="boring">       .title("My GTK App")
 </span><span class="boring">       .child(&amp;button_increase)
 </span><span class="boring">       .build();
 </span><span class="boring">
@@ -320,13 +320,13 @@ You can learn more about interior mutability in this <a href="https://marabos.nl
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
 </span><span class="boring">use std::cell::Cell;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -336,7 +336,7 @@ You can learn more about interior mutability in this <a href="https://marabos.nl
 </span>fn build_ui(application: &amp;Application) {
     // Create two buttons
     let button_increase = Button::builder()
-        .label(&quot;Increase&quot;)
+        .label("Increase")
         .margin_top(12)
         .margin_bottom(12)
         .margin_start(12)
@@ -353,7 +353,7 @@ You can learn more about interior mutability in this <a href="https://marabos.nl
     // Create a window
     let window = ApplicationWindow::builder()
         .application(application)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button_increase)
         .build();
 
@@ -374,13 +374,13 @@ we can again use the <a href="https://doc.rust-lang.org/std/cell/struct.Cell.htm
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement2";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -389,14 +389,14 @@ we can again use the <a href="https://doc.rust-lang.org/std/cell/struct.Cell.htm
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -421,7 +421,7 @@ we can again use the <a href="https://doc.rust-lang.org/std/cell/struct.Cell.htm
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;gtk_box)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -438,13 +438,13 @@ We can improve that by using the <a href="https://gtk-rs.org/gtk-rs-core/stable/
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement3&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement3";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -453,14 +453,14 @@ We can improve that by using the <a href="https://gtk-rs.org/gtk-rs-core/stable/
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -488,7 +488,7 @@ We can improve that by using the <a href="https://gtk-rs.org/gtk-rs-core/stable/
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;gtk_box)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -505,13 +505,13 @@ Therefore, we can pass the buttons the same way to the closure as we did with <c
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement4&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement4";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -521,14 +521,14 @@ Therefore, we can pass the buttons the same way to the closure as we did with <c
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -560,7 +560,7 @@ Therefore, we can pass the buttons the same way to the closure as we did with <c
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;gtk_box)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -584,13 +584,13 @@ Since we want our apps to free unneeded memory, we should use weak references fo
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement5&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement5";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -600,14 +600,14 @@ Since we want our apps to free unneeded memory, we should use weak references fo
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -640,7 +640,7 @@ Since we want our apps to free unneeded memory, we should use weak references fo
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;gtk_box)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -664,13 +664,13 @@ Who then keeps the buttons alive?</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement5&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement5";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -680,14 +680,14 @@ Who then keeps the buttons alive?</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -720,7 +720,7 @@ Who then keeps the buttons alive?</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;gtk_box)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -736,13 +736,13 @@ Who then keeps the buttons alive?</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, glib, Application, ApplicationWindow, Button, Orientation};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.GObjectMemoryManagement5&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.GObjectMemoryManagement5";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -752,14 +752,14 @@ Who then keeps the buttons alive?</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create two buttons
 </span><span class="boring">    let button_increase = Button::builder()
-</span><span class="boring">        .label(&quot;Increase&quot;)
+</span><span class="boring">        .label("Increase")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">    let button_decrease = Button::builder()
-</span><span class="boring">        .label(&quot;Decrease&quot;)
+</span><span class="boring">        .label("Decrease")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -792,7 +792,7 @@ Who then keeps the buttons alive?</p>
 </span>    // Create a window
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;gtk_box)
         .build();
 <span class="boring">

@@ -196,13 +196,13 @@ use std::time::Duration;
 use gtk::prelude::*;
 use gtk::{self, glib, Application, ApplicationWindow, Button};
 
-const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop1&quot;;
+const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop1";
 
 fn main() -&gt; glib::ExitCode {
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
 
-    // Connect to &quot;activate&quot; signal of `app`
+    // Connect to "activate" signal of `app`
     app.connect_activate(build_ui);
 
     // Run the application
@@ -212,14 +212,14 @@ fn main() -&gt; glib::ExitCode {
 fn build_ui(app: &amp;Application) {
     // Create a button
     let button = Button::builder()
-        .label(&quot;Press me!&quot;)
+        .label("Press me!")
         .margin_top(12)
         .margin_bottom(12)
         .margin_start(12)
         .margin_end(12)
         .build();
 
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         // GUI is blocked for 5 seconds after the button is pressed
         let five_seconds = Duration::from_secs(5);
@@ -229,7 +229,7 @@ fn build_ui(app: &amp;Application) {
     // Create a window
     let window = ApplicationWindow::builder()
         .application(app)
-        .title(&quot;My GTK App&quot;)
+        .title("My GTK App")
         .child(&amp;button)
         .build();
 
@@ -255,13 +255,13 @@ but frequently, we want to run a slightly longer operation in one go.</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{self, gio, glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop2";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -271,14 +271,14 @@ but frequently, we want to run a slightly longer operation in one go.</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         // The long running operation runs now in a separate thread
         gio::spawn_blocking(move || {
@@ -290,7 +290,7 @@ but frequently, we want to run a slightly longer operation in one go.</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -336,13 +336,13 @@ This <code>async</code> block is spawned on the <code>glib</code> main loop with
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop3&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop3";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -352,7 +352,7 @@ This <code>async</code> block is spawned on the <code>glib</code> main loop with
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -361,7 +361,7 @@ This <code>async</code> block is spawned on the <code>glib</code> main loop with
 </span><span class="boring">
 </span>    // Create channel that can hold at most 1 message at a time
     let (sender, receiver) = async_channel::bounded(1);
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         let sender = sender.clone();
         // The long running operation runs now in a separate thread
@@ -369,13 +369,13 @@ This <code>async</code> block is spawned on the <code>glib</code> main loop with
             // Deactivate the button until the operation is done
             sender
                 .send_blocking(false)
-                .expect(&quot;The channel needs to be open.&quot;);
+                .expect("The channel needs to be open.");
             let five_seconds = Duration::from_secs(5);
             thread::sleep(five_seconds);
             // Activate the button again
             sender
                 .send_blocking(true)
-                .expect(&quot;The channel needs to be open.&quot;);
+                .expect("The channel needs to be open.");
         });
     });
 
@@ -389,7 +389,7 @@ This <code>async</code> block is spawned on the <code>glib</code> main loop with
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -414,13 +414,13 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop4&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop4";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -430,7 +430,7 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -439,14 +439,14 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">
 </span>    // Create channel that can hold at most 1 message at a time
     let (sender, receiver) = async_channel::bounded(1);
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         glib::spawn_future_local(clone!(@strong sender =&gt; async move {
             // Deactivate the button until the operation is done
-            sender.send(false).await.expect(&quot;The channel needs to be open.&quot;);
+            sender.send(false).await.expect("The channel needs to be open.");
             glib::timeout_future_seconds(5).await;
             // Activate the button again
-            sender.send(true).await.expect(&quot;The channel needs to be open.&quot;);
+            sender.send(true).await.expect("The channel needs to be open.");
         }));
     });
 
@@ -460,7 +460,7 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -473,13 +473,13 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop5&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop5";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -489,14 +489,14 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |button| {
         glib::spawn_future_local(clone!(@weak button =&gt; async move {
             // Deactivate the button until the operation is done
@@ -510,7 +510,7 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -528,10 +528,10 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder()
-</span><span class="boring">       .application_id(&quot;org.gtk_rs.MainEventLoop6&quot;)
+</span><span class="boring">       .application_id("org.gtk_rs.MainEventLoop6")
 </span><span class="boring">       .build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal
+</span><span class="boring">    // Connect to "activate" signal
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Get command-line arguments
@@ -545,12 +545,12 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(application)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -558,7 +558,7 @@ The converted code looks and behaves very similar to the multithreaded code.</p>
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span>    // DOES NOT COMPILE!
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |button| {
         button.clone();
         // The long running operation runs now in a separate thread
@@ -597,13 +597,13 @@ We can then get the return value of the function by calling <code>await</code> o
 </span><span class="boring">use std::thread;
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop6&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop6";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -613,14 +613,14 @@ We can then get the return value of the function by calling <code>await</code> o
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |button| {
         // The main loop executes the asynchronous block
         glib::spawn_future_local(clone!(@weak button =&gt; async move {
@@ -632,7 +632,7 @@ We can then get the return value of the function by calling <code>await</code> o
                 true
             })
             .await
-            .expect(&quot;Task needs to finish successfully.&quot;);
+            .expect("Task needs to finish successfully.");
             // Set sensitivity of button to `enable_button`
             button.set_sensitive(enable_button);
         }));
@@ -641,7 +641,7 @@ We can then get the return value of the function by calling <code>await</code> o
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -669,13 +669,13 @@ We are getting a <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/str
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{glib, Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop7&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop7";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -685,31 +685,31 @@ We are getting a <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/str
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
 </span><span class="boring">        .margin_end(12)
 </span><span class="boring">        .build();
 </span><span class="boring">
-</span>    // Connect to &quot;clicked&quot; signal of `button`
+</span>    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |button| {
         // The main loop executes the asynchronous block
         glib::spawn_future_local(clone!(@weak button =&gt; async move {
             // Get native of button for window identifier
-            let native = button.native().expect(&quot;Need to be able to get native.&quot;);
+            let native = button.native().expect("Need to be able to get native.");
             // Get window identifier so that the dialog will be modal to the main window
             let identifier = WindowIdentifier::from_native(&amp;native).await;
             let request = UserInformation::request()
-                .reason(&quot;App would like to access user information.&quot;)
+                .reason("App would like to access user information.")
                 .identifier(identifier)
                 .send()
                 .await;
 
             if let Ok(response) = request.and_then(|r| r.response()) {
-                println!(&quot;User name: {}&quot;, response.name());
+                println!("User name: {}", response.name());
             } else {
-                println!(&quot;Could not access user information.&quot;)
+                println!("Could not access user information.")
             }
         }));
     });
@@ -717,7 +717,7 @@ We are getting a <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/str
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -742,13 +742,13 @@ The response should then be sent to the main thread via a channel.</p>
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Button};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop8&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop8";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -758,7 +758,7 @@ The response should then be sent to the main thread via a channel.</p>
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -766,12 +766,12 @@ The response should then be sent to the main thread via a channel.</p>
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span>    let (sender, receiver) = async_channel::bounded(1);
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         // The main loop executes the asynchronous block
         glib::spawn_future_local(clone!(@strong sender =&gt; async move {
-            let response = reqwest::get(&quot;https://www.gtk-rs.org&quot;).await;
-            sender.send(response).await.expect(&quot;The channel needs to be open.&quot;);
+            let response = reqwest::get("https://www.gtk-rs.org").await;
+            sender.send(response).await.expect("The channel needs to be open.");
         }));
     });
 
@@ -779,9 +779,9 @@ The response should then be sent to the main thread via a channel.</p>
     glib::spawn_future_local(async move {
         while let Ok(response) = receiver.recv().await {
             if let Ok(response) = response {
-                println!(&quot;Status: {}&quot;, response.status());
+                println!("Status: {}", response.status());
             } else {
-                println!(&quot;Could not make a `GET` request.&quot;);
+                println!("Could not make a `GET` request.");
             }
         }
     });
@@ -789,7 +789,7 @@ The response should then be sent to the main thread via a channel.</p>
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -819,17 +819,17 @@ Doing this will block one of the runtime's threads with the GLib main loop, whic
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Button};
 </span><span class="boring">use tokio::runtime::Runtime;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop0&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop0";
 </span><span class="boring">
 </span>// DOES NOT COMPILE!
 static RUNTIME: Runtime =
-    Runtime::new().expect(&quot;Setting up tokio runtime needs to succeed.&quot;);
+    Runtime::new().expect("Setting up tokio runtime needs to succeed.");
 <span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">   // Create a new application
 </span><span class="boring">   let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">   // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">   // Connect to "activate" signal of `app`
 </span><span class="boring">   app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">   // Run the application
@@ -839,7 +839,7 @@ static RUNTIME: Runtime =
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">   // Create a button
 </span><span class="boring">   let button = Button::builder()
-</span><span class="boring">       .label(&quot;Press me!&quot;)
+</span><span class="boring">       .label("Press me!")
 </span><span class="boring">       .margin_top(12)
 </span><span class="boring">       .margin_bottom(12)
 </span><span class="boring">       .margin_start(12)
@@ -848,11 +848,11 @@ static RUNTIME: Runtime =
 </span><span class="boring">
 </span><span class="boring">   // ANCHOR: callback
 </span><span class="boring">   let (sender, receiver) = async_channel::bounded(1);
-</span><span class="boring">   // Connect to &quot;clicked&quot; signal of `button`
+</span><span class="boring">   // Connect to "clicked" signal of `button`
 </span><span class="boring">   button.connect_clicked(move |_| {
 </span><span class="boring">       RUNTIME.spawn(clone!(@strong sender =&gt; async move {
-</span><span class="boring">           let response = reqwest::get(&quot;https://www.gtk-rs.org&quot;).await;
-</span><span class="boring">           sender.send(response).await.expect(&quot;The channel needs to be open.&quot;);
+</span><span class="boring">           let response = reqwest::get("https://www.gtk-rs.org").await;
+</span><span class="boring">           sender.send(response).await.expect("The channel needs to be open.");
 </span><span class="boring">       }));
 </span><span class="boring">   });
 </span><span class="boring">
@@ -860,9 +860,9 @@ static RUNTIME: Runtime =
 </span><span class="boring">   glib::spawn_future_local(async move {
 </span><span class="boring">       while let Ok(response) = receiver.recv().await {
 </span><span class="boring">           if let Ok(response) = response {
-</span><span class="boring">               println!(&quot;Status: {}&quot;, response.status());
+</span><span class="boring">               println!("Status: {}", response.status());
 </span><span class="boring">           } else {
-</span><span class="boring">               println!(&quot;Could not make a `GET` request.&quot;);
+</span><span class="boring">               println!("Could not make a `GET` request.");
 </span><span class="boring">           }
 </span><span class="boring">       }
 </span><span class="boring">   });
@@ -871,7 +871,7 @@ static RUNTIME: Runtime =
 </span><span class="boring">   // Create a window
 </span><span class="boring">   let window = ApplicationWindow::builder()
 </span><span class="boring">       .application(app)
-</span><span class="boring">       .title(&quot;My GTK App&quot;)
+</span><span class="boring">       .title("My GTK App")
 </span><span class="boring">       .child(&amp;button)
 </span><span class="boring">       .build();
 </span><span class="boring">
@@ -895,12 +895,12 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Button};
 </span><span class="boring">use tokio::runtime::Runtime;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop9&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop9";
 </span><span class="boring">
 </span>fn runtime() -&gt; &amp;'static Runtime {
     static RUNTIME: OnceLock&lt;Runtime&gt; = OnceLock::new();
     RUNTIME.get_or_init(|| {
-        Runtime::new().expect(&quot;Setting up tokio runtime needs to succeed.&quot;)
+        Runtime::new().expect("Setting up tokio runtime needs to succeed.")
     })
 }
 <span class="boring">
@@ -908,7 +908,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -918,7 +918,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -926,11 +926,11 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span><span class="boring">    let (sender, receiver) = async_channel::bounded(1);
-</span><span class="boring">    // Connect to &quot;clicked&quot; signal of `button`
+</span><span class="boring">    // Connect to "clicked" signal of `button`
 </span><span class="boring">    button.connect_clicked(move |_| {
 </span><span class="boring">        runtime().spawn(clone!(@strong sender =&gt; async move {
-</span><span class="boring">            let response = reqwest::get(&quot;https://www.gtk-rs.org&quot;).await;
-</span><span class="boring">            sender.send(response).await.expect(&quot;The channel needs to be open.&quot;);
+</span><span class="boring">            let response = reqwest::get("https://www.gtk-rs.org").await;
+</span><span class="boring">            sender.send(response).await.expect("The channel needs to be open.");
 </span><span class="boring">        }));
 </span><span class="boring">    });
 </span><span class="boring">
@@ -938,9 +938,9 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    glib::spawn_future_local(async move {
 </span><span class="boring">        while let Ok(response) = receiver.recv().await {
 </span><span class="boring">            if let Ok(response) = response {
-</span><span class="boring">                println!(&quot;Status: {}&quot;, response.status());
+</span><span class="boring">                println!("Status: {}", response.status());
 </span><span class="boring">            } else {
-</span><span class="boring">                println!(&quot;Could not make a `GET` request.&quot;);
+</span><span class="boring">                println!("Could not make a `GET` request.");
 </span><span class="boring">            }
 </span><span class="boring">        }
 </span><span class="boring">    });
@@ -948,7 +948,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -965,12 +965,12 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Button};
 </span><span class="boring">use tokio::runtime::Runtime;
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.MainEventLoop9&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.MainEventLoop9";
 </span><span class="boring">
 </span><span class="boring">fn runtime() -&gt; &amp;'static Runtime {
 </span><span class="boring">    static RUNTIME: OnceLock&lt;Runtime&gt; = OnceLock::new();
 </span><span class="boring">    RUNTIME.get_or_init(|| {
-</span><span class="boring">        Runtime::new().expect(&quot;Setting up tokio runtime needs to succeed.&quot;)
+</span><span class="boring">        Runtime::new().expect("Setting up tokio runtime needs to succeed.")
 </span><span class="boring">    })
 </span><span class="boring">}
 </span><span class="boring">
@@ -978,7 +978,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -988,7 +988,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">fn build_ui(app: &amp;Application) {
 </span><span class="boring">    // Create a button
 </span><span class="boring">    let button = Button::builder()
-</span><span class="boring">        .label(&quot;Press me!&quot;)
+</span><span class="boring">        .label("Press me!")
 </span><span class="boring">        .margin_top(12)
 </span><span class="boring">        .margin_bottom(12)
 </span><span class="boring">        .margin_start(12)
@@ -996,11 +996,11 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span>    let (sender, receiver) = async_channel::bounded(1);
-    // Connect to &quot;clicked&quot; signal of `button`
+    // Connect to "clicked" signal of `button`
     button.connect_clicked(move |_| {
         runtime().spawn(clone!(@strong sender =&gt; async move {
-            let response = reqwest::get(&quot;https://www.gtk-rs.org&quot;).await;
-            sender.send(response).await.expect(&quot;The channel needs to be open.&quot;);
+            let response = reqwest::get("https://www.gtk-rs.org").await;
+            sender.send(response).await.expect("The channel needs to be open.");
         }));
     });
 
@@ -1008,9 +1008,9 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
     glib::spawn_future_local(async move {
         while let Ok(response) = receiver.recv().await {
             if let Ok(response) = response {
-                println!(&quot;Status: {}&quot;, response.status());
+                println!("Status: {}", response.status());
             } else {
-                println!(&quot;Could not make a `GET` request.&quot;);
+                println!("Could not make a `GET` request.");
             }
         }
     });
@@ -1018,7 +1018,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;button)
 </span><span class="boring">        .build();
 </span><span class="boring">

@@ -187,33 +187,33 @@ Something like this:</p>
 <h2 id="window"><a class="header" href="#window">Window</a></h2>
 <p>This mockup can be described by the following composite template.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/1/resources/window.ui">listings/todo/1/resources/window.ui</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;interface&gt;
-  &lt;template class=&quot;TodoWindow&quot; parent=&quot;GtkApplicationWindow&quot;&gt;
-    &lt;property name=&quot;width-request&quot;&gt;360&lt;/property&gt;
-    &lt;property name=&quot;title&quot; translatable=&quot;yes&quot;&gt;To-Do&lt;/property&gt;
+  &lt;template class="TodoWindow" parent="GtkApplicationWindow"&gt;
+    &lt;property name="width-request"&gt;360&lt;/property&gt;
+    &lt;property name="title" translatable="yes"&gt;To-Do&lt;/property&gt;
     &lt;child&gt;
-      &lt;object class=&quot;GtkBox&quot;&gt;
-        &lt;property name=&quot;orientation&quot;&gt;vertical&lt;/property&gt;
-        &lt;property name=&quot;margin-top&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-bottom&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-start&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-end&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;spacing&quot;&gt;6&lt;/property&gt;
+      &lt;object class="GtkBox"&gt;
+        &lt;property name="orientation"&gt;vertical&lt;/property&gt;
+        &lt;property name="margin-top"&gt;12&lt;/property&gt;
+        &lt;property name="margin-bottom"&gt;12&lt;/property&gt;
+        &lt;property name="margin-start"&gt;12&lt;/property&gt;
+        &lt;property name="margin-end"&gt;12&lt;/property&gt;
+        &lt;property name="spacing"&gt;6&lt;/property&gt;
         &lt;child&gt;
-          &lt;object class=&quot;GtkEntry&quot; id=&quot;entry&quot;&gt;
-            &lt;property name=&quot;placeholder-text&quot; translatable=&quot;yes&quot;&gt;Enter a Task…&lt;/property&gt;
-            &lt;property name=&quot;secondary-icon-name&quot;&gt;list-add-symbolic&lt;/property&gt;
+          &lt;object class="GtkEntry" id="entry"&gt;
+            &lt;property name="placeholder-text" translatable="yes"&gt;Enter a Task…&lt;/property&gt;
+            &lt;property name="secondary-icon-name"&gt;list-add-symbolic&lt;/property&gt;
           &lt;/object&gt;
         &lt;/child&gt;
         &lt;child&gt;
-          &lt;object class=&quot;GtkScrolledWindow&quot;&gt;
-            &lt;property name=&quot;hscrollbar-policy&quot;&gt;never&lt;/property&gt;
-            &lt;property name=&quot;min-content-height&quot;&gt;360&lt;/property&gt;
-            &lt;property name=&quot;vexpand&quot;&gt;true&lt;/property&gt;
+          &lt;object class="GtkScrolledWindow"&gt;
+            &lt;property name="hscrollbar-policy"&gt;never&lt;/property&gt;
+            &lt;property name="min-content-height"&gt;360&lt;/property&gt;
+            &lt;property name="vexpand"&gt;true&lt;/property&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkListView&quot; id=&quot;tasks_list&quot;&gt;
-                &lt;property name=&quot;valign&quot;&gt;start&lt;/property&gt;
+              &lt;object class="GtkListView" id="tasks_list"&gt;
+                &lt;property name="valign"&gt;start&lt;/property&gt;
               &lt;/object&gt;
             &lt;/child&gt;
           &lt;/object&gt;
@@ -247,7 +247,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -256,7 +256,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_tasks(&amp;self) {
@@ -294,7 +294,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -311,7 +311,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -320,18 +320,18 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -341,10 +341,10 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -367,7 +367,7 @@ We only have to assure that the <code>class</code> attribute of the template in 
 </span><span class="boring">
 </span>// Object holding the state
 #[derive(CompositeTemplate, Default)]
-#[template(resource = &quot;/org/gtk_rs/Todo1/window.ui&quot;)]
+#[template(resource = "/org/gtk_rs/Todo1/window.ui")]
 pub struct Window {
     #[template_child]
     pub entry: TemplateChild&lt;Entry&gt;,
@@ -380,7 +380,7 @@ pub struct Window {
 #[glib::object_subclass]
 impl ObjectSubclass for Window {
     // `NAME` needs to match `class` attribute of template
-    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+    const NAME: &amp;'static str = "TodoWindow";
     type Type = super::Window;
     type ParentType = gtk::ApplicationWindow;
 
@@ -396,7 +396,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all GObjects
 </span><span class="boring">impl ObjectImpl for Window {
 </span><span class="boring">    fn constructed(&amp;self) {
-</span><span class="boring">        // Call &quot;constructed&quot; on parent
+</span><span class="boring">        // Call "constructed" on parent
 </span><span class="boring">        self.parent_constructed();
 </span><span class="boring">
 </span><span class="boring">        // Setup
@@ -427,15 +427,15 @@ impl ObjectSubclass for Window {
 </span><span class="boring">
 </span>fn main() -&gt; glib::ExitCode {
     // Register and include resources
-    gio::resources_register_include!(&quot;todo_1.gresource&quot;)
-        .expect(&quot;Failed to register resources.&quot;);
+    gio::resources_register_include!("todo_1.gresource")
+        .expect("Failed to register resources.");
 
     // Create a new application
     let app = Application::builder()
-        .application_id(&quot;org.gtk_rs.Todo1&quot;)
+        .application_id("org.gtk_rs.Todo1")
         .build();
 
-    // Connect to &quot;activate&quot; signal of `app`
+    // Connect to "activate" signal of `app`
     app.connect_activate(build_ui);
 
     // Run the application
@@ -450,11 +450,11 @@ fn build_ui(app: &amp;Application) {
 <p>Finally, we specify our resources.
 Here, they already include <code>task_row.ui</code> which we will handle later in this chapter.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/1/resources/resources.gresource.xml">listings/todo/1/resources/resources.gresource.xml</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;gresources&gt;
-  &lt;gresource prefix=&quot;/org/gtk_rs/Todo1/&quot;&gt;
-    &lt;file compressed=&quot;true&quot; preprocess=&quot;xml-stripblanks&quot;&gt;task_row.ui&lt;/file&gt;
-    &lt;file compressed=&quot;true&quot; preprocess=&quot;xml-stripblanks&quot;&gt;window.ui&lt;/file&gt;
+  &lt;gresource prefix="/org/gtk_rs/Todo1/"&gt;
+    &lt;file compressed="true" preprocess="xml-stripblanks"&gt;task_row.ui&lt;/file&gt;
+    &lt;file compressed="true" preprocess="xml-stripblanks"&gt;window.ui&lt;/file&gt;
   &lt;/gresource&gt;
 &lt;/gresources&gt;
 </code></pre>
@@ -485,8 +485,8 @@ This object will store the state of the task consisting of:</p>
 impl TaskObject {
     pub fn new(completed: bool, content: String) -&gt; Self {
         Object::builder()
-            .property(&quot;completed&quot;, completed)
-            .property(&quot;content&quot;, content)
+            .property("completed", completed)
+            .property("content", content)
             .build()
     }
 }
@@ -511,8 +511,8 @@ This will be very convenient when saving the state in one of the following chapt
 </span><span class="boring">impl TaskObject {
 </span><span class="boring">    pub fn new(completed: bool, content: String) -&gt; Self {
 </span><span class="boring">        Object::builder()
-</span><span class="boring">            .property(&quot;completed&quot;, completed)
-</span><span class="boring">            .property(&quot;content&quot;, content)
+</span><span class="boring">            .property("completed", completed)
+</span><span class="boring">            .property("content", content)
 </span><span class="boring">            .build()
 </span><span class="boring">    }
 </span><span class="boring">}
@@ -539,15 +539,15 @@ For each property we additionally specify the name, the type and which member va
 #[derive(Properties, Default)]
 #[properties(wrapper_type = super::TaskObject)]
 pub struct TaskObject {
-    #[property(name = &quot;completed&quot;, get, set, type = bool, member = completed)]
-    #[property(name = &quot;content&quot;, get, set, type = String, member = content)]
+    #[property(name = "completed", get, set, type = bool, member = completed)]
+    #[property(name = "content", get, set, type = String, member = content)]
     pub data: RefCell&lt;TaskData&gt;,
 }
 
 // The central trait for subclassing a GObject
 #[glib::object_subclass]
 impl ObjectSubclass for TaskObject {
-    const NAME: &amp;'static str = &quot;TodoTaskObject&quot;;
+    const NAME: &amp;'static str = "TodoTaskObject";
     type Type = super::TaskObject;
 }
 
@@ -560,23 +560,23 @@ The row of a task should look like this:</p>
 <div style="text-align:center"><img src="img/task_row.png" alt="A single task widget"/></div>
 <p>Again, we describe the mockup with a composite template.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/1/resources/task_row.ui">listings/todo/1/resources/task_row.ui</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;interface&gt;
-  &lt;template class=&quot;TodoTaskRow&quot; parent=&quot;GtkBox&quot;&gt;
+  &lt;template class="TodoTaskRow" parent="GtkBox"&gt;
     &lt;child&gt;
-      &lt;object class=&quot;GtkCheckButton&quot; id=&quot;completed_button&quot;&gt;
-        &lt;property name=&quot;margin-top&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-bottom&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-start&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-end&quot;&gt;12&lt;/property&gt;
+      &lt;object class="GtkCheckButton" id="completed_button"&gt;
+        &lt;property name="margin-top"&gt;12&lt;/property&gt;
+        &lt;property name="margin-bottom"&gt;12&lt;/property&gt;
+        &lt;property name="margin-start"&gt;12&lt;/property&gt;
+        &lt;property name="margin-end"&gt;12&lt;/property&gt;
       &lt;/object&gt;
     &lt;/child&gt;
     &lt;child&gt;
-      &lt;object class=&quot;GtkLabel&quot; id=&quot;content_label&quot;&gt;
-        &lt;property name=&quot;margin-top&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-bottom&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-start&quot;&gt;12&lt;/property&gt;
-        &lt;property name=&quot;margin-end&quot;&gt;12&lt;/property&gt;
+      &lt;object class="GtkLabel" id="content_label"&gt;
+        &lt;property name="margin-top"&gt;12&lt;/property&gt;
+        &lt;property name="margin-bottom"&gt;12&lt;/property&gt;
+        &lt;property name="margin-start"&gt;12&lt;/property&gt;
+        &lt;property name="margin-end"&gt;12&lt;/property&gt;
       &lt;/object&gt;
     &lt;/child&gt;
   &lt;/template&gt;
@@ -619,7 +619,7 @@ The row of a task should look like this:</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.completed` to `task_row.completed_button.active`
 </span><span class="boring">        let completed_button_binding = task_object
-</span><span class="boring">            .bind_property(&quot;completed&quot;, &amp;completed_button, &quot;active&quot;)
+</span><span class="boring">            .bind_property("completed", &amp;completed_button, "active")
 </span><span class="boring">            .bidirectional()
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
@@ -628,7 +628,7 @@ The row of a task should look like this:</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.content` to `task_row.content_label.label`
 </span><span class="boring">        let content_label_binding = task_object
-</span><span class="boring">            .bind_property(&quot;content&quot;, &amp;content_label, &quot;label&quot;)
+</span><span class="boring">            .bind_property("content", &amp;content_label, "label")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
 </span><span class="boring">        // Save binding
@@ -636,12 +636,12 @@ The row of a task should look like this:</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.completed` to `task_row.content_label.attributes`
 </span><span class="boring">        let content_label_binding = task_object
-</span><span class="boring">            .bind_property(&quot;completed&quot;, &amp;content_label, &quot;attributes&quot;)
+</span><span class="boring">            .bind_property("completed", &amp;content_label, "attributes")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .transform_to(|_, active| {
 </span><span class="boring">                let attribute_list = AttrList::new();
 </span><span class="boring">                if active {
-</span><span class="boring">                    // If &quot;active&quot; is true, content of the label will be strikethrough
+</span><span class="boring">                    // If "active" is true, content of the label will be strikethrough
 </span><span class="boring">                    let attribute = AttrInt::new_strikethrough(true);
 </span><span class="boring">                    attribute_list.insert(attribute);
 </span><span class="boring">                }
@@ -671,7 +671,7 @@ Why we need that will become clear as soon as we get to bind the state of <code>
 </span><span class="boring">
 </span>// Object holding the state
 #[derive(Default, CompositeTemplate)]
-#[template(resource = &quot;/org/gtk_rs/Todo1/task_row.ui&quot;)]
+#[template(resource = "/org/gtk_rs/Todo1/task_row.ui")]
 pub struct TaskRow {
     #[template_child]
     pub completed_button: TemplateChild&lt;CheckButton&gt;,
@@ -685,7 +685,7 @@ pub struct TaskRow {
 #[glib::object_subclass]
 impl ObjectSubclass for TaskRow {
     // `NAME` needs to match `class` attribute of template
-    const NAME: &amp;'static str = &quot;TodoTaskRow&quot;;
+    const NAME: &amp;'static str = "TodoTaskRow";
     type Type = super::TaskRow;
     type ParentType = gtk::Box;
 
@@ -717,7 +717,7 @@ We override the <code>imp::Window::constructed</code> in order to set up window 
 </span><span class="boring">
 </span><span class="boring">// Object holding the state
 </span><span class="boring">#[derive(CompositeTemplate, Default)]
-</span><span class="boring">#[template(resource = &quot;/org/gtk_rs/Todo1/window.ui&quot;)]
+</span><span class="boring">#[template(resource = "/org/gtk_rs/Todo1/window.ui")]
 </span><span class="boring">pub struct Window {
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub entry: TemplateChild&lt;Entry&gt;,
@@ -730,7 +730,7 @@ We override the <code>imp::Window::constructed</code> in order to set up window 
 </span><span class="boring">#[glib::object_subclass]
 </span><span class="boring">impl ObjectSubclass for Window {
 </span><span class="boring">    // `NAME` needs to match `class` attribute of template
-</span><span class="boring">    const NAME: &amp;'static str = &quot;TodoWindow&quot;;
+</span><span class="boring">    const NAME: &amp;'static str = "TodoWindow";
 </span><span class="boring">    type Type = super::Window;
 </span><span class="boring">    type ParentType = gtk::ApplicationWindow;
 </span><span class="boring">
@@ -746,7 +746,7 @@ We override the <code>imp::Window::constructed</code> in order to set up window 
 </span>// Trait shared by all GObjects
 impl ObjectImpl for Window {
     fn constructed(&amp;self) {
-        // Call &quot;constructed&quot; on parent
+        // Call "constructed" on parent
         self.parent_constructed();
 
         // Setup
@@ -789,7 +789,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -798,7 +798,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
             .tasks
             .borrow()
             .clone()
-            .expect(&quot;Could not get current tasks.&quot;)
+            .expect("Could not get current tasks.")
     }
 
     fn setup_tasks(&amp;self) {
@@ -836,7 +836,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -853,7 +853,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -862,18 +862,18 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -883,10 +883,10 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -917,7 +917,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -926,7 +926,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_tasks(&amp;self) {
@@ -964,7 +964,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
         if content.is_empty() {
             return;
         }
-        buffer.set_text(&quot;&quot;);
+        buffer.set_text("");
 
         // Add new task to model
         let task = TaskObject::new(false, content);
@@ -981,7 +981,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -990,18 +990,18 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -1011,10 +1011,10 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -1023,7 +1023,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p>In <code>Window::setup_callbacks</code> we connect to the &quot;activate&quot; signal of the entry.
+<p>In <code>Window::setup_callbacks</code> we connect to the "activate" signal of the entry.
 This signal is triggered when we press the enter key in the entry.
 Then a new <code>TaskObject</code> with the content will be created and appended to the model.
 Finally, the entry will be cleared.</p>
@@ -1048,7 +1048,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -1057,7 +1057,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_tasks(&amp;self) {
@@ -1095,7 +1095,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -1112,7 +1112,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">            let task_row = TaskRow::new();
 </span><span class="boring">            list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .set_child(Some(&amp;task_row));
 </span><span class="boring">        });
 </span><span class="boring">
@@ -1121,18 +1121,18 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">            // Get `TaskObject` from `ListItem`
 </span><span class="boring">            let task_object = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .item()
 </span><span class="boring">                .and_downcast::&lt;TaskObject&gt;()
-</span><span class="boring">                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+</span><span class="boring">                .expect("The item has to be an `TaskObject`.");
 </span><span class="boring">
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.bind(&amp;task_object);
 </span><span class="boring">        });
@@ -1142,10 +1142,10 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">            // Get `TaskRow` from `ListItem`
 </span><span class="boring">            let task_row = list_item
 </span><span class="boring">                .downcast_ref::&lt;ListItem&gt;()
-</span><span class="boring">                .expect(&quot;Needs to be ListItem&quot;)
+</span><span class="boring">                .expect("Needs to be ListItem")
 </span><span class="boring">                .child()
 </span><span class="boring">                .and_downcast::&lt;TaskRow&gt;()
-</span><span class="boring">                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+</span><span class="boring">                .expect("The child has to be a `TaskRow`.");
 </span><span class="boring">
 </span><span class="boring">            task_row.unbind();
 </span><span class="boring">        });
@@ -1163,7 +1163,7 @@ This could be achieved with expressions similar to what we did in the lists chap
 Unfortunately, expressions cannot handle bidirectional relationships.
 This means we have to use property bindings.
 We will need to unbind them manually when they are no longer needed.</p>
-<p>We will create empty <code>TaskRow</code> objects in the &quot;setup&quot; step in <code>Window::setup_factory</code> and deal with binding in the &quot;bind&quot; and &quot;unbind&quot; steps.</p>
+<p>We will create empty <code>TaskRow</code> objects in the "setup" step in <code>Window::setup_factory</code> and deal with binding in the "bind" and "unbind" steps.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/1/window/mod.rs">listings/todo/1/window/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
@@ -1185,7 +1185,7 @@ We will need to unbind them manually when they are no longer needed.</p>
 </span><span class="boring">impl Window {
 </span><span class="boring">    pub fn new(app: &amp;Application) -&gt; Self {
 </span><span class="boring">        // Create new window
-</span><span class="boring">        Object::builder().property(&quot;application&quot;, app).build()
+</span><span class="boring">        Object::builder().property("application", app).build()
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn tasks(&amp;self) -&gt; gio::ListStore {
@@ -1194,7 +1194,7 @@ We will need to unbind them manually when they are no longer needed.</p>
 </span><span class="boring">            .tasks
 </span><span class="boring">            .borrow()
 </span><span class="boring">            .clone()
-</span><span class="boring">            .expect(&quot;Could not get current tasks.&quot;)
+</span><span class="boring">            .expect("Could not get current tasks.")
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_tasks(&amp;self) {
@@ -1232,7 +1232,7 @@ We will need to unbind them manually when they are no longer needed.</p>
 </span><span class="boring">        if content.is_empty() {
 </span><span class="boring">            return;
 </span><span class="boring">        }
-</span><span class="boring">        buffer.set_text(&quot;&quot;);
+</span><span class="boring">        buffer.set_text("");
 </span><span class="boring">
 </span><span class="boring">        // Add new task to model
 </span><span class="boring">        let task = TaskObject::new(false, content);
@@ -1249,7 +1249,7 @@ We will need to unbind them manually when they are no longer needed.</p>
             let task_row = TaskRow::new();
             list_item
                 .downcast_ref::&lt;ListItem&gt;()
-                .expect(&quot;Needs to be ListItem&quot;)
+                .expect("Needs to be ListItem")
                 .set_child(Some(&amp;task_row));
         });
 
@@ -1258,18 +1258,18 @@ We will need to unbind them manually when they are no longer needed.</p>
             // Get `TaskObject` from `ListItem`
             let task_object = list_item
                 .downcast_ref::&lt;ListItem&gt;()
-                .expect(&quot;Needs to be ListItem&quot;)
+                .expect("Needs to be ListItem")
                 .item()
                 .and_downcast::&lt;TaskObject&gt;()
-                .expect(&quot;The item has to be an `TaskObject`.&quot;);
+                .expect("The item has to be an `TaskObject`.");
 
             // Get `TaskRow` from `ListItem`
             let task_row = list_item
                 .downcast_ref::&lt;ListItem&gt;()
-                .expect(&quot;Needs to be ListItem&quot;)
+                .expect("Needs to be ListItem")
                 .child()
                 .and_downcast::&lt;TaskRow&gt;()
-                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+                .expect("The child has to be a `TaskRow`.");
 
             task_row.bind(&amp;task_object);
         });
@@ -1279,10 +1279,10 @@ We will need to unbind them manually when they are no longer needed.</p>
             // Get `TaskRow` from `ListItem`
             let task_row = list_item
                 .downcast_ref::&lt;ListItem&gt;()
-                .expect(&quot;Needs to be ListItem&quot;)
+                .expect("Needs to be ListItem")
                 .child()
                 .and_downcast::&lt;TaskRow&gt;()
-                .expect(&quot;The child has to be a `TaskRow`.&quot;);
+                .expect("The child has to be a `TaskRow`.");
 
             task_row.unbind();
         });
@@ -1332,7 +1332,7 @@ Unbinding will only work if it can access the stored <a href="https://gtk-rs.org
 
         // Bind `task_object.completed` to `task_row.completed_button.active`
         let completed_button_binding = task_object
-            .bind_property(&quot;completed&quot;, &amp;completed_button, &quot;active&quot;)
+            .bind_property("completed", &amp;completed_button, "active")
             .bidirectional()
             .sync_create()
             .build();
@@ -1341,7 +1341,7 @@ Unbinding will only work if it can access the stored <a href="https://gtk-rs.org
 
         // Bind `task_object.content` to `task_row.content_label.label`
         let content_label_binding = task_object
-            .bind_property(&quot;content&quot;, &amp;content_label, &quot;label&quot;)
+            .bind_property("content", &amp;content_label, "label")
             .sync_create()
             .build();
         // Save binding
@@ -1349,12 +1349,12 @@ Unbinding will only work if it can access the stored <a href="https://gtk-rs.org
 
         // Bind `task_object.completed` to `task_row.content_label.attributes`
         let content_label_binding = task_object
-            .bind_property(&quot;completed&quot;, &amp;content_label, &quot;attributes&quot;)
+            .bind_property("completed", &amp;content_label, "attributes")
             .sync_create()
             .transform_to(|_, active| {
                 let attribute_list = AttrList::new();
                 if active {
-                    // If &quot;active&quot; is true, content of the label will be strikethrough
+                    // If "active" is true, content of the label will be strikethrough
                     let attribute = AttrInt::new_strikethrough(true);
                     attribute_list.insert(attribute);
                 }
@@ -1411,7 +1411,7 @@ In the end, it clears the vector.</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.completed` to `task_row.completed_button.active`
 </span><span class="boring">        let completed_button_binding = task_object
-</span><span class="boring">            .bind_property(&quot;completed&quot;, &amp;completed_button, &quot;active&quot;)
+</span><span class="boring">            .bind_property("completed", &amp;completed_button, "active")
 </span><span class="boring">            .bidirectional()
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
@@ -1420,7 +1420,7 @@ In the end, it clears the vector.</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.content` to `task_row.content_label.label`
 </span><span class="boring">        let content_label_binding = task_object
-</span><span class="boring">            .bind_property(&quot;content&quot;, &amp;content_label, &quot;label&quot;)
+</span><span class="boring">            .bind_property("content", &amp;content_label, "label")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .build();
 </span><span class="boring">        // Save binding
@@ -1428,12 +1428,12 @@ In the end, it clears the vector.</p>
 </span><span class="boring">
 </span><span class="boring">        // Bind `task_object.completed` to `task_row.content_label.attributes`
 </span><span class="boring">        let content_label_binding = task_object
-</span><span class="boring">            .bind_property(&quot;completed&quot;, &amp;content_label, &quot;attributes&quot;)
+</span><span class="boring">            .bind_property("completed", &amp;content_label, "attributes")
 </span><span class="boring">            .sync_create()
 </span><span class="boring">            .transform_to(|_, active| {
 </span><span class="boring">                let attribute_list = AttrList::new();
 </span><span class="boring">                if active {
-</span><span class="boring">                    // If &quot;active&quot; is true, content of the label will be strikethrough
+</span><span class="boring">                    // If "active" is true, content of the label will be strikethrough
 </span><span class="boring">                    let attribute = AttrInt::new_strikethrough(true);
 </span><span class="boring">                    attribute_list.insert(attribute);
 </span><span class="boring">                }

@@ -183,10 +183,10 @@ However, every time we close the application all of it is gone.
 Let's learn how to use <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.Settings.html"><code>gio::Settings</code></a> by storing the state of a <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/struct.Switch.html"><code>Switch</code></a> in it.</p>
 <p>At the very beginning we have to create a <code>GSchema</code> xml file in order to describe the kind of data our application plans to store in the settings.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/settings/1/org.gtk_rs.Settings1.gschema.xml">listings/settings/1/org.gtk_rs.Settings1.gschema.xml</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;schemalist&gt;
-  &lt;schema id=&quot;org.gtk_rs.Settings1&quot; path=&quot;/org/gtk_rs/Settings1/&quot;&gt;
-    &lt;key name=&quot;is-switch-enabled&quot; type=&quot;b&quot;&gt;
+  &lt;schema id="org.gtk_rs.Settings1" path="/org/gtk_rs/Settings1/"&gt;
+    &lt;key name="is-switch-enabled" type="b"&gt;
       &lt;default&gt;false&lt;/default&gt;
       &lt;summary&gt;Default switch state&lt;/summary&gt;
     &lt;/key&gt;
@@ -200,13 +200,13 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Align, Application, ApplicationWindow, Switch};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Settings1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Settings1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span>    // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
 <span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -218,7 +218,7 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">    let settings = Settings::new(APP_ID);
 </span><span class="boring">
 </span><span class="boring">    // Get the last switch state from the settings
-</span><span class="boring">    let is_switch_enabled = settings.boolean(&quot;is-switch-enabled&quot;);
+</span><span class="boring">    let is_switch_enabled = settings.boolean("is-switch-enabled");
 </span><span class="boring">
 </span><span class="boring">    // Create a switch
 </span><span class="boring">    let switch = Switch::builder()
@@ -234,8 +234,8 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">    switch.connect_state_set(move |_, is_enabled| {
 </span><span class="boring">        // Save changed switch state in the settings
 </span><span class="boring">        settings
-</span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
-</span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
+</span><span class="boring">            .set_boolean("is-switch-enabled", is_enabled)
+</span><span class="boring">            .expect("Could not set setting.");
 </span><span class="boring">        // Allow to invoke other event handlers
 </span><span class="boring">        glib::Propagation::Proceed
 </span><span class="boring">    });
@@ -243,7 +243,7 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;switch)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -252,8 +252,8 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">}</span></code></pre>
 <p>The <code>path</code> must start and end with a forward slash character ('/') and must not contain two sequential slash characters.
 When creating a <code>path</code>, we advise to take the <code>id</code>, replace the '.' with '/' and add '/' at the front and end of it.</p>
-<p>We only want to store a single key with the <code>name</code> &quot;is-switch-enabled&quot;.
-This is a boolean value so its <code>type</code> is &quot;b&quot; (see <a href="https://docs.gtk.org/glib/gvariant-format-strings.html">GVariant Format Strings</a> for the other options).
+<p>We only want to store a single key with the <code>name</code> "is-switch-enabled".
+This is a boolean value so its <code>type</code> is "b" (see <a href="https://docs.gtk.org/glib/gvariant-format-strings.html">GVariant Format Strings</a> for the other options).
 We also set its default value to <code>false</code> (see <a href="https://docs.gtk.org/glib/gvariant-text-format.html">GVariant Text Format</a> for the full syntax).
 Finally, we add a summary.</p>
 <p>Now we need to copy and compile the schema.</p>
@@ -275,13 +275,13 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Align, Application, ApplicationWindow, Switch};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Settings1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Settings1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -293,7 +293,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
     let settings = Settings::new(APP_ID);
 <span class="boring">
 </span><span class="boring">    // Get the last switch state from the settings
-</span><span class="boring">    let is_switch_enabled = settings.boolean(&quot;is-switch-enabled&quot;);
+</span><span class="boring">    let is_switch_enabled = settings.boolean("is-switch-enabled");
 </span><span class="boring">
 </span><span class="boring">    // Create a switch
 </span><span class="boring">    let switch = Switch::builder()
@@ -309,8 +309,8 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    switch.connect_state_set(move |_, is_enabled| {
 </span><span class="boring">        // Save changed switch state in the settings
 </span><span class="boring">        settings
-</span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
-</span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
+</span><span class="boring">            .set_boolean("is-switch-enabled", is_enabled)
+</span><span class="boring">            .expect("Could not set setting.");
 </span><span class="boring">        // Allow to invoke other event handlers
 </span><span class="boring">        glib::Propagation::Proceed
 </span><span class="boring">    });
@@ -318,7 +318,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;switch)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -331,13 +331,13 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Align, Application, ApplicationWindow, Switch};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Settings1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Settings1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -349,7 +349,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    let settings = Settings::new(APP_ID);
 </span><span class="boring">
 </span>    // Get the last switch state from the settings
-    let is_switch_enabled = settings.boolean(&quot;is-switch-enabled&quot;);
+    let is_switch_enabled = settings.boolean("is-switch-enabled");
 
     // Create a switch
     let switch = Switch::builder()
@@ -365,8 +365,8 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    switch.connect_state_set(move |_, is_enabled| {
 </span><span class="boring">        // Save changed switch state in the settings
 </span><span class="boring">        settings
-</span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
-</span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
+</span><span class="boring">            .set_boolean("is-switch-enabled", is_enabled)
+</span><span class="boring">            .expect("Could not set setting.");
 </span><span class="boring">        // Allow to invoke other event handlers
 </span><span class="boring">        glib::Propagation::Proceed
 </span><span class="boring">    });
@@ -374,7 +374,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;switch)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -387,13 +387,13 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Align, Application, ApplicationWindow, Switch};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Settings1&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Settings1";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -405,7 +405,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    let settings = Settings::new(APP_ID);
 </span><span class="boring">
 </span><span class="boring">    // Get the last switch state from the settings
-</span><span class="boring">    let is_switch_enabled = settings.boolean(&quot;is-switch-enabled&quot;);
+</span><span class="boring">    let is_switch_enabled = settings.boolean("is-switch-enabled");
 </span><span class="boring">
 </span><span class="boring">    // Create a switch
 </span><span class="boring">    let switch = Switch::builder()
@@ -421,8 +421,8 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span>    switch.connect_state_set(move |_, is_enabled| {
         // Save changed switch state in the settings
         settings
-            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
-            .expect(&quot;Could not set setting.&quot;);
+            .set_boolean("is-switch-enabled", is_enabled)
+            .expect("Could not set setting.");
         // Allow to invoke other event handlers
         glib::Propagation::Proceed
     });
@@ -430,7 +430,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;switch)
 </span><span class="boring">        .build();
 </span><span class="boring">
@@ -445,7 +445,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </div>
 <p>The <code>Switch</code> now retains its state even after closing the application.
 But we can make this even better.
-The <code>Switch</code> has a property &quot;active&quot; and <code>Settings</code> allows us to bind properties to a specific setting.
+The <code>Switch</code> has a property "active" and <code>Settings</code> allows us to bind properties to a specific setting.
 So let's do exactly that.</p>
 <p>We can remove the <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/prelude/trait.SettingsExt.html#tymethod.boolean"><code>boolean</code></a> call before initializing the <code>Switch</code> as well as the <a href="https://gtk-rs.org/gtk4-rs/stable/latest/docs/gtk4/struct.Switch.html#method.connect_state_set"><code>connect_state_set</code></a> call.
 We then bind the setting to the property by specifying the key, object and name of the property.
@@ -454,13 +454,13 @@ Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, Align, Application, ApplicationWindow, Switch};
 </span><span class="boring">
-</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk_rs.Settings2&quot;;
+</span><span class="boring">const APP_ID: &amp;str = "org.gtk_rs.Settings2";
 </span><span class="boring">
 </span><span class="boring">fn main() -&gt; glib::ExitCode {
 </span><span class="boring">    // Create a new application
 </span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
-</span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
+</span><span class="boring">    // Connect to "activate" signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
 </span><span class="boring">
 </span><span class="boring">    // Run the application
@@ -482,13 +482,13 @@ Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master
 </span><span class="boring">        .build();
 </span><span class="boring">
 </span>    settings
-        .bind(&quot;is-switch-enabled&quot;, &amp;switch, &quot;active&quot;)
+        .bind("is-switch-enabled", &amp;switch, "active")
         .build();
 <span class="boring">
 </span><span class="boring">    // Create a window
 </span><span class="boring">    let window = ApplicationWindow::builder()
 </span><span class="boring">        .application(app)
-</span><span class="boring">        .title(&quot;My GTK App&quot;)
+</span><span class="boring">        .title("My GTK App")
 </span><span class="boring">        .child(&amp;switch)
 </span><span class="boring">        .build();
 </span><span class="boring">
