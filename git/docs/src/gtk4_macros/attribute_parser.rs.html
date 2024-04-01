@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/attribute_parser.rs`."><title>attribute_parser.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (47ecded35 2024-03-26)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/attribute_parser.rs`."><title>attribute_parser.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (805813650 2024-03-31)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -451,16 +451,10 @@
 <a href="#376" id="376">376</a>
 <a href="#377" id="377">377</a>
 <a href="#378" id="378">378</a>
-<a href="#379" id="379">379</a>
-<a href="#380" id="380">380</a>
-<a href="#381" id="381">381</a>
-<a href="#382" id="382">382</a>
-<a href="#383" id="383">383</a>
-<a href="#384" id="384">384</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>anyhow::{<a href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail</a>, <span class="prelude-ty">Result</span>};
-<span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Span.html">proc_macro2::Span</a>;
+</span><span class="kw">use </span>anyhow::{<a href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail</a>, <span class="prelude-ty">Result</span>};
+<span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Span.html">proc_macro2::Span</a>;
 <span class="kw">use </span>syn::{
     <a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html">parse::Error</a>, <a href="https://docs.rs/syn/1.0.109/syn/spanned/trait.Spanned.html">spanned::Spanned</a>, <a href="https://docs.rs/syn/1.0.109/syn/attr/struct.Attribute.html">Attribute</a>, <a href="https://docs.rs/syn/1.0.109/syn/derive/struct.DeriveInput.html">DeriveInput</a>, <a href="https://docs.rs/syn/1.0.109/syn/data/struct.Field.html">Field</a>, <a href="https://docs.rs/syn/1.0.109/syn/data/enum.Fields.html">Fields</a>, Ident, Lit, <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.Meta.html">Meta</a>,
     <a href="https://docs.rs/syn/1.0.109/syn/attr/struct.MetaList.html">MetaList</a>, <a href="https://docs.rs/syn/1.0.109/syn/attr/struct.MetaNameValue.html">MetaNameValue</a>, <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.NestedMeta.html">NestedMeta</a>, <a href="https://docs.rs/syn/1.0.109/syn/ty/enum.Type.html">Type</a>,
@@ -496,14 +490,14 @@
                 </span><span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="self">Self</span>::Xml(source));
             }
         }
-        <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"Unknown language"</span>)
+        <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"Unknown language"</span>)
     }
 }
 
 <span class="kw">pub fn </span>parse_template_source(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/1.0.109/syn/derive/struct.DeriveInput.html">DeriveInput</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#10-13">Template</a>&gt; {
     <span class="kw">let </span>meta = <span class="kw">match </span><a href="#104-113">find_attribute_meta</a>(<span class="kw-2">&amp;</span><a href="#44">input</a>.attrs, <span class="string">"template"</span>)<span class="question-mark">? </span>{
         <span class="prelude-val">Some</span>(meta) =&gt; <a href="#46">meta</a>,
-        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"Missing 'template' attribute"</span>),
+        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"Missing 'template' attribute"</span>),
     };
 
     <span class="kw">let </span><span class="kw-2">mut </span>allow_template_child_without_attribute = <span class="bool-val">false</span>;
@@ -539,7 +533,7 @@
     }
     <span class="kw">let </span>source = <span class="kw">match </span><a href="#51">source</a> {
         <span class="prelude-val">Some</span>(source) =&gt; <a href="#82">source</a>,
-        <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(Error::new_spanned(
+        <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(Error::new_spanned(
             <span class="kw-2">&amp;</span>meta,
             <span class="string">"Invalid meta, specify one of 'file', 'resource', or 'string'"
         </span>)),
@@ -551,7 +545,7 @@
         <span class="string">"file" </span>=&gt; <a href="#16">TemplateSource::File</a>(<a href="#89">v</a>),
         <span class="string">"resource" </span>=&gt; <a href="#17">TemplateSource::Resource</a>(<a href="#89">v</a>),
         <span class="string">"string" </span>=&gt; <a href="#24-41">TemplateSource::from_string_source</a>(<a href="#89">v</a>)<span class="question-mark">?</span>,
-        s =&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"Unknown enum meta {}"</span>, s),
+        s =&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"Unknown enum meta {}"</span>, s),
     };
     <span class="prelude-val">Ok</span>(<a href="#10-13">Template</a> {
         <a href="#91">source</a>,
@@ -567,7 +561,7 @@
     };
     <span class="kw">match </span><a href="#105">meta</a><span class="question-mark">? </span>{
         <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.Meta.html#variant.List">Meta::List</a>(n) =&gt; <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<a href="#110">n</a>)),
-        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
+        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
     }
 }
 
@@ -575,19 +569,19 @@
 </span><span class="kw">fn </span>parse_attribute(meta: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/1.0.109/syn/attr/enum.NestedMeta.html">NestedMeta</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>)&gt; {
     <span class="kw">let </span>meta = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#116">meta</a> {
         <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.NestedMeta.html#variant.Meta">NestedMeta::Meta</a>(m) =&gt; <a href="#118">m</a>,
-        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
+        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
     };
     <span class="kw">let </span>meta = <span class="kw">match </span><a href="#117">meta</a> {
         <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.Meta.html#variant.NameValue">Meta::NameValue</a>(n) =&gt; <a href="#122">n</a>,
-        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
+        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
     };
     <span class="kw">let </span>value = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#121">meta</a>.lit {
         <a href="https://docs.rs/syn/1.0.109/syn/lit/enum.Lit.html#variant.Str">Lit::Str</a>(s) =&gt; <a href="#126">s</a>.<a href="https://docs.rs/syn/1.0.109/syn/lit/struct.LitStr.html#method.value">value</a>(),
-        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
+        <span class="kw">_ </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"wrong meta type"</span>),
     };
 
     <span class="kw">let </span>ident = <span class="kw">match </span><a href="#121">meta</a>.path.<a href="https://docs.rs/syn/1.0.109/syn/path/struct.Path.html#method.get_ident">get_ident</a>() {
-        <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.80/anyhow/macro.bail.html">bail!</a>(<span class="string">"missing ident"</span>),
+        <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://docs.rs/anyhow/1.0.81/anyhow/macro.bail.html">bail!</a>(<span class="string">"missing ident"</span>),
         <span class="prelude-val">Some</span>(ident) =&gt; <a href="#132">ident</a>,
     };
 
@@ -595,7 +589,9 @@
 }
 
 <span class="kw">pub enum </span>FieldAttributeArg {
-    Id(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Span.html">Span</a>),
+    <span class="attr">#[allow(dead_code)]
+    </span><span class="comment">// The span is needed for xml_validation feature
+    </span>Id(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Span.html">Span</a>),
     Internal(<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>),
 }
 
@@ -605,16 +601,14 @@
 }
 
 <span class="kw">pub struct </span>FieldAttribute {
-    <span class="kw">pub </span>ty: <a href="#144-146">FieldAttributeType</a>,
-    <span class="kw">pub </span>args: Vec&lt;<a href="#138-141">FieldAttributeArg</a>&gt;,
-    <span class="kw">pub </span>path_span: <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Span.html">Span</a>,
-    <span class="kw">pub </span>span: <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Span.html">Span</a>,
+    <span class="kw">pub </span>ty: <a href="#146-148">FieldAttributeType</a>,
+    <span class="kw">pub </span>args: Vec&lt;<a href="#138-143">FieldAttributeArg</a>&gt;,
 }
 
 <span class="kw">pub struct </span>AttributedField {
-    <span class="kw">pub </span>ident: <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Ident.html">Ident</a>,
+    <span class="kw">pub </span>ident: <a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Ident.html">Ident</a>,
     <span class="kw">pub </span>ty: <a href="https://docs.rs/syn/1.0.109/syn/ty/enum.Type.html">Type</a>,
-    <span class="kw">pub </span>attr: <a href="#148-153">FieldAttribute</a>,
+    <span class="kw">pub </span>attr: <a href="#150-153">FieldAttribute</a>,
 }
 
 <span class="kw">impl </span><a href="#155-159">AttributedField</a> {
@@ -629,13 +623,13 @@
     }
 
     <span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
-    </span><span class="kw">pub fn </span>id_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Span.html">Span</a> {
+    </span><span class="kw">pub fn </span>id_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Span.html">Span</a> {
         <span class="kw">for </span>arg <span class="kw">in </span><span class="kw-2">&amp;</span><span class="self">self</span>.attr.args {
             <span class="kw">if let </span>FieldAttributeArg::Id(<span class="kw">_</span>, span) = arg {
                 <span class="kw">return </span><span class="kw-2">*</span>span;
             }
         }
-        <a class="self" href="#173">self</a>.ident.<a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Ident.html#method.span">span</a>()
+        <a class="self" href="#173">self</a>.ident.<a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Ident.html#method.span">span</a>()
     }
 }
 
@@ -660,9 +654,9 @@
 }
 
 <span class="kw">fn </span>parse_field_attr_meta(
-    ty: <span class="kw-2">&amp;</span><a href="#144-146">FieldAttributeType</a>,
+    ty: <span class="kw-2">&amp;</span><a href="#146-148">FieldAttributeType</a>,
     meta: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/1.0.109/syn/attr/enum.NestedMeta.html">NestedMeta</a>,
-) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#138-141">FieldAttributeArg</a>, <a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html">Error</a>&gt; {
+) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#138-143">FieldAttributeArg</a>, <a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html">Error</a>&gt; {
     <span class="kw">let </span>meta = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#205">meta</a> {
         <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.NestedMeta.html#variant.Meta">NestedMeta::Meta</a>(m) =&gt; <a href="#208">m</a>,
         <span class="kw">_ </span>=&gt; {
@@ -688,16 +682,16 @@
 
     <span class="kw">let </span>ident_str = <a href="#226">ident</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>();
     <span class="kw">let </span>unknown_err = <span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html#method.new">Error::new</a>(
-        <a href="#226">ident</a>.<a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Ident.html#method.span">span</a>(),
+        <a href="#226">ident</a>.<a href="https://docs.rs/proc-macro2/1.0.79/proc_macro2/struct.Ident.html#method.span">span</a>(),
         <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"unknown attribute argument: `{ident_str}`"</span>),
     ));
     <span class="kw">let </span>value = <span class="kw">match </span><a href="#204">ty</a> {
-        <a href="#145">FieldAttributeType::TemplateChild</a> =&gt; <span class="kw">match </span><a href="#230">ident_str</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html#method.as_str">as_str</a>() {
-            <span class="string">"id" </span>=&gt; <a href="#139">FieldAttributeArg::Id</a>(
+        <a href="#147">FieldAttributeType::TemplateChild</a> =&gt; <span class="kw">match </span><a href="#230">ident_str</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html#method.as_str">as_str</a>() {
+            <span class="string">"id" </span>=&gt; <a href="#141">FieldAttributeArg::Id</a>(
                 <a href="#183-191">parse_field_attr_value_str</a>(<a href="#216">name_value</a>)<span class="question-mark">?</span>,
                 <a href="#216">name_value</a>.lit.<a href="https://docs.rs/syn/1.0.109/syn/lit/enum.Lit.html#method.span">span</a>(),
             ),
-            <span class="string">"internal" </span>=&gt; <a href="#140">FieldAttributeArg::Internal</a>(<a href="#193-201">parse_field_attr_value_bool</a>(<a href="#216">name_value</a>)<span class="question-mark">?</span>),
+            <span class="string">"internal" </span>=&gt; <a href="#142">FieldAttributeArg::Internal</a>(<a href="#193-201">parse_field_attr_value_bool</a>(<a href="#216">name_value</a>)<span class="question-mark">?</span>),
             <span class="kw">_ </span>=&gt; <span class="kw">return </span><a href="#231">unknown_err</a>,
         },
     };
@@ -706,9 +700,9 @@
 }
 
 <span class="kw">fn </span>parse_field_attr_args(
-    ty: <span class="kw-2">&amp;</span><a href="#144-146">FieldAttributeType</a>,
+    ty: <span class="kw-2">&amp;</span><a href="#146-148">FieldAttributeType</a>,
     attr: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/1.0.109/syn/attr/struct.Attribute.html">Attribute</a>,
-) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="#138-141">FieldAttributeArg</a>&gt;, <a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html">Error</a>&gt; {
+) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="#138-143">FieldAttributeArg</a>&gt;, <a href="https://docs.rs/syn/1.0.109/syn/error/struct.Error.html">Error</a>&gt; {
     <span class="kw">let </span><span class="kw-2">mut </span>field_attribute_args = <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.new">Vec::new</a>();
     <span class="kw">match </span><a href="#251">attr</a>.<a href="https://docs.rs/syn/1.0.109/syn/attr/struct.Attribute.html#method.parse_meta">parse_meta</a>()<span class="question-mark">? </span>{
         <a href="https://docs.rs/syn/1.0.109/syn/attr/enum.Meta.html#variant.List">Meta::List</a>(list) =&gt; {
@@ -751,7 +745,6 @@
 
     <span class="kw">for </span>field_attr <span class="kw">in </span>field_attrs {
         <span class="kw">let </span>span = field_attr.span();
-        <span class="kw">let </span>path_span = field_attr.path.span();
         <span class="kw">let </span>ty = <span class="kw">if </span>field_attr.path.is_ident(<span class="string">"template_child"</span>) {
             <span class="prelude-val">Some</span>(FieldAttributeType::TemplateChild)
         } <span class="kw">else </span>{
@@ -762,12 +755,7 @@
             <span class="kw">let </span>args = parse_field_attr_args(<span class="kw-2">&amp;</span>ty, field_attr)<span class="question-mark">?</span>;
 
             <span class="kw">if </span>attr.is_none() {
-                attr = <span class="prelude-val">Some</span>(FieldAttribute {
-                    ty,
-                    args,
-                    path_span,
-                    span,
-                })
+                attr = <span class="prelude-val">Some</span>(FieldAttribute { ty, args })
             } <span class="kw">else </span>{
                 <span class="kw">return </span><span class="prelude-val">Err</span>(Error::new(
                     span,
@@ -781,7 +769,7 @@
         <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<a href="#155-159">AttributedField</a> {
             ident: <a href="#285">ident</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(),
             ty: <a href="#290">ty</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(),
-            <a href="#321">attr</a>,
+            <a href="#315">attr</a>,
         }))
     } <span class="kw">else </span>{
         <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
@@ -839,6 +827,6 @@
         }
     }
 
-    <span class="prelude-val">Ok</span>(<a href="#360">attributed_fields</a>)
+    <span class="prelude-val">Ok</span>(<a href="#354">attributed_fields</a>)
 }
 </code></pre></div></section></main></body></html>
