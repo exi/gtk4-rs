@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/sys/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-2c208a72533b4dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (0d8b3346a 2024-04-14)" data-channel="nightly" data-search-js="search-ffac13a0df2b1870.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-c97aec732c613ca4.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/sys/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (f9b161492 2024-04-19)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4_sys/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4_sys/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -21144,7 +21144,7 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
 </span><span class="kw">use </span>cairo_sys <span class="kw">as </span>cairo;
-<span class="kw">use </span><a href="../../gdk4_sys/index.html">gdk4_sys</a> <span class="kw">as </span>gdk;
+<span class="kw">use </span>gdk4_sys <span class="kw">as </span>gdk;
 <span class="kw">use </span>gdk_pixbuf_sys <span class="kw">as </span>gdk_pixbuf;
 <span class="kw">use </span>gio_sys <span class="kw">as </span>gio;
 <span class="kw">use </span>glib_sys <span class="kw">as </span>glib;
@@ -21168,7 +21168,7 @@
 <span class="kw">pub const </span><a href="../../gtk4_sys/constant.GTK_ENTRY_BUFFER_MAX_SIZE.html">GTK_ENTRY_BUFFER_MAX_SIZE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a> = <a href="https://doc.rust-lang.org/nightly/core/u16/constant.MAX.html">::std::u16::MAX</a>;
 
 <span class="comment">// Aliases
-</span><span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkAllocation.html">GtkAllocation</a> = <a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>;
+</span><span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkAllocation.html">GtkAllocation</a> = gdk::GdkRectangle;
 
 <span class="comment">// Enums
 </span><span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkAccessibleAnnouncementPriority.html">GtkAccessibleAnnouncementPriority</a> = c_int;
@@ -22279,8 +22279,8 @@
 <span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkCellAllocCallback.html">GtkCellAllocCallback</a> = <span class="prelude-ty">Option</span>&lt;
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
         <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        <span class="kw-2">*const </span>gdk::GdkRectangle,
+        <span class="kw-2">*const </span>gdk::GdkRectangle,
         gpointer,
     ) -&gt; gboolean,
 &gt;;
@@ -22364,7 +22364,7 @@
 <span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkTextCharPredicate.html">GtkTextCharPredicate</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkTextTagTableForeach.html">GtkTextTagTableForeach</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8788-8791">GtkTextTag</a>, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkTickCallback.html">GtkTickCallback</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkFrameClock.html">gdk::GdkFrameClock</a>, gpointer) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, <span class="kw-2">*mut </span>gdk::GdkFrameClock, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gtk4_sys/type.GtkTreeCellDataFunc.html">GtkTreeCellDataFunc</a> = <span class="prelude-ty">Option</span>&lt;
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
         <span class="kw-2">*mut </span><a href="#8981-8984">GtkTreeViewColumn</a>,
@@ -23067,8 +23067,8 @@
             <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
             <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1147-1154">GtkCellAllocCallback</a>,
             gpointer,
         ),
@@ -23078,8 +23078,8 @@
             <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
             <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-            <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*mut </span>gdk::GdkEvent,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
         ) -&gt; c_int,
     &gt;,
@@ -23089,8 +23089,8 @@
             <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
             <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
             gboolean,
         ),
@@ -23172,7 +23172,7 @@
             <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
             <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
             gboolean,
         ) -&gt; gboolean,
@@ -23256,7 +23256,7 @@
     <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
     <span class="kw">pub </span>editing_done: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>)&gt;,
     <span class="kw">pub </span>remove_widget: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>)&gt;,
-    <span class="kw">pub </span>start_editing: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>)&gt;,
+    <span class="kw">pub </span>start_editing: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>, <span class="kw-2">*mut </span>gdk::GdkEvent)&gt;,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2123-2128">GtkCellEditableIface</a> {
@@ -23331,8 +23331,8 @@
             <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
             <a href="#1007">GtkCellRendererState</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*mut </span>gdk::GdkRectangle,
         ),
     &gt;,
     <span class="kw">pub </span>snapshot: <span class="prelude-ty">Option</span>&lt;
@@ -23340,30 +23340,30 @@
             <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
             <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
         ),
     &gt;,
     <span class="kw">pub </span>activate: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-            <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+            <span class="kw-2">*mut </span>gdk::GdkEvent,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
             <span class="kw-2">*const </span>c_char,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
         ) -&gt; gboolean,
     &gt;,
     <span class="kw">pub </span>start_editing: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-            <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+            <span class="kw-2">*mut </span>gdk::GdkEvent,
             <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
             <span class="kw-2">*const </span>c_char,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
+            <span class="kw-2">*const </span>gdk::GdkRectangle,
             <a href="#1007">GtkCellRendererState</a>,
         ) -&gt; <span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>,
     &gt;,
@@ -23476,12 +23476,12 @@
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gtk4_sys/struct.GtkColorChooserInterface.html">GtkColorChooserInterface</a> {
     <span class="kw">pub </span>base_interface: gobject::GTypeInterface,
-    <span class="kw">pub </span>get_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>)&gt;,
-    <span class="kw">pub </span>set_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>)&gt;,
+    <span class="kw">pub </span>get_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span>gdk::GdkRGBA)&gt;,
+    <span class="kw">pub </span>set_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span>gdk::GdkRGBA)&gt;,
     <span class="kw">pub </span>add_palette: <span class="prelude-ty">Option</span>&lt;
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <a href="#577">GtkOrientation</a>, c_int, c_int, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>),
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <a href="#577">GtkOrientation</a>, c_int, c_int, <span class="kw-2">*mut </span>gdk::GdkRGBA),
     &gt;,
-    <span class="kw">pub </span>color_activated: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>)&gt;,
+    <span class="kw">pub </span>color_activated: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, <span class="kw-2">*const </span>gdk::GdkRGBA)&gt;,
     <span class="kw">pub </span>padding: [gpointer; <span class="number">12</span>],
 }
 
@@ -24305,9 +24305,9 @@
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gtk4_sys/struct.GtkGLAreaClass.html">GtkGLAreaClass</a> {
     <span class="kw">pub </span>parent_class: <a href="#5477-5518">GtkWidgetClass</a>,
-    <span class="kw">pub </span>render: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkGLContext.html">gdk::GdkGLContext</a>) -&gt; gboolean&gt;,
+    <span class="kw">pub </span>render: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, <span class="kw-2">*mut </span>gdk::GdkGLContext) -&gt; gboolean&gt;,
     <span class="kw">pub </span>resize: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, c_int, c_int)&gt;,
-    <span class="kw">pub </span>create_context: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkGLContext.html">gdk::GdkGLContext</a>&gt;,
+    <span class="kw">pub </span>create_context: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkGLContext&gt;,
     <span class="kw">pub </span>_padding: [gpointer; <span class="number">8</span>],
 }
 
@@ -24487,12 +24487,12 @@
         ),
     &gt;,
     <span class="kw">pub </span>filter_keypress:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>) -&gt; gboolean&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span>gdk::GdkEvent) -&gt; gboolean&gt;,
     <span class="kw">pub </span>focus_in: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>)&gt;,
     <span class="kw">pub </span>focus_out: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>)&gt;,
     <span class="kw">pub </span>reset: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>)&gt;,
     <span class="kw">pub </span>set_cursor_location:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>)&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span>gdk::GdkRectangle)&gt;,
     <span class="kw">pub </span>set_use_preedit: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, gboolean)&gt;,
     <span class="kw">pub </span>set_surrounding:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*const </span>c_char, c_int, c_int)&gt;,
@@ -24510,7 +24510,7 @@
     &gt;,
     <span class="kw">pub </span>activate_osk: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>)&gt;,
     <span class="kw">pub </span>activate_osk_with_event:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>) -&gt; gboolean&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, <span class="kw-2">*mut </span>gdk::GdkEvent) -&gt; gboolean&gt;,
     <span class="kw">pub </span>_gtk_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_gtk_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_gtk_reserved4: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -24828,8 +24828,8 @@
     <span class="kw">pub </span>pause: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>)&gt;,
     <span class="kw">pub </span>seek: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>)&gt;,
     <span class="kw">pub </span>update_audio: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, gboolean, c_double)&gt;,
-    <span class="kw">pub </span>realize: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>)&gt;,
-    <span class="kw">pub </span>unrealize: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>)&gt;,
+    <span class="kw">pub </span>realize: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, <span class="kw-2">*mut </span>gdk::GdkSurface)&gt;,
+    <span class="kw">pub </span>unrealize: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, <span class="kw-2">*mut </span>gdk::GdkSurface)&gt;,
     <span class="kw">pub </span>_gtk_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_gtk_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_gtk_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -25894,10 +25894,10 @@
     <span class="kw">pub </span>snapshot_symbolic: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#9406-9409">GtkSymbolicPaintable</a>,
-            <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSnapshot.html">gdk::GdkSnapshot</a>,
+            <span class="kw-2">*mut </span>gdk::GdkSnapshot,
             c_double,
             c_double,
-            <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+            <span class="kw-2">*const </span>gdk::GdkRGBA,
             size_t,
         ),
     &gt;,
@@ -25918,7 +25918,7 @@
     <span class="kw">pub </span>insert_text:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>, <span class="kw-2">*const </span>c_char, c_int)&gt;,
     <span class="kw">pub </span>insert_paintable:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>)&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>, <span class="kw-2">*mut </span>gdk::GdkPaintable)&gt;,
     <span class="kw">pub </span>insert_child_anchor:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>, <span class="kw-2">*mut </span><a href="#8758-8761">GtkTextChildAnchor</a>)&gt;,
     <span class="kw">pub </span>delete_range:
@@ -25946,7 +25946,7 @@
     &gt;,
     <span class="kw">pub </span>begin_user_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>)&gt;,
     <span class="kw">pub </span>end_user_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>)&gt;,
-    <span class="kw">pub </span>paste_done: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>)&gt;,
+    <span class="kw">pub </span>paste_done: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>, <span class="kw-2">*mut </span>gdk::GdkClipboard)&gt;,
     <span class="kw">pub </span>undo: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>)&gt;,
     <span class="kw">pub </span>redo: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>)&gt;,
     <span class="kw">pub </span>_gtk_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -26190,7 +26190,7 @@
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#9430-9433">GtkTreeDragSource</a>,
             <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
-        ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>,
+        ) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentProvider,
     &gt;,
     <span class="kw">pub </span>drag_data_delete:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9430-9433">GtkTreeDragSource</a>, <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>) -&gt; gboolean&gt;,
@@ -31733,7 +31733,7 @@
     <span class="kw">pub fn </span>gtk_text_iter_get_line_offset(iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_text_iter_get_marks(iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>) -&gt; <span class="kw-2">*mut </span>glib::GSList;
     <span class="kw">pub fn </span>gtk_text_iter_get_offset(iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>) -&gt; c_int;
-    <span class="kw">pub fn </span>gtk_text_iter_get_paintable(iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    <span class="kw">pub fn </span>gtk_text_iter_get_paintable(iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_text_iter_get_slice(
         start: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>,
         end: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>,
@@ -31861,7 +31861,7 @@
     </span><span class="kw">pub fn </span>gtk_widget_class_add_binding(
         widget_class: <span class="kw-2">*mut </span><a href="#5477-5518">GtkWidgetClass</a>,
         keyval: c_uint,
-        mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        mods: gdk::GdkModifierType,
         callback: <a href="#1230-1231">GtkShortcutFunc</a>,
         format_string: <span class="kw-2">*const </span>c_char,
         ...
@@ -31869,7 +31869,7 @@
     <span class="kw">pub fn </span>gtk_widget_class_add_binding_action(
         widget_class: <span class="kw-2">*mut </span><a href="#5477-5518">GtkWidgetClass</a>,
         keyval: c_uint,
-        mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        mods: gdk::GdkModifierType,
         action_name: <span class="kw-2">*const </span>c_char,
         format_string: <span class="kw-2">*const </span>c_char,
         ...
@@ -31877,7 +31877,7 @@
     <span class="kw">pub fn </span>gtk_widget_class_add_binding_signal(
         widget_class: <span class="kw-2">*mut </span><a href="#5477-5518">GtkWidgetClass</a>,
         keyval: c_uint,
-        mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        mods: gdk::GdkModifierType,
         signal: <span class="kw-2">*const </span>c_char,
         format_string: <span class="kw-2">*const </span>c_char,
         ...
@@ -31959,7 +31959,7 @@
     <span class="kw">pub fn </span>gtk_at_context_create(
         accessible_role: <a href="#105">GtkAccessibleRole</a>,
         accessible: <span class="kw-2">*mut </span><a href="#9130-9133">GtkAccessible</a>,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
     ) -&gt; <span class="kw-2">*mut </span><a href="#5668-5671">GtkATContext</a>;
     <span class="kw">pub fn </span>gtk_at_context_get_accessible(self_: <span class="kw-2">*mut </span><a href="#5668-5671">GtkATContext</a>) -&gt; <span class="kw-2">*mut </span><a href="#9130-9133">GtkAccessible</a>;
     <span class="kw">pub fn </span>gtk_at_context_get_accessible_role(self_: <span class="kw-2">*mut </span><a href="#5668-5671">GtkATContext</a>) -&gt; <a href="#105">GtkAccessibleRole</a>;
@@ -31981,7 +31981,7 @@
     <span class="kw">pub fn </span>gtk_about_dialog_get_documenters(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*const *const </span>c_char;
     <span class="kw">pub fn </span>gtk_about_dialog_get_license(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_about_dialog_get_license_type(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <a href="#508">GtkLicense</a>;
-    <span class="kw">pub fn </span>gtk_about_dialog_get_logo(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    <span class="kw">pub fn </span>gtk_about_dialog_get_logo(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_about_dialog_get_logo_icon_name(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_about_dialog_get_program_name(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_about_dialog_get_system_information(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>) -&gt; <span class="kw-2">*const </span>c_char;
@@ -32000,7 +32000,7 @@
     );
     <span class="kw">pub fn </span>gtk_about_dialog_set_license(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>, license: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_about_dialog_set_license_type(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>, license_type: <a href="#508">GtkLicense</a>);
-    <span class="kw">pub fn </span>gtk_about_dialog_set_logo(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>, logo: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>);
+    <span class="kw">pub fn </span>gtk_about_dialog_set_logo(about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>, logo: <span class="kw-2">*mut </span>gdk::GdkPaintable);
     <span class="kw">pub fn </span>gtk_about_dialog_set_logo_icon_name(
         about: <span class="kw-2">*mut </span><a href="#5680-5683">GtkAboutDialog</a>,
         icon_name: <span class="kw-2">*const </span>c_char,
@@ -32750,7 +32750,7 @@
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
         edit_only: gboolean,
     ) -&gt; gboolean;
@@ -32758,8 +32758,8 @@
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         renderer: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_cell_area_add(area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>, renderer: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>);
@@ -32832,8 +32832,8 @@
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
     ) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_cell_area_focus(area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>, direction: <a href="#397">GtkDirectionType</a>) -&gt; gboolean;
@@ -32846,8 +32846,8 @@
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        background_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        background_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         callback: <a href="#1147-1154">GtkCellAllocCallback</a>,
         callback_data: gpointer,
     );
@@ -32856,17 +32856,17 @@
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         renderer: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        allocation: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        allocation: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_cell_area_get_cell_at_position(
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         x: c_int,
         y: c_int,
-        alloc_area: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        alloc_area: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     ) -&gt; <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>;
     <span class="kw">pub fn </span>gtk_cell_area_get_current_path_string(area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_cell_area_get_edit_widget(area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>) -&gt; <span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>;
@@ -32918,8 +32918,8 @@
     <span class="kw">pub fn </span>gtk_cell_area_inner_cell_area(
         area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        inner_area: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        inner_area: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_cell_area_is_activatable(area: <span class="kw-2">*mut </span><a href="#6029-6031">GtkCellArea</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_cell_area_is_focus_sibling(
@@ -32948,8 +32948,8 @@
         context: <span class="kw-2">*mut </span><a href="#6054-6056">GtkCellAreaContext</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
-        background_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        background_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
         paint_focus: gboolean,
     );
@@ -33032,19 +33032,19 @@
     </span><span class="kw">pub fn </span>gtk_cell_renderer_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_cell_renderer_activate(
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         path: <span class="kw-2">*const </span>c_char,
-        background_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        background_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_cell_renderer_get_aligned_area(
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         flags: <a href="#1007">GtkCellRendererState</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        aligned_area: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        aligned_area: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_cell_renderer_get_alignment(
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
@@ -33123,17 +33123,17 @@
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
-        background_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        background_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
     );
     <span class="kw">pub fn </span>gtk_cell_renderer_start_editing(
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
         path: <span class="kw-2">*const </span>c_char,
-        background_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        cell_area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        background_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
+        cell_area: <span class="kw-2">*const </span>gdk::GdkRectangle,
         flags: <a href="#1007">GtkCellRendererState</a>,
     ) -&gt; <span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>;
     <span class="kw">pub fn </span>gtk_cell_renderer_stop_editing(cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>, canceled: gboolean);
@@ -33214,7 +33214,7 @@
     ) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_cell_view_new_with_markup(markup: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_cell_view_new_with_text(text: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_cell_view_new_with_texture(texture: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkTexture.html">gdk::GdkTexture</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
+    <span class="kw">pub fn </span>gtk_cell_view_new_with_texture(texture: <span class="kw-2">*mut </span>gdk::GdkTexture) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_cell_view_get_displayed_row(cell_view: <span class="kw-2">*mut </span><a href="#6186-6189">GtkCellView</a>) -&gt; <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>;
     <span class="kw">pub fn </span>gtk_cell_view_get_draw_sensitive(cell_view: <span class="kw-2">*mut </span><a href="#6186-6189">GtkCellView</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_cell_view_get_fit_model(cell_view: <span class="kw-2">*mut </span><a href="#6186-6189">GtkCellView</a>) -&gt; gboolean;
@@ -33325,7 +33325,7 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_color_button_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_color_button_new() -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_color_button_new_with_rgba(rgba: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
+    <span class="kw">pub fn </span>gtk_color_button_new_with_rgba(rgba: <span class="kw-2">*const </span>gdk::GdkRGBA) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_color_button_get_modal(button: <span class="kw-2">*mut </span><a href="#6250-6253">GtkColorButton</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_color_button_get_title(button: <span class="kw-2">*mut </span><a href="#6250-6253">GtkColorButton</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_color_button_set_modal(button: <span class="kw-2">*mut </span><a href="#6250-6253">GtkColorButton</a>, modal: gboolean);
@@ -33360,7 +33360,7 @@
     </span><span class="kw">pub fn </span>gtk_color_dialog_choose_rgba(
         self_: <span class="kw-2">*mut </span><a href="#6289-6292">GtkColorDialog</a>,
         parent: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>,
-        initial_color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        initial_color: <span class="kw-2">*const </span>gdk::GdkRGBA,
         cancellable: <span class="kw-2">*mut </span>gio::GCancellable,
         callback: gio::GAsyncReadyCallback,
         user_data: gpointer,
@@ -33371,7 +33371,7 @@
         self_: <span class="kw-2">*mut </span><a href="#6289-6292">GtkColorDialog</a>,
         result: <span class="kw-2">*mut </span>gio::GAsyncResult,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkRGBA;
     <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_color_dialog_get_modal(self_: <span class="kw-2">*mut </span><a href="#6289-6292">GtkColorDialog</a>) -&gt; gboolean;
@@ -33409,7 +33409,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_color_dialog_button_get_rgba(
         self_: <span class="kw-2">*mut </span><a href="#6302-6305">GtkColorDialogButton</a>,
-    ) -&gt; <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>;
+    ) -&gt; <span class="kw-2">*const </span>gdk::GdkRGBA;
     <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_color_dialog_button_set_dialog(
@@ -33420,7 +33420,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_color_dialog_button_set_rgba(
         self_: <span class="kw-2">*mut </span><a href="#6302-6305">GtkColorDialogButton</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
     );
 
     <span class="comment">//=========================================================================
@@ -33698,7 +33698,7 @@
     ) -&gt; <a href="#1291-1292">GtkTreeViewRowSeparatorFunc</a>;
     <span class="kw">pub fn </span>gtk_combo_box_popdown(combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>);
     <span class="kw">pub fn </span>gtk_combo_box_popup(combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>);
-    <span class="kw">pub fn </span>gtk_combo_box_popup_for_device(combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>, device: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDevice.html">gdk::GdkDevice</a>);
+    <span class="kw">pub fn </span>gtk_combo_box_popup_for_device(combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>, device: <span class="kw-2">*mut </span>gdk::GdkDevice);
     <span class="kw">pub fn </span>gtk_combo_box_set_active(combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>, index_: c_int);
     <span class="kw">pub fn </span>gtk_combo_box_set_active_id(
         combo_box: <span class="kw-2">*mut </span><a href="#6381-6383">GtkComboBox</a>,
@@ -34049,10 +34049,10 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_drag_icon_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_drag_icon_create_widget_for_value(value: <span class="kw-2">*const </span>gobject::GValue) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_drag_icon_get_for_drag(drag: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrag.html">gdk::GdkDrag</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
+    <span class="kw">pub fn </span>gtk_drag_icon_get_for_drag(drag: <span class="kw-2">*mut </span>gdk::GdkDrag) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_drag_icon_set_from_paintable(
-        drag: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrag.html">gdk::GdkDrag</a>,
-        paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>,
+        drag: <span class="kw-2">*mut </span>gdk::GdkDrag,
+        paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable,
         hot_x: c_int,
         hot_y: c_int,
     );
@@ -34065,17 +34065,17 @@
     </span><span class="kw">pub fn </span>gtk_drag_source_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_drag_source_new() -&gt; <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>;
     <span class="kw">pub fn </span>gtk_drag_source_drag_cancel(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>);
-    <span class="kw">pub fn </span>gtk_drag_source_get_actions(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>;
-    <span class="kw">pub fn </span>gtk_drag_source_get_content(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>;
-    <span class="kw">pub fn </span>gtk_drag_source_get_drag(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrag.html">gdk::GdkDrag</a>;
-    <span class="kw">pub fn </span>gtk_drag_source_set_actions(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>, actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>);
+    <span class="kw">pub fn </span>gtk_drag_source_get_actions(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; gdk::GdkDragAction;
+    <span class="kw">pub fn </span>gtk_drag_source_get_content(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentProvider;
+    <span class="kw">pub fn </span>gtk_drag_source_get_drag(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDrag;
+    <span class="kw">pub fn </span>gtk_drag_source_set_actions(source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>, actions: gdk::GdkDragAction);
     <span class="kw">pub fn </span>gtk_drag_source_set_content(
         source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>,
-        content: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>,
+        content: <span class="kw-2">*mut </span>gdk::GdkContentProvider,
     );
     <span class="kw">pub fn </span>gtk_drag_source_set_icon(
         source: <span class="kw-2">*mut </span><a href="#6564-6567">GtkDragSource</a>,
-        paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>,
+        paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable,
         hot_x: c_int,
         hot_y: c_int,
     );
@@ -34106,7 +34106,7 @@
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_drop_controller_motion_get_drop(
         self_: <span class="kw-2">*mut </span><a href="#6591-6594">GtkDropControllerMotion</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrop.html">gdk::GdkDrop</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkDrop;
     <span class="kw">pub fn </span>gtk_drop_controller_motion_is_pointer(self_: <span class="kw-2">*mut </span><a href="#6591-6594">GtkDropControllerMotion</a>) -&gt; gboolean;
 
     <span class="comment">//=========================================================================
@@ -34164,13 +34164,13 @@
     // GtkDropTarget
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_drop_target_get_type() -&gt; GType;
-    <span class="kw">pub fn </span>gtk_drop_target_new(type_: GType, actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>) -&gt; <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>;
-    <span class="kw">pub fn </span>gtk_drop_target_get_actions(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>;
+    <span class="kw">pub fn </span>gtk_drop_target_new(type_: GType, actions: gdk::GdkDragAction) -&gt; <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>;
+    <span class="kw">pub fn </span>gtk_drop_target_get_actions(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; gdk::GdkDragAction;
     <span class="attr">#[cfg(feature = <span class="string">"v4_4"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_4"</span>)))]
-    </span><span class="kw">pub fn </span>gtk_drop_target_get_current_drop(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrop.html">gdk::GdkDrop</a>;
-    <span class="kw">pub fn </span>gtk_drop_target_get_drop(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrop.html">gdk::GdkDrop</a>;
-    <span class="kw">pub fn </span>gtk_drop_target_get_formats(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>;
+    </span><span class="kw">pub fn </span>gtk_drop_target_get_current_drop(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDrop;
+    <span class="kw">pub fn </span>gtk_drop_target_get_drop(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDrop;
+    <span class="kw">pub fn </span>gtk_drop_target_get_formats(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentFormats;
     <span class="kw">pub fn </span>gtk_drop_target_get_gtypes(
         self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>,
         n_types: <span class="kw-2">*mut </span>size_t,
@@ -34178,7 +34178,7 @@
     <span class="kw">pub fn </span>gtk_drop_target_get_preload(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_drop_target_get_value(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>) -&gt; <span class="kw-2">*const </span>gobject::GValue;
     <span class="kw">pub fn </span>gtk_drop_target_reject(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>);
-    <span class="kw">pub fn </span>gtk_drop_target_set_actions(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>, actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>);
+    <span class="kw">pub fn </span>gtk_drop_target_set_actions(self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>, actions: gdk::GdkDragAction);
     <span class="kw">pub fn </span>gtk_drop_target_set_gtypes(
         self_: <span class="kw-2">*mut </span><a href="#6616-6619">GtkDropTarget</a>,
         types: <span class="kw-2">*mut </span>GType,
@@ -34191,24 +34191,24 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_drop_target_async_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_drop_target_async_new(
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
+        actions: gdk::GdkDragAction,
     ) -&gt; <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>;
-    <span class="kw">pub fn </span>gtk_drop_target_async_get_actions(self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>) -&gt; <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>;
+    <span class="kw">pub fn </span>gtk_drop_target_async_get_actions(self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>) -&gt; gdk::GdkDragAction;
     <span class="kw">pub fn </span>gtk_drop_target_async_get_formats(
         self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentFormats;
     <span class="kw">pub fn </span>gtk_drop_target_async_reject_drop(
         self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>,
-        drop: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDrop.html">gdk::GdkDrop</a>,
+        drop: <span class="kw-2">*mut </span>gdk::GdkDrop,
     );
     <span class="kw">pub fn </span>gtk_drop_target_async_set_actions(
         self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_drop_target_async_set_formats(
         self_: <span class="kw-2">*mut </span><a href="#6629-6632">GtkDropTargetAsync</a>,
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
     );
 
     <span class="comment">//=========================================================================
@@ -34247,7 +34247,7 @@
     <span class="kw">pub fn </span>gtk_entry_get_icon_area(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
         icon_pos: <a href="#416">GtkEntryIconPosition</a>,
-        icon_area: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        icon_area: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_entry_get_icon_at_pos(entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>, x: c_int, y: c_int) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_entry_get_icon_gicon(
@@ -34261,7 +34261,7 @@
     <span class="kw">pub fn </span>gtk_entry_get_icon_paintable(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
         icon_pos: <a href="#416">GtkEntryIconPosition</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_entry_get_icon_sensitive(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
         icon_pos: <a href="#416">GtkEntryIconPosition</a>,
@@ -34307,8 +34307,8 @@
     <span class="kw">pub fn </span>gtk_entry_set_icon_drag_source(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
         icon_pos: <a href="#416">GtkEntryIconPosition</a>,
-        provider: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        provider: <span class="kw-2">*mut </span>gdk::GdkContentProvider,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_entry_set_icon_from_gicon(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
@@ -34323,7 +34323,7 @@
     <span class="kw">pub fn </span>gtk_entry_set_icon_from_paintable(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
         icon_pos: <a href="#416">GtkEntryIconPosition</a>,
-        paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>,
+        paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable,
     );
     <span class="kw">pub fn </span>gtk_entry_set_icon_sensitive(
         entry: <span class="kw-2">*mut </span><a href="#6669-6671">GtkEntry</a>,
@@ -34472,13 +34472,13 @@
     </span><span class="kw">pub fn </span>gtk_event_controller_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_event_controller_get_current_event(
         controller: <span class="kw-2">*mut </span><a href="#6707-6710">GtkEventController</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkEvent;
     <span class="kw">pub fn </span>gtk_event_controller_get_current_event_device(
         controller: <span class="kw-2">*mut </span><a href="#6707-6710">GtkEventController</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDevice.html">gdk::GdkDevice</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkDevice;
     <span class="kw">pub fn </span>gtk_event_controller_get_current_event_state(
         controller: <span class="kw-2">*mut </span><a href="#6707-6710">GtkEventController</a>,
-    ) -&gt; <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>;
+    ) -&gt; gdk::GdkModifierType;
     <span class="kw">pub fn </span>gtk_event_controller_get_current_event_time(controller: <span class="kw-2">*mut </span><a href="#6707-6710">GtkEventController</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
     <span class="kw">pub fn </span>gtk_event_controller_get_name(controller: <span class="kw-2">*mut </span><a href="#6707-6710">GtkEventController</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_event_controller_get_propagation_limit(
@@ -34564,7 +34564,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_8"</span>)))]
     </span><span class="kw">pub fn </span>gtk_event_controller_scroll_get_unit(
         scroll: <span class="kw-2">*mut </span><a href="#6772-6775">GtkEventControllerScroll</a>,
-    ) -&gt; <a href="../../gdk4_sys/type.GdkScrollUnit.html">gdk::GdkScrollUnit</a>;
+    ) -&gt; gdk::GdkScrollUnit;
     <span class="kw">pub fn </span>gtk_event_controller_scroll_set_flags(
         scroll: <span class="kw-2">*mut </span><a href="#6772-6775">GtkEventControllerScroll</a>,
         flags: <a href="#1046">GtkEventControllerScrollFlags</a>,
@@ -35299,12 +35299,12 @@
     <span class="kw">pub fn </span>gtk_gl_area_attach_buffers(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>);
     <span class="attr">#[cfg(feature = <span class="string">"v4_12"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_12"</span>)))]
-    </span><span class="kw">pub fn </span>gtk_gl_area_get_allowed_apis(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <a href="../../gdk4_sys/type.GdkGLAPI.html">gdk::GdkGLAPI</a>;
+    </span><span class="kw">pub fn </span>gtk_gl_area_get_allowed_apis(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; gdk::GdkGLAPI;
     <span class="attr">#[cfg(feature = <span class="string">"v4_12"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_12"</span>)))]
-    </span><span class="kw">pub fn </span>gtk_gl_area_get_api(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <a href="../../gdk4_sys/type.GdkGLAPI.html">gdk::GdkGLAPI</a>;
+    </span><span class="kw">pub fn </span>gtk_gl_area_get_api(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; gdk::GdkGLAPI;
     <span class="kw">pub fn </span>gtk_gl_area_get_auto_render(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_gl_area_get_context(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkGLContext.html">gdk::GdkGLContext</a>;
+    <span class="kw">pub fn </span>gtk_gl_area_get_context(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkGLContext;
     <span class="kw">pub fn </span>gtk_gl_area_get_error(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; <span class="kw-2">*mut </span>glib::GError;
     <span class="kw">pub fn </span>gtk_gl_area_get_has_depth_buffer(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gl_area_get_has_stencil_buffer(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>) -&gt; gboolean;
@@ -35318,7 +35318,7 @@
     <span class="kw">pub fn </span>gtk_gl_area_queue_render(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>);
     <span class="attr">#[cfg(feature = <span class="string">"v4_12"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_12"</span>)))]
-    </span><span class="kw">pub fn </span>gtk_gl_area_set_allowed_apis(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, apis: <a href="../../gdk4_sys/type.GdkGLAPI.html">gdk::GdkGLAPI</a>);
+    </span><span class="kw">pub fn </span>gtk_gl_area_set_allowed_apis(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, apis: gdk::GdkGLAPI);
     <span class="kw">pub fn </span>gtk_gl_area_set_auto_render(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, auto_render: gboolean);
     <span class="kw">pub fn </span>gtk_gl_area_set_error(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, error: <span class="kw-2">*const </span>glib::GError);
     <span class="kw">pub fn </span>gtk_gl_area_set_has_depth_buffer(area: <span class="kw-2">*mut </span><a href="#7086-7088">GtkGLArea</a>, has_depth_buffer: gboolean);
@@ -35332,37 +35332,37 @@
     </span><span class="kw">pub fn </span>gtk_gesture_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_gesture_get_bounding_box(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_get_bounding_box_center(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
         x: <span class="kw-2">*mut </span>c_double,
         y: <span class="kw-2">*mut </span>c_double,
     ) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_gesture_get_device(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDevice.html">gdk::GdkDevice</a>;
+    <span class="kw">pub fn </span>gtk_gesture_get_device(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDevice;
     <span class="kw">pub fn </span>gtk_gesture_get_group(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; <span class="kw-2">*mut </span>glib::GList;
     <span class="kw">pub fn </span>gtk_gesture_get_last_event(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        sequence: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>;
+        sequence: <span class="kw-2">*mut </span>gdk::GdkEventSequence,
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkEvent;
     <span class="kw">pub fn </span>gtk_gesture_get_last_updated_sequence(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkEventSequence;
     <span class="kw">pub fn </span>gtk_gesture_get_point(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        sequence: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>,
+        sequence: <span class="kw-2">*mut </span>gdk::GdkEventSequence,
         x: <span class="kw-2">*mut </span>c_double,
         y: <span class="kw-2">*mut </span>c_double,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_get_sequence_state(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        sequence: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>,
+        sequence: <span class="kw-2">*mut </span>gdk::GdkEventSequence,
     ) -&gt; <a href="#420">GtkEventSequenceState</a>;
     <span class="kw">pub fn </span>gtk_gesture_get_sequences(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; <span class="kw-2">*mut </span>glib::GList;
     <span class="kw">pub fn </span>gtk_gesture_group(group_gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>, gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>);
     <span class="kw">pub fn </span>gtk_gesture_handles_sequence(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        sequence: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>,
+        sequence: <span class="kw-2">*mut </span>gdk::GdkEventSequence,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_is_active(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_is_grouped_with(
@@ -35372,7 +35372,7 @@
     <span class="kw">pub fn </span>gtk_gesture_is_recognized(gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_set_sequence_state(
         gesture: <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>,
-        sequence: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>,
+        sequence: <span class="kw-2">*mut </span>gdk::GdkEventSequence,
         state: <a href="#420">GtkEventSequenceState</a>,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_set_state(
@@ -35440,7 +35440,7 @@
     <span class="kw">pub fn </span>gtk_gesture_single_get_current_button(gesture: <span class="kw-2">*mut </span><a href="#7174-7177">GtkGestureSingle</a>) -&gt; c_uint;
     <span class="kw">pub fn </span>gtk_gesture_single_get_current_sequence(
         gesture: <span class="kw-2">*mut </span><a href="#7174-7177">GtkGestureSingle</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEventSequence.html">gdk::GdkEventSequence</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkEventSequence;
     <span class="kw">pub fn </span>gtk_gesture_single_get_exclusive(gesture: <span class="kw-2">*mut </span><a href="#7174-7177">GtkGestureSingle</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_single_get_touch_only(gesture: <span class="kw-2">*mut </span><a href="#7174-7177">GtkGestureSingle</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_single_set_button(gesture: <span class="kw-2">*mut </span><a href="#7174-7177">GtkGestureSingle</a>, button: c_uint);
@@ -35454,22 +35454,22 @@
     <span class="kw">pub fn </span>gtk_gesture_stylus_new() -&gt; <span class="kw-2">*mut </span><a href="#7097-7100">GtkGesture</a>;
     <span class="kw">pub fn </span>gtk_gesture_stylus_get_axes(
         gesture: <span class="kw-2">*mut </span><a href="#7187-7190">GtkGestureStylus</a>,
-        axes: <span class="kw-2">*mut </span><a href="../../gdk4_sys/type.GdkAxisUse.html">gdk::GdkAxisUse</a>,
+        axes: <span class="kw-2">*mut </span>gdk::GdkAxisUse,
         values: <span class="kw-2">*mut *mut </span>c_double,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_stylus_get_axis(
         gesture: <span class="kw-2">*mut </span><a href="#7187-7190">GtkGestureStylus</a>,
-        axis: <a href="../../gdk4_sys/type.GdkAxisUse.html">gdk::GdkAxisUse</a>,
+        axis: gdk::GdkAxisUse,
         value: <span class="kw-2">*mut </span>c_double,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_stylus_get_backlog(
         gesture: <span class="kw-2">*mut </span><a href="#7187-7190">GtkGestureStylus</a>,
-        backlog: <span class="kw-2">*mut *mut </span><a href="../../gdk4_sys/struct.GdkTimeCoord.html">gdk::GdkTimeCoord</a>,
+        backlog: <span class="kw-2">*mut *mut </span>gdk::GdkTimeCoord,
         n_elems: <span class="kw-2">*mut </span>c_uint,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_gesture_stylus_get_device_tool(
         gesture: <span class="kw-2">*mut </span><a href="#7187-7190">GtkGestureStylus</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDeviceTool.html">gdk::GdkDeviceTool</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkDeviceTool;
     <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_gesture_stylus_get_stylus_only(gesture: <span class="kw-2">*mut </span><a href="#7187-7190">GtkGestureStylus</a>) -&gt; gboolean;
@@ -35690,7 +35690,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
     </span><span class="kw">pub fn </span>gtk_im_context_activate_osk(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_im_context_delete_surrounding(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
@@ -35700,16 +35700,16 @@
     <span class="kw">pub fn </span>gtk_im_context_filter_key(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
         press: gboolean,
-        surface: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>,
-        device: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDevice.html">gdk::GdkDevice</a>,
+        surface: <span class="kw-2">*mut </span>gdk::GdkSurface,
+        device: <span class="kw-2">*mut </span>gdk::GdkDevice,
         time: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
         keycode: c_uint,
-        state: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        state: gdk::GdkModifierType,
         group: c_int,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_im_context_filter_keypress(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_im_context_focus_in(context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>);
     <span class="kw">pub fn </span>gtk_im_context_focus_out(context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>);
@@ -35736,7 +35736,7 @@
     <span class="kw">pub fn </span>gtk_im_context_set_client_widget(context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>, widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
     <span class="kw">pub fn </span>gtk_im_context_set_cursor_location(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
-        area: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        area: <span class="kw-2">*const </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_im_context_set_surrounding(
         context: <span class="kw-2">*mut </span><a href="#7302-7304">GtkIMContext</a>,
@@ -35800,10 +35800,10 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_icon_theme_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_icon_theme_new() -&gt; <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>;
-    <span class="kw">pub fn </span>gtk_icon_theme_get_for_display(display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>) -&gt; <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>;
+    <span class="kw">pub fn </span>gtk_icon_theme_get_for_display(display: <span class="kw-2">*mut </span>gdk::GdkDisplay) -&gt; <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>;
     <span class="kw">pub fn </span>gtk_icon_theme_add_resource_path(self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>, path: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_icon_theme_add_search_path(self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>, path: <span class="kw-2">*const </span>c_char);
-    <span class="kw">pub fn </span>gtk_icon_theme_get_display(self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>;
+    <span class="kw">pub fn </span>gtk_icon_theme_get_display(self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDisplay;
     <span class="kw">pub fn </span>gtk_icon_theme_get_icon_names(self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>) -&gt; <span class="kw-2">*mut *mut </span>c_char;
     <span class="kw">pub fn </span>gtk_icon_theme_get_icon_sizes(
         self_: <span class="kw-2">*mut </span><a href="#7358-7361">GtkIconTheme</a>,
@@ -35847,24 +35847,24 @@
     <span class="kw">pub fn </span>gtk_icon_view_create_drag_icon(
         icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_icon_view_enable_model_drag_dest(
         icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>,
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_icon_view_enable_model_drag_source(
         icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>,
-        start_button_mask: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        start_button_mask: gdk::GdkModifierType,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_icon_view_get_activate_on_single_click(icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_icon_view_get_cell_rect(
         icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
         cell: <span class="kw-2">*mut </span><a href="#6067-6070">GtkCellRenderer</a>,
-        rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_icon_view_get_column_spacing(icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_icon_view_get_columns(icon_view: <span class="kw-2">*mut </span><a href="#7370-7373">GtkIconView</a>) -&gt; c_int;
@@ -36007,20 +36007,20 @@
     <span class="kw">pub fn </span>gtk_image_new_from_file(filename: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_image_new_from_gicon(icon: <span class="kw-2">*mut </span>gio::GIcon) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_image_new_from_icon_name(icon_name: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_image_new_from_paintable(paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
+    <span class="kw">pub fn </span>gtk_image_new_from_paintable(paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_image_new_from_pixbuf(pixbuf: <span class="kw-2">*mut </span>gdk_pixbuf::GdkPixbuf) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_image_new_from_resource(resource_path: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_image_clear(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>);
     <span class="kw">pub fn </span>gtk_image_get_gicon(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <span class="kw-2">*mut </span>gio::GIcon;
     <span class="kw">pub fn </span>gtk_image_get_icon_name(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>gtk_image_get_icon_size(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <a href="#456">GtkIconSize</a>;
-    <span class="kw">pub fn </span>gtk_image_get_paintable(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    <span class="kw">pub fn </span>gtk_image_get_paintable(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_image_get_pixel_size(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_image_get_storage_type(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>) -&gt; <a href="#473">GtkImageType</a>;
     <span class="kw">pub fn </span>gtk_image_set_from_file(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, filename: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_image_set_from_gicon(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, icon: <span class="kw-2">*mut </span>gio::GIcon);
     <span class="kw">pub fn </span>gtk_image_set_from_icon_name(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, icon_name: <span class="kw-2">*const </span>c_char);
-    <span class="kw">pub fn </span>gtk_image_set_from_paintable(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>);
+    <span class="kw">pub fn </span>gtk_image_set_from_paintable(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable);
     <span class="kw">pub fn </span>gtk_image_set_from_pixbuf(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, pixbuf: <span class="kw-2">*mut </span>gdk_pixbuf::GdkPixbuf);
     <span class="kw">pub fn </span>gtk_image_set_from_resource(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, resource_path: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_image_set_icon_size(image: <span class="kw-2">*mut </span><a href="#7382-7385">GtkImage</a>, icon_size: <a href="#456">GtkIconSize</a>);
@@ -36155,10 +36155,10 @@
     </span><span class="kw">pub fn </span>gtk_keyval_trigger_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_keyval_trigger_new(
         keyval: c_uint,
-        modifiers: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        modifiers: gdk::GdkModifierType,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>;
     <span class="kw">pub fn </span>gtk_keyval_trigger_get_keyval(self_: <span class="kw-2">*mut </span><a href="#7419-7422">GtkKeyvalTrigger</a>) -&gt; c_uint;
-    <span class="kw">pub fn </span>gtk_keyval_trigger_get_modifiers(self_: <span class="kw-2">*mut </span><a href="#7419-7422">GtkKeyvalTrigger</a>) -&gt; <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>;
+    <span class="kw">pub fn </span>gtk_keyval_trigger_get_modifiers(self_: <span class="kw-2">*mut </span><a href="#7419-7422">GtkKeyvalTrigger</a>) -&gt; gdk::GdkModifierType;
 
     <span class="comment">//=========================================================================
     // GtkLabel
@@ -36697,7 +36697,7 @@
         seekable: gboolean,
         duration: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
     );
-    <span class="kw">pub fn </span>gtk_media_stream_realize(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, surface: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>);
+    <span class="kw">pub fn </span>gtk_media_stream_realize(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, surface: <span class="kw-2">*mut </span>gdk::GdkSurface);
     <span class="kw">pub fn </span>gtk_media_stream_seek(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, timestamp: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>);
     <span class="kw">pub fn </span>gtk_media_stream_seek_failed(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>);
     <span class="kw">pub fn </span>gtk_media_stream_seek_success(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>);
@@ -36721,7 +36721,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_4"</span>)))]
     </span><span class="kw">pub fn </span>gtk_media_stream_stream_unprepared(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>);
     <span class="kw">pub fn </span>gtk_media_stream_unprepared(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>);
-    <span class="kw">pub fn </span>gtk_media_stream_unrealize(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, surface: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>);
+    <span class="kw">pub fn </span>gtk_media_stream_unrealize(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, surface: <span class="kw-2">*mut </span>gdk::GdkSurface);
     <span class="kw">pub fn </span>gtk_media_stream_update(self_: <span class="kw-2">*mut </span><a href="#7654-7656">GtkMediaStream</a>, timestamp: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>);
 
     <span class="comment">//=========================================================================
@@ -36844,12 +36844,12 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_mount_operation_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_mount_operation_new(parent: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>) -&gt; <span class="kw-2">*mut </span>gio::GMountOperation;
-    <span class="kw">pub fn </span>gtk_mount_operation_get_display(op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>;
+    <span class="kw">pub fn </span>gtk_mount_operation_get_display(op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDisplay;
     <span class="kw">pub fn </span>gtk_mount_operation_get_parent(op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>) -&gt; <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>;
     <span class="kw">pub fn </span>gtk_mount_operation_is_showing(op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_mount_operation_set_display(
         op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
     );
     <span class="kw">pub fn </span>gtk_mount_operation_set_parent(op: <span class="kw-2">*mut </span><a href="#7721-7724">GtkMountOperation</a>, parent: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>);
 
@@ -37141,7 +37141,7 @@
     </span><span class="kw">pub fn </span>gtk_pad_controller_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_pad_controller_new(
         group: <span class="kw-2">*mut </span>gio::GActionGroup,
-        pad: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDevice.html">gdk::GdkDevice</a>,
+        pad: <span class="kw-2">*mut </span>gdk::GdkDevice,
     ) -&gt; <span class="kw-2">*mut </span><a href="#7930-7933">GtkPadController</a>;
     <span class="kw">pub fn </span>gtk_pad_controller_set_action(
         controller: <span class="kw-2">*mut </span><a href="#7930-7933">GtkPadController</a>,
@@ -37314,7 +37314,7 @@
     <span class="kw">pub fn </span>gtk_picture_new() -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_picture_new_for_file(file: <span class="kw-2">*mut </span>gio::GFile) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_picture_new_for_filename(filename: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_picture_new_for_paintable(paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
+    <span class="kw">pub fn </span>gtk_picture_new_for_paintable(paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_picture_new_for_pixbuf(pixbuf: <span class="kw-2">*mut </span>gdk_pixbuf::GdkPixbuf) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_picture_new_for_resource(resource_path: <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_picture_get_alternative_text(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; <span class="kw-2">*const </span>c_char;
@@ -37324,7 +37324,7 @@
     </span><span class="kw">pub fn </span>gtk_picture_get_content_fit(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; <a href="#358">GtkContentFit</a>;
     <span class="kw">pub fn </span>gtk_picture_get_file(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; <span class="kw-2">*mut </span>gio::GFile;
     <span class="kw">pub fn </span>gtk_picture_get_keep_aspect_ratio(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_picture_get_paintable(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    <span class="kw">pub fn </span>gtk_picture_get_paintable(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_picture_set_alternative_text(
         self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>,
         alternative_text: <span class="kw-2">*const </span>c_char,
@@ -37336,7 +37336,7 @@
     <span class="kw">pub fn </span>gtk_picture_set_file(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, file: <span class="kw-2">*mut </span>gio::GFile);
     <span class="kw">pub fn </span>gtk_picture_set_filename(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, filename: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_picture_set_keep_aspect_ratio(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, keep_aspect_ratio: gboolean);
-    <span class="kw">pub fn </span>gtk_picture_set_paintable(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>);
+    <span class="kw">pub fn </span>gtk_picture_set_paintable(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable);
     <span class="kw">pub fn </span>gtk_picture_set_pixbuf(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, pixbuf: <span class="kw-2">*mut </span>gdk_pixbuf::GdkPixbuf);
     <span class="kw">pub fn </span>gtk_picture_set_resource(self_: <span class="kw-2">*mut </span><a href="#8019-8022">GtkPicture</a>, resource_path: <span class="kw-2">*const </span>c_char);
 
@@ -37357,7 +37357,7 @@
     );
     <span class="kw">pub fn </span>gtk_popover_get_pointing_to(
         popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>,
-        rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_popover_get_position(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>) -&gt; <a href="#617">GtkPositionType</a>;
     <span class="kw">pub fn </span>gtk_popover_popdown(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>);
@@ -37370,7 +37370,7 @@
     <span class="kw">pub fn </span>gtk_popover_set_has_arrow(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, has_arrow: gboolean);
     <span class="kw">pub fn </span>gtk_popover_set_mnemonics_visible(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, mnemonics_visible: gboolean);
     <span class="kw">pub fn </span>gtk_popover_set_offset(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, x_offset: c_int, y_offset: c_int);
-    <span class="kw">pub fn </span>gtk_popover_set_pointing_to(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, rect: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>);
+    <span class="kw">pub fn </span>gtk_popover_set_pointing_to(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, rect: <span class="kw-2">*const </span>gdk::GdkRectangle);
     <span class="kw">pub fn </span>gtk_popover_set_position(popover: <span class="kw-2">*mut </span><a href="#8032-8034">GtkPopover</a>, position: <a href="#617">GtkPositionType</a>);
 
     <span class="comment">//=========================================================================
@@ -38060,7 +38060,7 @@
     <span class="kw">pub fn </span>gtk_range_get_fill_level(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; c_double;
     <span class="kw">pub fn </span>gtk_range_get_flippable(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_range_get_inverted(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_range_get_range_rect(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>, range_rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>);
+    <span class="kw">pub fn </span>gtk_range_get_range_rect(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>, range_rect: <span class="kw-2">*mut </span>gdk::GdkRectangle);
     <span class="kw">pub fn </span>gtk_range_get_restrict_to_fill_level(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_range_get_round_digits(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_range_get_show_fill_level(range: <span class="kw-2">*mut </span><a href="#8189-8191">GtkRange</a>) -&gt; gboolean;
@@ -38414,7 +38414,7 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_settings_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_settings_get_default() -&gt; <span class="kw-2">*mut </span><a href="#8331-8334">GtkSettings</a>;
-    <span class="kw">pub fn </span>gtk_settings_get_for_display(display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>) -&gt; <span class="kw-2">*mut </span><a href="#8331-8334">GtkSettings</a>;
+    <span class="kw">pub fn </span>gtk_settings_get_for_display(display: <span class="kw-2">*mut </span>gdk::GdkDisplay) -&gt; <span class="kw-2">*mut </span><a href="#8331-8334">GtkSettings</a>;
     <span class="kw">pub fn </span>gtk_settings_reset_property(settings: <span class="kw-2">*mut </span><a href="#8331-8334">GtkSettings</a>, name: <span class="kw-2">*const </span>c_char);
 
     <span class="comment">//=========================================================================
@@ -38466,7 +38466,7 @@
     );
     <span class="kw">pub fn </span>gtk_shortcut_controller_get_mnemonics_modifiers(
         self_: <span class="kw-2">*mut </span><a href="#8368-8371">GtkShortcutController</a>,
-    ) -&gt; <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>;
+    ) -&gt; gdk::GdkModifierType;
     <span class="kw">pub fn </span>gtk_shortcut_controller_get_scope(self_: <span class="kw-2">*mut </span><a href="#8368-8371">GtkShortcutController</a>)
         -&gt; <a href="#754">GtkShortcutScope</a>;
     <span class="kw">pub fn </span>gtk_shortcut_controller_remove_shortcut(
@@ -38475,7 +38475,7 @@
     );
     <span class="kw">pub fn </span>gtk_shortcut_controller_set_mnemonics_modifiers(
         self_: <span class="kw-2">*mut </span><a href="#8368-8371">GtkShortcutController</a>,
-        modifiers: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        modifiers: gdk::GdkModifierType,
     );
     <span class="kw">pub fn </span>gtk_shortcut_controller_set_scope(
         self_: <span class="kw-2">*mut </span><a href="#8368-8371">GtkShortcutController</a>,
@@ -38510,19 +38510,19 @@
     <span class="kw">pub fn </span>gtk_shortcut_trigger_print(self_: <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>, string: <span class="kw-2">*mut </span>glib::GString);
     <span class="kw">pub fn </span>gtk_shortcut_trigger_print_label(
         self_: <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         string: <span class="kw-2">*mut </span>glib::GString,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_shortcut_trigger_to_label(
         self_: <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
     ) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_shortcut_trigger_to_string(self_: <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_shortcut_trigger_trigger(
         self_: <span class="kw-2">*mut </span><a href="#8394-8397">GtkShortcutTrigger</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
         enable_mnemonics: gboolean,
-    ) -&gt; <a href="../../gdk4_sys/type.GdkKeyMatch.html">gdk::GdkKeyMatch</a>;
+    ) -&gt; gdk::GdkKeyMatch;
 
     <span class="comment">//=========================================================================
     // GtkShortcutsGroup
@@ -38640,7 +38640,7 @@
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         outline: <span class="kw-2">*const </span><a href="../../gsk4_sys/struct.GskRoundedRect.html">gsk::GskRoundedRect</a>,
         border_width: <span class="kw-2">*const </span>[c_float; <span class="number">4</span>],
-        border_color: <span class="kw-2">*const </span>[<a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>; <span class="number">4</span>],
+        border_color: <span class="kw-2">*const </span>[gdk::GdkRGBA; <span class="number">4</span>],
     );
     <span class="kw">pub fn </span>gtk_snapshot_append_cairo(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
@@ -38648,7 +38648,7 @@
     ) -&gt; <span class="kw-2">*mut </span>cairo::cairo_t;
     <span class="kw">pub fn </span>gtk_snapshot_append_color(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
         bounds: <span class="kw-2">*const </span>graphene::graphene_rect_t,
     );
     <span class="kw">pub fn </span>gtk_snapshot_append_conic_gradient(
@@ -38665,12 +38665,12 @@
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         path: <span class="kw-2">*mut </span><a href="../../gsk4_sys/struct.GskPath.html">gsk::GskPath</a>,
         fill_rule: <a href="../../gsk4_sys/type.GskFillRule.html">gsk::GskFillRule</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
     );
     <span class="kw">pub fn </span>gtk_snapshot_append_inset_shadow(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         outline: <span class="kw-2">*const </span><a href="../../gsk4_sys/struct.GskRoundedRect.html">gsk::GskRoundedRect</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
         dx: c_float,
         dy: c_float,
         spread: c_float,
@@ -38679,7 +38679,7 @@
     <span class="kw">pub fn </span>gtk_snapshot_append_layout(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         layout: <span class="kw-2">*mut </span>pango::PangoLayout,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
     );
     <span class="kw">pub fn </span>gtk_snapshot_append_linear_gradient(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
@@ -38693,7 +38693,7 @@
     <span class="kw">pub fn </span>gtk_snapshot_append_outset_shadow(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         outline: <span class="kw-2">*const </span><a href="../../gsk4_sys/struct.GskRoundedRect.html">gsk::GskRoundedRect</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
         dx: c_float,
         dy: c_float,
         spread: c_float,
@@ -38733,7 +38733,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
     </span><span class="kw">pub fn </span>gtk_snapshot_append_scaled_texture(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
-        texture: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkTexture.html">gdk::GdkTexture</a>,
+        texture: <span class="kw-2">*mut </span>gdk::GdkTexture,
         filter: <a href="../../gsk4_sys/type.GskScalingFilter.html">gsk::GskScalingFilter</a>,
         bounds: <span class="kw-2">*const </span>graphene::graphene_rect_t,
     );
@@ -38743,18 +38743,18 @@
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         path: <span class="kw-2">*mut </span><a href="../../gsk4_sys/struct.GskPath.html">gsk::GskPath</a>,
         stroke: <span class="kw-2">*const </span><a href="../../gsk4_sys/struct.GskStroke.html">gsk::GskStroke</a>,
-        color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*const </span>gdk::GdkRGBA,
     );
     <span class="kw">pub fn </span>gtk_snapshot_append_texture(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
-        texture: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkTexture.html">gdk::GdkTexture</a>,
+        texture: <span class="kw-2">*mut </span>gdk::GdkTexture,
         bounds: <span class="kw-2">*const </span>graphene::graphene_rect_t,
     );
     <span class="kw">pub fn </span>gtk_snapshot_free_to_node(snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gsk4_sys/struct.GskRenderNode.html">gsk::GskRenderNode</a>;
     <span class="kw">pub fn </span>gtk_snapshot_free_to_paintable(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         size: <span class="kw-2">*const </span>graphene::graphene_size_t,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_snapshot_gl_shader_pop_texture(snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>);
     <span class="kw">pub fn </span>gtk_snapshot_perspective(snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>, depth: c_float);
     <span class="kw">pub fn </span>gtk_snapshot_pop(snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>);
@@ -38868,7 +38868,7 @@
     <span class="kw">pub fn </span>gtk_snapshot_to_paintable(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
         size: <span class="kw-2">*const </span>graphene::graphene_size_t,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_snapshot_transform(snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>, transform: <span class="kw-2">*mut </span><a href="../../gsk4_sys/struct.GskTransform.html">gsk::GskTransform</a>);
     <span class="kw">pub fn </span>gtk_snapshot_transform_matrix(
         snapshot: <span class="kw-2">*mut </span><a href="#8525-8528">GtkSnapshot</a>,
@@ -39179,12 +39179,12 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_style_context_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_style_context_add_provider_for_display(
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         provider: <span class="kw-2">*mut </span><a href="#9394-9397">GtkStyleProvider</a>,
         priority: c_uint,
     );
     <span class="kw">pub fn </span>gtk_style_context_remove_provider_for_display(
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         provider: <span class="kw-2">*mut </span><a href="#9394-9397">GtkStyleProvider</a>,
     );
     <span class="kw">pub fn </span>gtk_style_context_add_class(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, class_name: <span class="kw-2">*const </span>c_char);
@@ -39194,8 +39194,8 @@
         priority: c_uint,
     );
     <span class="kw">pub fn </span>gtk_style_context_get_border(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, border: <span class="kw-2">*mut </span><a href="#1645-1650">GtkBorder</a>);
-    <span class="kw">pub fn </span>gtk_style_context_get_color(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, color: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>);
-    <span class="kw">pub fn </span>gtk_style_context_get_display(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>;
+    <span class="kw">pub fn </span>gtk_style_context_get_color(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, color: <span class="kw-2">*mut </span>gdk::GdkRGBA);
+    <span class="kw">pub fn </span>gtk_style_context_get_display(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDisplay;
     <span class="kw">pub fn </span>gtk_style_context_get_margin(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, margin: <span class="kw-2">*mut </span><a href="#1645-1650">GtkBorder</a>);
     <span class="kw">pub fn </span>gtk_style_context_get_padding(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, padding: <span class="kw-2">*mut </span><a href="#1645-1650">GtkBorder</a>);
     <span class="kw">pub fn </span>gtk_style_context_get_scale(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>) -&gt; c_int;
@@ -39207,7 +39207,7 @@
     <span class="kw">pub fn </span>gtk_style_context_lookup_color(
         context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>,
         color_name: <span class="kw-2">*const </span>c_char,
-        color: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        color: <span class="kw-2">*mut </span>gdk::GdkRGBA,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_style_context_remove_class(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, class_name: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_style_context_remove_provider(
@@ -39218,7 +39218,7 @@
     <span class="kw">pub fn </span>gtk_style_context_save(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>);
     <span class="kw">pub fn </span>gtk_style_context_set_display(
         context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
     );
     <span class="kw">pub fn </span>gtk_style_context_set_scale(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, scale: c_int);
     <span class="kw">pub fn </span>gtk_style_context_set_state(context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>, flags: <a href="#1112">GtkStateFlags</a>);
@@ -39300,7 +39300,7 @@
     );
     <span class="kw">pub fn </span>gtk_text_buffer_add_selection_clipboard(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-        clipboard: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>,
+        clipboard: <span class="kw-2">*mut </span>gdk::GdkClipboard,
     );
     <span class="kw">pub fn </span>gtk_text_buffer_apply_tag(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
@@ -39324,7 +39324,7 @@
     <span class="kw">pub fn </span>gtk_text_buffer_begin_user_action(buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>);
     <span class="kw">pub fn </span>gtk_text_buffer_copy_clipboard(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-        clipboard: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>,
+        clipboard: <span class="kw-2">*mut </span>gdk::GdkClipboard,
     );
     <span class="kw">pub fn </span>gtk_text_buffer_create_child_anchor(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
@@ -39344,7 +39344,7 @@
     ) -&gt; <span class="kw-2">*mut </span><a href="#8788-8791">GtkTextTag</a>;
     <span class="kw">pub fn </span>gtk_text_buffer_cut_clipboard(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-        clipboard: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>,
+        clipboard: <span class="kw-2">*mut </span>gdk::GdkClipboard,
         default_editable: gboolean,
     );
     <span class="kw">pub fn </span>gtk_text_buffer_delete(
@@ -39426,7 +39426,7 @@
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_text_buffer_get_selection_content(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentProvider;
     <span class="kw">pub fn </span>gtk_text_buffer_get_slice(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
         start: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>,
@@ -39479,7 +39479,7 @@
     <span class="kw">pub fn </span>gtk_text_buffer_insert_paintable(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
         iter: <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>,
-        paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>,
+        paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable,
     );
     <span class="kw">pub fn </span>gtk_text_buffer_insert_range(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
@@ -39522,7 +39522,7 @@
     );
     <span class="kw">pub fn </span>gtk_text_buffer_paste_clipboard(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-        clipboard: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>,
+        clipboard: <span class="kw-2">*mut </span>gdk::GdkClipboard,
         override_location: <span class="kw-2">*mut </span><a href="#4885-4900">GtkTextIter</a>,
         default_editable: gboolean,
     );
@@ -39535,7 +39535,7 @@
     );
     <span class="kw">pub fn </span>gtk_text_buffer_remove_selection_clipboard(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
-        clipboard: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>,
+        clipboard: <span class="kw-2">*mut </span>gdk::GdkClipboard,
     );
     <span class="kw">pub fn </span>gtk_text_buffer_remove_tag(
         buffer: <span class="kw-2">*mut </span><a href="#8742-8745">GtkTextBuffer</a>,
@@ -39662,8 +39662,8 @@
     <span class="kw">pub fn </span>gtk_text_view_get_cursor_locations(
         text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>,
         iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>,
-        strong: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
-        weak: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        strong: <span class="kw-2">*mut </span>gdk::GdkRectangle,
+        weak: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_text_view_get_cursor_visible(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_text_view_get_editable(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; gboolean;
@@ -39691,7 +39691,7 @@
     <span class="kw">pub fn </span>gtk_text_view_get_iter_location(
         text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>,
         iter: <span class="kw-2">*const </span><a href="#4885-4900">GtkTextIter</a>,
-        location: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        location: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_text_view_get_justification(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; <a href="#498">GtkJustification</a>;
     <span class="kw">pub fn </span>gtk_text_view_get_left_margin(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; c_int;
@@ -39723,12 +39723,12 @@
     <span class="kw">pub fn </span>gtk_text_view_get_top_margin(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; c_int;
     <span class="kw">pub fn </span>gtk_text_view_get_visible_rect(
         text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>,
-        visible_rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        visible_rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_text_view_get_wrap_mode(text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>) -&gt; <a href="#897">GtkWrapMode</a>;
     <span class="kw">pub fn </span>gtk_text_view_im_context_filter_keypress(
         text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_text_view_move_mark_onscreen(
         text_view: <span class="kw-2">*mut </span><a href="#8817-8820">GtkTextView</a>,
@@ -39836,12 +39836,12 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_tooltip_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gtk_tooltip_set_custom(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, custom_widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
-    <span class="kw">pub fn </span>gtk_tooltip_set_icon(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, paintable: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>);
+    <span class="kw">pub fn </span>gtk_tooltip_set_icon(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, paintable: <span class="kw-2">*mut </span>gdk::GdkPaintable);
     <span class="kw">pub fn </span>gtk_tooltip_set_icon_from_gicon(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, gicon: <span class="kw-2">*mut </span>gio::GIcon);
     <span class="kw">pub fn </span>gtk_tooltip_set_icon_from_icon_name(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, icon_name: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_tooltip_set_markup(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, markup: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_tooltip_set_text(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, text: <span class="kw-2">*const </span>c_char);
-    <span class="kw">pub fn </span>gtk_tooltip_set_tip_area(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, rect: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>);
+    <span class="kw">pub fn </span>gtk_tooltip_set_tip_area(tooltip: <span class="kw-2">*mut </span><a href="#8844-8847">GtkTooltip</a>, rect: <span class="kw-2">*const </span>gdk::GdkRectangle);
 
     <span class="comment">//=========================================================================
     // GtkTreeExpander
@@ -40242,17 +40242,17 @@
     <span class="kw">pub fn </span>gtk_tree_view_create_row_drag_icon(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkPaintable.html">gdk::GdkPaintable</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkPaintable;
     <span class="kw">pub fn </span>gtk_tree_view_enable_model_drag_dest(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_tree_view_enable_model_drag_source(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
-        start_button_mask: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
-        formats: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentFormats.html">gdk::GdkContentFormats</a>,
-        actions: <a href="../../gdk4_sys/type.GdkDragAction.html">gdk::GdkDragAction</a>,
+        start_button_mask: gdk::GdkModifierType,
+        formats: <span class="kw-2">*mut </span>gdk::GdkContentFormats,
+        actions: gdk::GdkDragAction,
     );
     <span class="kw">pub fn </span>gtk_tree_view_expand_all(tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>);
     <span class="kw">pub fn </span>gtk_tree_view_expand_row(
@@ -40266,13 +40266,13 @@
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
         column: <span class="kw-2">*mut </span><a href="#8981-8984">GtkTreeViewColumn</a>,
-        rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_tree_view_get_cell_area(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
         column: <span class="kw-2">*mut </span><a href="#8981-8984">GtkTreeViewColumn</a>,
-        rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_tree_view_get_column(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
@@ -40347,7 +40347,7 @@
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_tree_view_get_visible_rect(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
-        visible_rect: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRectangle.html">gdk::GdkRectangle</a>,
+        visible_rect: <span class="kw-2">*mut </span>gdk::GdkRectangle,
     );
     <span class="kw">pub fn </span>gtk_tree_view_insert_column(
         tree_view: <span class="kw-2">*mut </span><a href="#8968-8970">GtkTreeView</a>,
@@ -40815,15 +40815,15 @@
     <span class="kw">pub fn </span>gtk_widget_get_can_focus(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_widget_get_can_target(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_widget_get_child_visible(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_widget_get_clipboard(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>;
+    <span class="kw">pub fn </span>gtk_widget_get_clipboard(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkClipboard;
     <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
-    </span><span class="kw">pub fn </span>gtk_widget_get_color(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, color: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>);
+    </span><span class="kw">pub fn </span>gtk_widget_get_color(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, color: <span class="kw-2">*mut </span>gdk::GdkRGBA);
     <span class="kw">pub fn </span>gtk_widget_get_css_classes(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut *mut </span>c_char;
     <span class="kw">pub fn </span>gtk_widget_get_css_name(self_: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*const </span>c_char;
-    <span class="kw">pub fn </span>gtk_widget_get_cursor(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkCursor.html">gdk::GdkCursor</a>;
+    <span class="kw">pub fn </span>gtk_widget_get_cursor(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkCursor;
     <span class="kw">pub fn </span>gtk_widget_get_direction(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <a href="#853">GtkTextDirection</a>;
-    <span class="kw">pub fn </span>gtk_widget_get_display(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>;
+    <span class="kw">pub fn </span>gtk_widget_get_display(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDisplay;
     <span class="kw">pub fn </span>gtk_widget_get_first_child(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_widget_get_focus_child(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_widget_get_focus_on_click(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
@@ -40832,7 +40832,7 @@
     <span class="kw">pub fn </span>gtk_widget_get_font_options(
         widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>,
     ) -&gt; <span class="kw-2">*const </span>cairo::cairo_font_options_t;
-    <span class="kw">pub fn </span>gtk_widget_get_frame_clock(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkFrameClock.html">gdk::GdkFrameClock</a>;
+    <span class="kw">pub fn </span>gtk_widget_get_frame_clock(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkFrameClock;
     <span class="kw">pub fn </span>gtk_widget_get_halign(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <a href="#241">GtkAlign</a>;
     <span class="kw">pub fn </span>gtk_widget_get_has_tooltip(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_widget_get_height(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; c_int;
@@ -40858,7 +40858,7 @@
         natural_size: <span class="kw-2">*mut </span><a href="#4331-4334">GtkRequisition</a>,
     );
     <span class="kw">pub fn </span>gtk_widget_get_prev_sibling(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
-    <span class="kw">pub fn </span>gtk_widget_get_primary_clipboard(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkClipboard.html">gdk::GdkClipboard</a>;
+    <span class="kw">pub fn </span>gtk_widget_get_primary_clipboard(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkClipboard;
     <span class="kw">pub fn </span>gtk_widget_get_realized(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_widget_get_receives_default(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_widget_get_request_mode(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>) -&gt; <a href="#777">GtkSizeRequestMode</a>;
@@ -40956,7 +40956,7 @@
     <span class="kw">pub fn </span>gtk_widget_set_can_target(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, can_target: gboolean);
     <span class="kw">pub fn </span>gtk_widget_set_child_visible(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, child_visible: gboolean);
     <span class="kw">pub fn </span>gtk_widget_set_css_classes(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, classes: <span class="kw-2">*mut *const </span>c_char);
-    <span class="kw">pub fn </span>gtk_widget_set_cursor(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, cursor: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkCursor.html">gdk::GdkCursor</a>);
+    <span class="kw">pub fn </span>gtk_widget_set_cursor(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, cursor: <span class="kw-2">*mut </span>gdk::GdkCursor);
     <span class="kw">pub fn </span>gtk_widget_set_cursor_from_name(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, name: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>gtk_widget_set_direction(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, dir: <a href="#853">GtkTextDirection</a>);
     <span class="kw">pub fn </span>gtk_widget_set_focus_child(widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>, child: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
@@ -41045,7 +41045,7 @@
     <span class="kw">pub fn </span>gtk_window_close(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>);
     <span class="kw">pub fn </span>gtk_window_destroy(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>);
     <span class="kw">pub fn </span>gtk_window_fullscreen(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>);
-    <span class="kw">pub fn </span>gtk_window_fullscreen_on_monitor(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, monitor: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkMonitor.html">gdk::GdkMonitor</a>);
+    <span class="kw">pub fn </span>gtk_window_fullscreen_on_monitor(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, monitor: <span class="kw-2">*mut </span>gdk::GdkMonitor);
     <span class="kw">pub fn </span>gtk_window_get_application(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>) -&gt; <span class="kw-2">*mut </span><a href="#5810-5812">GtkApplication</a>;
     <span class="kw">pub fn </span>gtk_window_get_child(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_window_get_decorated(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>) -&gt; gboolean;
@@ -41089,7 +41089,7 @@
     <span class="kw">pub fn </span>gtk_window_set_default_widget(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, default_widget: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
     <span class="kw">pub fn </span>gtk_window_set_deletable(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, setting: gboolean);
     <span class="kw">pub fn </span>gtk_window_set_destroy_with_parent(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, setting: gboolean);
-    <span class="kw">pub fn </span>gtk_window_set_display(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>);
+    <span class="kw">pub fn </span>gtk_window_set_display(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, display: <span class="kw-2">*mut </span>gdk::GdkDisplay);
     <span class="kw">pub fn </span>gtk_window_set_focus(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, focus: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
     <span class="kw">pub fn </span>gtk_window_set_focus_visible(window: <span class="kw-2">*mut </span><a href="#9074-9076">GtkWindow</a>, setting: gboolean);
     <span class="attr">#[cfg(feature = <span class="string">"v4_2"</span>)]
@@ -41327,7 +41327,7 @@
     <span class="kw">pub fn </span>gtk_cell_editable_remove_widget(cell_editable: <span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>);
     <span class="kw">pub fn </span>gtk_cell_editable_start_editing(
         cell_editable: <span class="kw-2">*mut </span><a href="#9214-9217">GtkCellEditable</a>,
-        event: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkEvent.html">gdk::GdkEvent</a>,
+        event: <span class="kw-2">*mut </span>gdk::GdkEvent,
     );
 
     <span class="comment">//=========================================================================
@@ -41384,11 +41384,11 @@
         orientation: <a href="#577">GtkOrientation</a>,
         colors_per_line: c_int,
         n_colors: c_int,
-        colors: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        colors: <span class="kw-2">*mut </span>gdk::GdkRGBA,
     );
-    <span class="kw">pub fn </span>gtk_color_chooser_get_rgba(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, color: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>);
+    <span class="kw">pub fn </span>gtk_color_chooser_get_rgba(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, color: <span class="kw-2">*mut </span>gdk::GdkRGBA);
     <span class="kw">pub fn </span>gtk_color_chooser_get_use_alpha(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_color_chooser_set_rgba(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, color: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>);
+    <span class="kw">pub fn </span>gtk_color_chooser_set_rgba(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, color: <span class="kw-2">*const </span>gdk::GdkRGBA);
     <span class="kw">pub fn </span>gtk_color_chooser_set_use_alpha(chooser: <span class="kw-2">*mut </span><a href="#9238-9241">GtkColorChooser</a>, use_alpha: gboolean);
 
     <span class="comment">//=========================================================================
@@ -41576,9 +41576,9 @@
     // GtkNative
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_native_get_type() -&gt; GType;
-    <span class="kw">pub fn </span>gtk_native_get_for_surface(surface: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>) -&gt; <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>;
+    <span class="kw">pub fn </span>gtk_native_get_for_surface(surface: <span class="kw-2">*mut </span>gdk::GdkSurface) -&gt; <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>;
     <span class="kw">pub fn </span>gtk_native_get_renderer(self_: <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gsk4_sys/struct.GskRenderer.html">gsk::GskRenderer</a>;
-    <span class="kw">pub fn </span>gtk_native_get_surface(self_: <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSurface.html">gdk::GdkSurface</a>;
+    <span class="kw">pub fn </span>gtk_native_get_surface(self_: <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkSurface;
     <span class="kw">pub fn </span>gtk_native_get_surface_transform(
         self_: <span class="kw-2">*mut </span><a href="#9298-9301">GtkNative</a>,
         x: <span class="kw-2">*mut </span>c_double,
@@ -41615,7 +41615,7 @@
     // GtkRoot
     //=========================================================================
     </span><span class="kw">pub fn </span>gtk_root_get_type() -&gt; GType;
-    <span class="kw">pub fn </span>gtk_root_get_display(self_: <span class="kw-2">*mut </span><a href="#9334-9337">GtkRoot</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>;
+    <span class="kw">pub fn </span>gtk_root_get_display(self_: <span class="kw-2">*mut </span><a href="#9334-9337">GtkRoot</a>) -&gt; <span class="kw-2">*mut </span>gdk::GdkDisplay;
     <span class="kw">pub fn </span>gtk_root_get_focus(self_: <span class="kw-2">*mut </span><a href="#9334-9337">GtkRoot</a>) -&gt; <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>;
     <span class="kw">pub fn </span>gtk_root_set_focus(self_: <span class="kw-2">*mut </span><a href="#9334-9337">GtkRoot</a>, focus: <span class="kw-2">*mut </span><a href="#9046-9049">GtkWidget</a>);
 
@@ -41739,10 +41739,10 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_6"</span>)))]
     </span><span class="kw">pub fn </span>gtk_symbolic_paintable_snapshot_symbolic(
         paintable: <span class="kw-2">*mut </span><a href="#9406-9409">GtkSymbolicPaintable</a>,
-        snapshot: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkSnapshot.html">gdk::GdkSnapshot</a>,
+        snapshot: <span class="kw-2">*mut </span>gdk::GdkSnapshot,
         width: c_double,
         height: c_double,
-        colors: <span class="kw-2">*const </span><a href="../../gdk4_sys/struct.GdkRGBA.html">gdk::GdkRGBA</a>,
+        colors: <span class="kw-2">*const </span>gdk::GdkRGBA,
         n_colors: size_t,
     );
 
@@ -41772,7 +41772,7 @@
     <span class="kw">pub fn </span>gtk_tree_drag_source_drag_data_get(
         drag_source: <span class="kw-2">*mut </span><a href="#9430-9433">GtkTreeDragSource</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentProvider;
     <span class="kw">pub fn </span>gtk_tree_drag_source_row_draggable(
         drag_source: <span class="kw-2">*mut </span><a href="#9430-9433">GtkTreeDragSource</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
@@ -41921,40 +41921,40 @@
     <span class="comment">//=========================================================================
     // Other functions
     //=========================================================================
-    </span><span class="kw">pub fn </span>gtk_accelerator_get_default_mod_mask() -&gt; <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>;
+    </span><span class="kw">pub fn </span>gtk_accelerator_get_default_mod_mask() -&gt; gdk::GdkModifierType;
     <span class="kw">pub fn </span>gtk_accelerator_get_label(
         accelerator_key: c_uint,
-        accelerator_mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: gdk::GdkModifierType,
     ) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_accelerator_get_label_with_keycode(
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         accelerator_key: c_uint,
         keycode: c_uint,
-        accelerator_mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: gdk::GdkModifierType,
     ) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_accelerator_name(
         accelerator_key: c_uint,
-        accelerator_mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: gdk::GdkModifierType,
     ) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_accelerator_name_with_keycode(
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         accelerator_key: c_uint,
         keycode: c_uint,
-        accelerator_mods: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: gdk::GdkModifierType,
     ) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>gtk_accelerator_parse(
         accelerator: <span class="kw-2">*const </span>c_char,
         accelerator_key: <span class="kw-2">*mut </span>c_uint,
-        accelerator_mods: <span class="kw-2">*mut </span><a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: <span class="kw-2">*mut </span>gdk::GdkModifierType,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_accelerator_parse_with_keycode(
         accelerator: <span class="kw-2">*const </span>c_char,
-        display: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkDisplay.html">gdk::GdkDisplay</a>,
+        display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         accelerator_key: <span class="kw-2">*mut </span>c_uint,
         accelerator_codes: <span class="kw-2">*mut *mut </span>c_uint,
-        accelerator_mods: <span class="kw-2">*mut </span><a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>,
+        accelerator_mods: <span class="kw-2">*mut </span>gdk::GdkModifierType,
     ) -&gt; gboolean;
-    <span class="kw">pub fn </span>gtk_accelerator_valid(keyval: c_uint, modifiers: <a href="../../gdk4_sys/type.GdkModifierType.html">gdk::GdkModifierType</a>) -&gt; gboolean;
+    <span class="kw">pub fn </span>gtk_accelerator_valid(keyval: c_uint, modifiers: gdk::GdkModifierType) -&gt; gboolean;
     <span class="kw">pub fn </span>gtk_check_version(
         required_major: c_uint,
         required_minor: c_uint,
@@ -42078,7 +42078,7 @@
     <span class="kw">pub fn </span>gtk_render_icon(
         context: <span class="kw-2">*mut </span><a href="#8704-8706">GtkStyleContext</a>,
         cr: <span class="kw-2">*mut </span>cairo::cairo_t,
-        texture: <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkTexture.html">gdk::GdkTexture</a>,
+        texture: <span class="kw-2">*mut </span>gdk::GdkTexture,
         x: c_double,
         y: c_double,
     );
@@ -42177,7 +42177,7 @@
     <span class="kw">pub fn </span>gtk_tree_create_row_drag_content(
         tree_model: <span class="kw-2">*mut </span><a href="#9442-9445">GtkTreeModel</a>,
         path: <span class="kw-2">*mut </span><a href="#5294-5297">GtkTreePath</a>,
-    ) -&gt; <span class="kw-2">*mut </span><a href="../../gdk4_sys/struct.GdkContentProvider.html">gdk::GdkContentProvider</a>;
+    ) -&gt; <span class="kw-2">*mut </span>gdk::GdkContentProvider;
     <span class="kw">pub fn </span>gtk_tree_get_row_drag_data(
         value: <span class="kw-2">*const </span>gobject::GValue,
         tree_model: <span class="kw-2">*mut *mut </span><a href="#9442-9445">GtkTreeModel</a>,
